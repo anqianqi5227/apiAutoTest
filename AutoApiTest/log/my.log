@@ -1,0 +1,17 @@
+2020-12-08 21:18:25,784-INFO-接口错误：http://ops.test.ximalaya.com/co-oms/api/project/2044/delete -10 未登录
+2020-12-08 21:18:25,787-INFO-service is error:ret 非0
+2020-12-08 21:21:19,239-INFO-接口错误：http://ops.test.ximalaya.com/co-oms/api/project/2045/delete -10 未登录
+2020-12-08 21:21:19,241-INFO-service is error:ret 非0
+2020-12-09 15:13:09,548-INFO-service is error:Expecting value: line 1 column 1 (char 0)
+2020-12-09 15:13:09,761-INFO-service is error:Expecting value: line 1 column 1 (char 0)
+2020-12-09 15:13:09,873-INFO-service is error:Expecting value: line 1 column 1 (char 0)
+2020-12-09 15:13:09,896-INFO-接口错误：http://ops.test.ximalaya.com/co-oms/api/project/2051/delete -10 未登录
+2020-12-09 15:13:09,896-INFO-service is error:ret 非0
+2020-12-09 15:17:41,732-INFO-service is error:Expecting value: line 1 column 1 (char 0)
+2020-12-09 15:17:42,016-INFO-service is error:Expecting value: line 1 column 1 (char 0)
+2020-12-09 15:17:42,131-INFO-service is error:Expecting value: line 1 column 1 (char 0)
+2020-12-09 15:17:42,154-INFO-接口错误：http://ops.test.ximalaya.com/co-oms/api/project/2052/delete -10 未登录
+2020-12-09 15:17:42,154-INFO-service is error:ret 非0
+2020-12-09 15:32:33,761-INFO-接口错误：http://ops.test.ximalaya.com/co-oms/api/project/2054/delete -10 未登录
+2020-12-09 15:32:33,763-INFO-service is error:ret 非0
+2020-12-09 20:41:19,155-INFO-项目生成失败

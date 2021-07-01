@@ -1,0 +1,141 @@
+{
+  "uid" : "28662ee0f3e18e0d",
+  "name" : "test_case[case_data0]",
+  "fullName" : "tests.TestScript.configsmainApi.test_configsmain.TestConfigsmain#test_case",
+  "historyId" : "6b8a88ec27cfece4a4af6d4e471fe067",
+  "time" : {
+    "start" : 1617608092870,
+    "stop" : 1617608092874,
+    "duration" : 4
+  },
+  "status" : "broken",
+  "statusMessage" : "TypeError: a bytes-like object is required, not 'NoneType'",
+  "statusTrace" : "self = <test_configsmain.TestConfigsmain object at 0x115db9048>\ncase_data = {'case_id': 1, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"ret\": 0']}, 'global_relevance': None, 'info': None, ...}\nsetupClass = {}\n\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"product_version\"] in product_version,\n                        reason=\"该用例所属版本为：{0}，在本次排除版本{1}内\".format(case_dict[\"test_info\"][\"product_version\"],\n                                                                 product_version))\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"case_level\"] not in case_level,\n                        reason=\"该用例的用例等级为：{0}，不在本次运行级别{1}内\".format(case_dict[\"test_info\"][\"case_level\"], case_level))\n    @pytest.mark.run(order=case_dict[\"test_info\"][\"run_order\"])\n    @allure.severity(case_dict[\"test_info\"][\"case_level\"])\n    @pytest.mark.parametrize(\"case_data\", case_dict[\"test_case\"], ids=[])\n    @allure.story(\"configsmain\")\n    def test_case(self, case_data, setupClass):\n        self.relevance = setupTest(relevance_path, case_data, setupClass)\n>       api_send_check(case_data, case_dict, case_path, self.relevance)\n\n/Users/nali/AutoApiTest/tests/TestScript/configsmainApi/test_configsmain.py:47: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/Users/nali/AutoApiTest/common/unit/api_send_check.py:26: in api_send_check\n    res = api_send.api_send(case_data, case_dict, case_path, relevance)\n/Users/nali/AutoApiTest/common/unit/api_send.py:117: in api_send\n    allure.attach(case_dict[\"info\"], \"用例描述：\")\n/Users/nali/anaconda3/lib/python3.7/site-packages/allure_commons/_allure.py:176: in __call__\n    plugin_manager.hook.attach_data(body=body, name=name, attachment_type=attachment_type, extension=extension)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/hooks.py:286: in __call__\n    return self._hookexec(self, self.get_hookimpls(), kwargs)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py:93: in _hookexec\n    return self._inner_hookexec(hook, methods, kwargs)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py:87: in <lambda>\n    firstresult=hook.spec.opts.get(\"firstresult\") if hook.spec else False,\n/Users/nali/anaconda3/lib/python3.7/site-packages/allure_pytest/listener.py:220: in attach_data\n    self.allure_logger.attach_data(uuid4(), body, name=name, attachment_type=attachment_type, extension=extension)\n/Users/nali/anaconda3/lib/python3.7/site-packages/allure_commons/reporter.py:117: in attach_data\n    plugin_manager.hook.report_attached_data(body=body, file_name=file_name)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/hooks.py:286: in __call__\n    return self._hookexec(self, self.get_hookimpls(), kwargs)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py:93: in _hookexec\n    return self._inner_hookexec(hook, methods, kwargs)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py:87: in <lambda>\n    firstresult=hook.spec.opts.get(\"firstresult\") if hook.spec else False,\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <allure_commons.logger.AllureFileLogger object at 0x115af7d30>\nbody = None\nfile_name = '963ccf44-04b3-43e6-a3d1-967403270504-attachment.attach'\n\n    @hookimpl\n    def report_attached_data(self, body, file_name):\n        destination = os.path.join(self._report_dir, file_name)\n        with open(destination, 'wb') as attached_file:\n            if isinstance(body, text_type):\n                attached_file.write(body.encode('utf-8'))\n            else:\n>               attached_file.write(body)\nE               TypeError: a bytes-like object is required, not 'NoneType'\n\n/Users/nali/anaconda3/lib/python3.7/site-packages/allure_commons/logger.py:62: TypeError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1617608092840,
+      "stop" : 1617608092840,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "TypeError: a bytes-like object is required, not 'NoneType'",
+    "statusTrace" : "self = <test_configsmain.TestConfigsmain object at 0x115db9048>\ncase_data = {'case_id': 1, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"ret\": 0']}, 'global_relevance': None, 'info': None, ...}\nsetupClass = {}\n\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"product_version\"] in product_version,\n                        reason=\"该用例所属版本为：{0}，在本次排除版本{1}内\".format(case_dict[\"test_info\"][\"product_version\"],\n                                                                 product_version))\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"case_level\"] not in case_level,\n                        reason=\"该用例的用例等级为：{0}，不在本次运行级别{1}内\".format(case_dict[\"test_info\"][\"case_level\"], case_level))\n    @pytest.mark.run(order=case_dict[\"test_info\"][\"run_order\"])\n    @allure.severity(case_dict[\"test_info\"][\"case_level\"])\n    @pytest.mark.parametrize(\"case_data\", case_dict[\"test_case\"], ids=[])\n    @allure.story(\"configsmain\")\n    def test_case(self, case_data, setupClass):\n        self.relevance = setupTest(relevance_path, case_data, setupClass)\n>       api_send_check(case_data, case_dict, case_path, self.relevance)\n\n/Users/nali/AutoApiTest/tests/TestScript/configsmainApi/test_configsmain.py:47: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/Users/nali/AutoApiTest/common/unit/api_send_check.py:26: in api_send_check\n    res = api_send.api_send(case_data, case_dict, case_path, relevance)\n/Users/nali/AutoApiTest/common/unit/api_send.py:117: in api_send\n    allure.attach(case_dict[\"info\"], \"用例描述：\")\n/Users/nali/anaconda3/lib/python3.7/site-packages/allure_commons/_allure.py:176: in __call__\n    plugin_manager.hook.attach_data(body=body, name=name, attachment_type=attachment_type, extension=extension)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/hooks.py:286: in __call__\n    return self._hookexec(self, self.get_hookimpls(), kwargs)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py:93: in _hookexec\n    return self._inner_hookexec(hook, methods, kwargs)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py:87: in <lambda>\n    firstresult=hook.spec.opts.get(\"firstresult\") if hook.spec else False,\n/Users/nali/anaconda3/lib/python3.7/site-packages/allure_pytest/listener.py:220: in attach_data\n    self.allure_logger.attach_data(uuid4(), body, name=name, attachment_type=attachment_type, extension=extension)\n/Users/nali/anaconda3/lib/python3.7/site-packages/allure_commons/reporter.py:117: in attach_data\n    plugin_manager.hook.report_attached_data(body=body, file_name=file_name)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/hooks.py:286: in __call__\n    return self._hookexec(self, self.get_hookimpls(), kwargs)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py:93: in _hookexec\n    return self._inner_hookexec(hook, methods, kwargs)\n/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py:87: in <lambda>\n    firstresult=hook.spec.opts.get(\"firstresult\") if hook.spec else False,\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <allure_commons.logger.AllureFileLogger object at 0x115af7d30>\nbody = None\nfile_name = '963ccf44-04b3-43e6-a3d1-967403270504-attachment.attach'\n\n    @hookimpl\n    def report_attached_data(self, body, file_name):\n        destination = os.path.join(self._report_dir, file_name)\n        with open(destination, 'wb') as attached_file:\n            if isinstance(body, text_type):\n                attached_file.write(body.encode('utf-8'))\n            else:\n>               attached_file.write(body)\nE               TypeError: a bytes-like object is required, not 'NoneType'\n\n/Users/nali/anaconda3/lib/python3.7/site-packages/allure_commons/logger.py:62: TypeError",
+    "steps" : [ {
+      "name" : "get请求接口",
+      "time" : {
+        "start" : 1617608092873,
+        "stop" : 1617608092874,
+        "duration" : 1
+      },
+      "status" : "broken",
+      "statusMessage" : "TypeError: a bytes-like object is required, not 'NoneType'\n",
+      "statusTrace" : "  File \"/Users/nali/AutoApiTest/common/unit/api_send.py\", line 117, in api_send\n    allure.attach(case_dict[\"info\"], \"用例描述：\")\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/allure_commons/_allure.py\", line 176, in __call__\n    plugin_manager.hook.attach_data(body=body, name=name, attachment_type=attachment_type, extension=extension)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/hooks.py\", line 286, in __call__\n    return self._hookexec(self, self.get_hookimpls(), kwargs)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py\", line 93, in _hookexec\n    return self._inner_hookexec(hook, methods, kwargs)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py\", line 87, in <lambda>\n    firstresult=hook.spec.opts.get(\"firstresult\") if hook.spec else False,\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 208, in _multicall\n    return outcome.get_result()\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 80, in get_result\n    raise ex[1].with_traceback(ex[2])\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/allure_pytest/listener.py\", line 220, in attach_data\n    self.allure_logger.attach_data(uuid4(), body, name=name, attachment_type=attachment_type, extension=extension)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/allure_commons/reporter.py\", line 117, in attach_data\n    plugin_manager.hook.report_attached_data(body=body, file_name=file_name)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/hooks.py\", line 286, in __call__\n    return self._hookexec(self, self.get_hookimpls(), kwargs)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py\", line 93, in _hookexec\n    return self._inner_hookexec(hook, methods, kwargs)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/manager.py\", line 87, in <lambda>\n    firstresult=hook.spec.opts.get(\"firstresult\") if hook.spec else False,\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 208, in _multicall\n    return outcome.get_result()\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 80, in get_result\n    raise ex[1].with_traceback(ex[2])\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/allure_commons/logger.py\", line 62, in report_attached_data\n    attached_file.write(body)\n",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "e9d6cff9bb10b314",
+        "name" : "请求接口：",
+        "source" : "e9d6cff9bb10b314.attach",
+        "type" : "text/plain",
+        "size" : 13
+      }, {
+        "uid" : "b60140dd174aa19b",
+        "name" : "用例描述：",
+        "source" : "b60140dd174aa19b.attach",
+        "type" : "application/octet-stream",
+        "size" : 0
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : true,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "106e37d269fce943",
+      "name" : "log",
+      "source" : "106e37d269fce943.txt",
+      "type" : "text/plain",
+      "size" : 49
+    }, {
+      "uid" : "de4aeda4f1d1d0c2",
+      "name" : "stdout",
+      "source" : "de4aeda4f1d1d0c2.txt",
+      "type" : "text/plain",
+      "size" : 131
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "attachmentsCount" : 4,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "configsmain"
+  }, {
+    "name" : "story",
+    "value" : "configsmain"
+  }, {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "tag",
+    "value" : "run(order=1)"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.configsmainApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_configsmain"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestConfigsmain"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "13099-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.configsmainApi.test_configsmain"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'configsmain_1', 'case_id': 1, 'is_run': None, 'info': None, 'parameter': None, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "run(order=1)", "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "28662ee0f3e18e0d.json",
+  "parameterValues" : [ "{'test_name': 'configsmain_1', 'case_id': 1, 'is_run': None, 'info': None, 'parameter': None, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}" ]
+}

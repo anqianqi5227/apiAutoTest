@@ -1,0 +1,3 @@
+INFO     root:setupTest.py:31 xxx {'uid': '239283', 'uidCode': '_GAQsTvZuwo', 'corpCode': 'WL1ahfF3K-Q'}
+INFO     root:setupTest.py:42 xx {'uid': 239283, 'uidCode': '_GAQsTvZuwo', 'corpCode': 'WL1ahfF3K-Q'}
+INFO     root:api_send_check.py:25 h {'uid': 239283, 'uidCode': '_GAQsTvZuwo', 'corpCode': 'WL1ahfF3K-Q'}

@@ -1,0 +1,90 @@
+{
+  "dateSchedules": [
+    {
+      "contents": [
+        {
+          "contentId": 6046,
+          "contentType": 1,
+          "status": 2
+        },
+        {
+          "contentId": 6040,
+          "contentType": 1,
+          "status": 3
+        },
+        {
+          "contentId": 4970,
+          "contentType": 1
+        },
+        {
+          "contentId": 6164,
+          "contentType": 1,
+          "status": 2
+        },
+        {
+          "contentId": 6104,
+          "contentType": 1,
+          "status": 2
+        },
+        {
+          "contentId": 6027,
+          "contentType": 1
+        },
+        {
+          "contentId": 5816,
+          "contentType": 1
+        },
+        {
+          "contentId": 5153,
+          "contentType": 1
+        },
+        {
+          "contentId": 4470,
+          "contentType": 1,
+          "status": 2
+        },
+        {
+          "contentId": 4491,
+          "contentType": 1
+        },
+        {
+          "contentId": 1457,
+          "contentType": 1
+        },
+        {
+          "contentId": 1274,
+          "contentType": 1
+        }
+      ],
+      "date": 20200723,
+      "duration": 1,
+      "endDate": 20200725,
+      "requireType": 2
+    },
+    {
+      "contents": [
+        {
+          "contentId": 4,
+          "contentType": 6
+        },
+        {
+          "contentId": 6172,
+          "contentType": 1,
+          "status": 2
+        },
+        {
+          "contentId": 5905,
+          "contentType": 1,
+          "status": 2
+        },
+        {
+          "contentId": 6167,
+          "contentType": 1
+        }
+      ],
+      "date": 20200727,
+      "endDate": 20200729,
+      "requireType": 1
+    }
+  ]
+}

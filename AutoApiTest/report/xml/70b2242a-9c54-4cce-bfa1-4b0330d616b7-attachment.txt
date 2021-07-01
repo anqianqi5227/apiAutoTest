@@ -1,0 +1,8 @@
+/Users/nali/AutoApiTest/tests/TestCases/projectApi/relevance.ini
+None
+None
+None
+/h5/api/project/v1/None
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(404, '<!DOCTYPE html>\n<html>\n<head>\n    <meta charset="utf-8">\n<meta http-equiv="X-UA-Compatible" content="IE=edge">\n<title>轻学堂</title>\n\n<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">\n<meta content="webkit" name="renderer"/>\n\n<!-- common css -->\n<link rel="stylesheet"\n      href="//static2.test.ximalaya.com/yx/enterprise-boss-admin/last/build/css/base.min.css?v=1617519987623">\n\n<!-- ico -->\n<link rel="shortcut icon"\n      href="//static2.test.ximalaya.com/yx/enterprise-boss-admin/last/build/css/img/favicon.ico?v=1617519987623"\n      type="image/x-icon"/>\n\n</head>\n\n<body class="hold-transition skin-blue sidebar-mini error-page">\n<div class="error-wrapper" style="text-align: center">\n    <img src="//static2.test.ximalaya.com/yx/enterprise-boss-admin/last/build/css/img/error.png?v=1617519987623" alt="">\n    <p class="error-code">404</p>\n    <p class="error-info">哎呀，您的页面找不到了</p>\n</div>\n</body>\n\n</html>')

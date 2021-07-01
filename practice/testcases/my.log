@@ -1,0 +1,307 @@
+2021-01-20 21:52:47,394-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-01-20 21:52:47,395-ERROR-读取配置文件报错：'{host}'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 14, in conf_manage
+    return config_file[param]
+KeyError: '{host}'
+2021-03-01 20:25:10,220-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 20:25:10,221-ERROR-读取配置文件报错：'{host}'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 14, in conf_manage
+    return config_file[param]
+KeyError: '{host}'
+2021-03-01 20:36:45,307-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 20:36:45,308-ERROR-读取配置文件报错：'{host}'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 14, in conf_manage
+    return config_file[param]
+KeyError: '{host}'
+2021-03-01 21:09:10,371-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 21:09:10,372-ERROR-读取配置文件报错：'{URL_OMS}'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 14, in conf_manage
+    return config_file[param]
+KeyError: '{URL_OMS}'
+2021-03-01 21:10:51,263-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 21:10:51,264-INFO-没有找到对应的请求方法！
+2021-03-01 21:10:51,264-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 21:18:08,365-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 21:18:08,366-INFO-没有找到对应的请求方法！
+2021-03-01 21:18:08,366-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 21:24:11,211-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 21:24:11,212-INFO-没有找到对应的请求方法！
+2021-03-01 21:24:11,212-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 21:27:22,770-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 21:27:22,771-INFO-没有找到对应的请求方法！
+2021-03-01 21:27:22,771-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 21:27:58,715-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 21:27:58,715-INFO-没有找到对应的请求方法！
+2021-03-01 21:27:58,715-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 21:40:39,092-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 21:40:39,093-ERROR-文件读取报错：list index out of range
+2021-03-01 21:40:39,093-ERROR-读取配置文件报错：'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 18, in conf_manage
+    config_file = ini_relevance(path, name)
+  File "/Users/nali/AutoApiTest/common/unit/initialize_relevance.py", line 57, in ini_relevance
+    return profile_dict[key]
+TypeError: 'NoneType' object is not subscriptable
+2021-03-01 22:02:04,832-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:02:04,834-ERROR-文件读取报错：list index out of range
+2021-03-01 22:02:04,834-ERROR-读取配置文件报错：'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 18, in conf_manage
+    config_file = ini_relevance(path, name)
+  File "/Users/nali/AutoApiTest/common/unit/initialize_relevance.py", line 57, in ini_relevance
+    return profile_dict[key]
+TypeError: 'NoneType' object is not subscriptable
+2021-03-01 22:04:38,088-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:04:38,089-ERROR-文件读取报错：list index out of range
+2021-03-01 22:04:38,089-ERROR-读取配置文件报错：'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 18, in conf_manage
+    config_file = ini_relevance(path, name)
+  File "/Users/nali/AutoApiTest/common/unit/initialize_relevance.py", line 57, in ini_relevance
+    return profile_dict[key]
+TypeError: 'NoneType' object is not subscriptable
+2021-03-01 22:11:32,421-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:11:32,422-ERROR-文件读取报错：list index out of range
+2021-03-01 22:11:32,422-ERROR-读取配置文件报错：'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 18, in conf_manage
+    config_file = ini_relevance(path, name)
+  File "/Users/nali/AutoApiTest/common/unit/initialize_relevance.py", line 57, in ini_relevance
+    return profile_dict[key]
+TypeError: 'NoneType' object is not subscriptable
+2021-03-01 22:24:22,820-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:24:22,822-ERROR-读取配置文件报错：'header1'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 23, in conf_manage
+    return config_file[param]
+KeyError: 'header1'
+2021-03-01 22:25:30,059-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:25:30,060-ERROR-读取配置文件报错：'header1'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 23, in conf_manage
+    return config_file[param]
+KeyError: 'header1'
+2021-03-01 22:25:48,672-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:25:48,673-ERROR-读取配置文件报错：'header1'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 23, in conf_manage
+    return config_file[param]
+KeyError: 'header1'
+2021-03-01 22:26:32,872-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:26:32,874-ERROR-读取配置文件报错：'header1'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 22, in conf_manage
+    return config_file[param]
+KeyError: 'header1'
+2021-03-01 22:27:16,964-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:27:16,965-INFO-没有找到对应的请求方法！
+2021-03-01 22:27:16,965-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:28:07,073-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:28:07,074-INFO-没有找到对应的请求方法！
+2021-03-01 22:28:07,075-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:28:51,882-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:28:51,883-INFO-没有找到对应的请求方法！
+2021-03-01 22:28:51,883-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:29:13,161-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:29:13,162-INFO-没有找到对应的请求方法！
+2021-03-01 22:29:13,162-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:51:58,717-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:51:58,719-INFO-没有找到对应的请求方法！
+2021-03-01 22:51:58,719-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:52:30,048-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:52:30,048-INFO-没有找到对应的请求方法！
+2021-03-01 22:52:30,049-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:52:36,682-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:52:36,682-INFO-没有找到对应的请求方法！
+2021-03-01 22:52:36,682-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:55:43,691-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:55:43,693-INFO-没有找到对应的请求方法！
+2021-03-01 22:55:43,693-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:55:57,593-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:58:58,324-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:58:58,326-INFO-没有找到对应的请求方法！
+2021-03-01 22:58:58,326-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:59:16,386-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 22:59:16,387-INFO-没有找到对应的请求方法！
+2021-03-01 22:59:16,387-INFO-请求接口结果：
+ {'code': False, 'data': False}
+2021-03-01 22:59:40,214-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:00:19,303-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:00:19,304-INFO-请求方法为 post
+2021-03-01 23:02:04,932-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:02:04,933-INFO-请求方法为 post
+2021-03-01 23:04:58,910-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:04:58,911-INFO-请求方法为 post
+2021-03-01 23:10:20,227-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:10:20,227-INFO-请求方法为 post
+2021-03-01 23:10:45,300-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:10:45,300-INFO-请求方法为 post
+2021-03-01 23:11:07,958-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:11:07,959-INFO-请求方法为 post
+2021-03-01 23:11:56,543-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:11:56,543-INFO-请求方法为 post
+2021-03-01 23:13:59,423-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:13:59,423-INFO-请求方法为 post
+2021-03-01 23:43:07,654-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:43:07,655-INFO-请求方法为 post
+2021-03-01 23:43:24,719-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:43:24,720-INFO-请求方法为 post
+2021-03-01 23:44:44,989-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:44:44,990-INFO-请求方法为 post
+2021-03-01 23:45:04,910-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:45:04,910-INFO-请求方法为 post
+2021-03-01 23:46:39,861-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:46:39,862-INFO-请求方法为 post
+2021-03-01 23:46:55,677-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:46:55,677-INFO-请求方法为 post
+2021-03-01 23:47:41,727-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-01 23:47:41,728-INFO-请求方法为 post
+2021-03-01 23:50:15,215-INFO-请求方法为 post
+2021-03-02 20:47:26,499-INFO-请求方法为 post
+2021-03-02 20:52:09,246-INFO-请求方法为 post
+2021-03-02 20:52:21,550-INFO-请求方法为 post
+2021-03-02 20:55:15,888-INFO-请求方法为 post
+2021-03-02 20:58:30,266-INFO-请求方法为 post
+2021-03-02 21:03:26,934-INFO-请求方法为 post
+2021-03-02 21:05:11,800-INFO-请求方法为 post
+2021-03-02 21:09:18,897-INFO-请求方法为 post
+2021-03-02 21:10:23,152-INFO-请求方法为 post
+2021-03-02 21:11:08,076-INFO-请求方法为 post
+2021-03-02 21:12:10,193-INFO-请求方法为 post
+2021-03-02 21:14:24,979-INFO-请求方法为 post
+2021-03-02 21:16:37,437-INFO-请求方法为 post
+2021-03-02 21:19:10,396-INFO-请求方法为 post
+2021-03-02 21:20:11,901-INFO-请求方法为 post
+2021-03-02 21:20:23,336-INFO-请求方法为 post
+2021-03-02 21:20:29,278-INFO-请求方法为 post
+2021-03-02 21:23:38,432-INFO-请求方法为 post
+2021-03-02 21:24:00,700-INFO-请求方法为 post
+2021-03-02 21:24:33,752-INFO-请求方法为 post
+2021-03-02 21:24:33,943-INFO-请求接口结果：
+ (200, {'ret': -1, 'msg': '网络错误，请稍后重试'})
+2021-03-02 22:54:44,540-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 22:54:44,540-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 22:54:44,540-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 22:54:44,541-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 22:54:44,541-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 22:54:44,541-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 22:54:44,541-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 22:54:44,541-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 22:54:44,541-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 22:54:44,541-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 22:54:44,542-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 22:54:44,542-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 22:54:44,542-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 22:54:44,542-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 22:54:44,543-INFO-请求方法为 post
+2021-03-02 22:54:44,676-INFO-请求接口结果：
+ (200, {'ret': -3, 'msg': '项目发布状态没有设置'})
+2021-03-02 23:06:45,435-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 23:06:45,435-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 23:06:45,435-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:06:45,435-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 23:06:45,436-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 23:06:45,436-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 23:06:45,436-ERROR-匹配失败：'NoneType' object has no attribute 'group'
+2021-03-02 23:06:45,436-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:06:45,436-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:06:45,436-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:06:45,436-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:06:45,436-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:06:45,436-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:06:45,436-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:06:45,436-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:06:45,437-INFO-请求方法为 post
+2021-03-02 23:06:45,512-INFO-请求接口结果：
+ (200, {'ret': -3, 'msg': '项目发布状态没有设置'})
+2021-03-02 23:12:13,348-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:12:13,348-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:12:13,349-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:12:13,349-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:12:13,349-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:12:13,349-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:12:13,349-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:12:13,349-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:12:13,349-ERROR-匹配失败：<re.Match object; span=(0, 13), match='${beginTime}$'>
+2021-03-02 23:12:13,349-ERROR-匹配失败：<re.Match object; span=(0, 11), match='${endTime}$'>
+2021-03-02 23:12:13,349-ERROR-匹配失败：expected string or bytes-like object
+2021-03-02 23:12:13,350-INFO-请求方法为 post
+2021-03-02 23:12:13,427-INFO-请求接口结果：
+ (200, {'ret': -3, 'msg': '项目发布状态没有设置'})
+2021-03-03 20:41:41,910-INFO-请求方法为 post
+2021-03-03 20:41:42,279-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': 2409})
+2021-03-03 20:47:58,048-INFO-请求方法为 post
+2021-03-03 20:47:58,330-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': 2410})
+2021-03-03 20:48:15,811-INFO-请求方法为 post
+2021-03-03 20:48:16,120-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': 2411})
+2021-03-17 21:16:12,639-ERROR-读取配置文件报错：'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 21, in conf_manage
+    return config_file[param]
+TypeError: 'NoneType' object is not subscriptable
+2021-03-17 21:25:06,439-ERROR-读取配置文件报错：'%' must be followed by '%' or '(', found: '%7B%22distinct_id%22%3A%20%22176a73b06d372d-0074a026119f6b-32667006-1aeaa0-176a73b06d4691%22%2C%22_id%22%3A%20%225a5da72e83e7280001435057%22%2C%22email%22%3A%20%22qi.an%40ximalaya.com%22%2C%22lang%22%3A%20%22zh%22%2C%22name%22%3A%20%22%E5%AE%89%E7%90%AA%22%2C%22userKey%22%3A%20%225a5da72e83e7280001435057%22%2C%22%24os_version%22%3A%20%22Macintosh%3B%20Intel%20Mac%20OS%20X%2010_14_6%22%2C%22%24initial_referrer%22%3A%20%22http%3A%2F%2Fteambition.ximalaya.com%2F%22%2C%22%24initial_referring_domain%22%3A%20%22teambition.ximalaya.com%22%7D; teambition_private_sid=eyJhdXRoVXBkYXRlZCI6MTYwNjA5NzE4MjQzMiwibG9naW5Gcm9tIjoidGVhbWJpdGlvbiIsInVpZCI6IjVhNWRhNzJlODNlNzI4MDAwMTQzNTA1NyIsInVzZXIiOnsiX2lkIjoiNWE1ZGE3MmU4M2U3MjgwMDAxNDM1MDU3IiwibmFtZSI6IuWuieeQqiIsImVtYWlsIjoicWkuYW5AeGltYWxheWEuY29tIiwiYXZhdGFyVXJsIjoiaHR0cHM6Ly9zdHJpa2VyLnRlYW1iaXRpb24ubmV0L3RodW1ibmFpbC8xMTExNjcxNjI5YmVkNDE5YWUxZWUyYzZlODg4OTQ2M2E4MDMvdy8xMDAvaC8xMDAiLCJyZWdpb24iOiJjbiIsImxhbmciOiIiLCJpc1JvYm90IjpmYWxzZSwib3BlbklkIjoiIiwicGhvbmVGb3JMb2dpbiI6IiJ9fQ==; teambition_private_sid.sig=DtpBLo9eYghey5CE9QRRoe7t8Ds; referral=%7B%22domain%22%3A%22teambition.ximalaya.com%22%2C%22path%22%3A%22%2Flogin%22%2C%22query%22%3A%22%3Fnext_url%3Dhttp%253A%252F%252Fteambition.ximalaya.com%252Fproject%252F5b39ebb6f686d8001909c919%252FsmartGroups%252F%22%2C%22hash%22%3A%22%22%7D; Hm_lvt_4a7d8ec50cfd6af753c4f8aee3425070=1614924404; mp_123456_mixpanel=%7B%22distinct_id%22%3A%20%221769925fd8b35a-0cbddd7a0b988a-32667006-1aeaa0-1769925fd8c87d%22%2C%22userKey%22%3A%20%225a5da72e83e7280001435057%22%2C%22created_at%22%3A%20%222018-01-16T07%3A18%3A06.430Z%22%2C%22userLanguage%22%3A%20%22zh%22%2C%22env%22%3A%20%22production%22%2C%22version%22%3A%20%2211.21.3-private.8%22%2C%22daysSinceRegistered%22%3A%201152%2C%22timezone%22%3A%208%2C%22experiments%22%3A%20%5B%5D%2C%22%24os_version%22%3A%20%22Macintosh%3B%20Intel%20Mac%20OS%20X%2010_14_6%22%2C%22%24initial_referrer%22%3A%20%22http%3A%2F%2Fteambition.ximalaya.com%2Flogin%3F%22%2C%22%24initial_referring_domain%22%3A%20%22teambition.ximalaya.com%22%7D; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh_CN; _const_cas_ticket=797a564635904b1f87bef27e89342cd3","Content-Type": "application/json;"}'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 20, in conf_manage
+    param = cf.read_conf_value('name')
+  File "/Users/nali/AutoApiTest/common/config_module/config_read.py", line 69, in read_conf_value
+    key_value_list = cf.items(i)
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 857, in items
+    return [(option, value_getter(option)) for option in d.keys()]
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 857, in <listcomp>
+    return [(option, value_getter(option)) for option in d.keys()]
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 854, in <lambda>
+    section, option, d[option], d)
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 394, in before_get
+    self._interpolate_some(parser, option, L, value, section, defaults, 1)
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 444, in _interpolate_some
+    "found: %r" % (rest,))
+configparser.InterpolationSyntaxError: '%' must be followed by '%' or '(', found: '%7B%22distinct_id%22%3A%20%22176a73b06d372d-0074a026119f6b-32667006-1aeaa0-176a73b06d4691%22%2C%22_id%22%3A%20%225a5da72e83e7280001435057%22%2C%22email%22%3A%20%22qi.an%40ximalaya.com%22%2C%22lang%22%3A%20%22zh%22%2C%22name%22%3A%20%22%E5%AE%89%E7%90%AA%22%2C%22userKey%22%3A%20%225a5da72e83e7280001435057%22%2C%22%24os_version%22%3A%20%22Macintosh%3B%20Intel%20Mac%20OS%20X%2010_14_6%22%2C%22%24initial_referrer%22%3A%20%22http%3A%2F%2Fteambition.ximalaya.com%2F%22%2C%22%24initial_referring_domain%22%3A%20%22teambition.ximalaya.com%22%7D; teambition_private_sid=eyJhdXRoVXBkYXRlZCI6MTYwNjA5NzE4MjQzMiwibG9naW5Gcm9tIjoidGVhbWJpdGlvbiIsInVpZCI6IjVhNWRhNzJlODNlNzI4MDAwMTQzNTA1NyIsInVzZXIiOnsiX2lkIjoiNWE1ZGE3MmU4M2U3MjgwMDAxNDM1MDU3IiwibmFtZSI6IuWuieeQqiIsImVtYWlsIjoicWkuYW5AeGltYWxheWEuY29tIiwiYXZhdGFyVXJsIjoiaHR0cHM6Ly9zdHJpa2VyLnRlYW1iaXRpb24ubmV0L3RodW1ibmFpbC8xMTExNjcxNjI5YmVkNDE5YWUxZWUyYzZlODg4OTQ2M2E4MDMvdy8xMDAvaC8xMDAiLCJyZWdpb24iOiJjbiIsImxhbmciOiIiLCJpc1JvYm90IjpmYWxzZSwib3BlbklkIjoiIiwicGhvbmVGb3JMb2dpbiI6IiJ9fQ==; teambition_private_sid.sig=DtpBLo9eYghey5CE9QRRoe7t8Ds; referral=%7B%22domain%22%3A%22teambition.ximalaya.com%22%2C%22path%22%3A%22%2Flogin%22%2C%22query%22%3A%22%3Fnext_url%3Dhttp%253A%252F%252Fteambition.ximalaya.com%252Fproject%252F5b39ebb6f686d8001909c919%252FsmartGroups%252F%22%2C%22hash%22%3A%22%22%7D; Hm_lvt_4a7d8ec50cfd6af753c4f8aee3425070=1614924404; mp_123456_mixpanel=%7B%22distinct_id%22%3A%20%221769925fd8b35a-0cbddd7a0b988a-32667006-1aeaa0-1769925fd8c87d%22%2C%22userKey%22%3A%20%225a5da72e83e7280001435057%22%2C%22created_at%22%3A%20%222018-01-16T07%3A18%3A06.430Z%22%2C%22userLanguage%22%3A%20%22zh%22%2C%22env%22%3A%20%22production%22%2C%22version%22%3A%20%2211.21.3-private.8%22%2C%22daysSinceRegistered%22%3A%201152%2C%22timezone%22%3A%208%2C%22experiments%22%3A%20%5B%5D%2C%22%24os_version%22%3A%20%22Macintosh%3B%20Intel%20Mac%20OS%20X%2010_14_6%22%2C%22%24initial_referrer%22%3A%20%22http%3A%2F%2Fteambition.ximalaya.com%2Flogin%3F%22%2C%22%24initial_referring_domain%22%3A%20%22teambition.ximalaya.com%22%7D; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh_CN; _const_cas_ticket=797a564635904b1f87bef27e89342cd3","Content-Type": "application/json;"}'
+2021-03-17 21:46:48,722-ERROR-读取配置文件报错：'%' must be followed by '%' or '(', found: '%7B%22distinct_id%22%3A%20%22176a73b06d372d-0074a026119f6b-32667006-1aeaa0-176a73b06d4691%22%2C%22_id%22%3A%20%225a5da72e83e7280001435057%22%2C%22email%22%3A%20%22qi.an%40ximalaya.com%22%2C%22lang%22%3A%20%22zh%22%2C%22name%22%3A%20%22%E5%AE%89%E7%90%AA%22%2C%22userKey%22%3A%20%225a5da72e83e7280001435057%22%2C%22%24os_version%22%3A%20%22Macintosh%3B%20Intel%20Mac%20OS%20X%2010_14_6%22%2C%22%24initial_referrer%22%3A%20%22http%3A%2F%2Fteambition.ximalaya.com%2F%22%2C%22%24initial_referring_domain%22%3A%20%22teambition.ximalaya.com%22%7D; teambition_private_sid=eyJhdXRoVXBkYXRlZCI6MTYwNjA5NzE4MjQzMiwibG9naW5Gcm9tIjoidGVhbWJpdGlvbiIsInVpZCI6IjVhNWRhNzJlODNlNzI4MDAwMTQzNTA1NyIsInVzZXIiOnsiX2lkIjoiNWE1ZGE3MmU4M2U3MjgwMDAxNDM1MDU3IiwibmFtZSI6IuWuieeQqiIsImVtYWlsIjoicWkuYW5AeGltYWxheWEuY29tIiwiYXZhdGFyVXJsIjoiaHR0cHM6Ly9zdHJpa2VyLnRlYW1iaXRpb24ubmV0L3RodW1ibmFpbC8xMTExNjcxNjI5YmVkNDE5YWUxZWUyYzZlODg4OTQ2M2E4MDMvdy8xMDAvaC8xMDAiLCJyZWdpb24iOiJjbiIsImxhbmciOiIiLCJpc1JvYm90IjpmYWxzZSwib3BlbklkIjoiIiwicGhvbmVGb3JMb2dpbiI6IiJ9fQ==; teambition_private_sid.sig=DtpBLo9eYghey5CE9QRRoe7t8Ds; referral=%7B%22domain%22%3A%22teambition.ximalaya.com%22%2C%22path%22%3A%22%2Flogin%22%2C%22query%22%3A%22%3Fnext_url%3Dhttp%253A%252F%252Fteambition.ximalaya.com%252Fproject%252F5b39ebb6f686d8001909c919%252FsmartGroups%252F%22%2C%22hash%22%3A%22%22%7D; Hm_lvt_4a7d8ec50cfd6af753c4f8aee3425070=1614924404; mp_123456_mixpanel=%7B%22distinct_id%22%3A%20%221769925fd8b35a-0cbddd7a0b988a-32667006-1aeaa0-1769925fd8c87d%22%2C%22userKey%22%3A%20%225a5da72e83e7280001435057%22%2C%22created_at%22%3A%20%222018-01-16T07%3A18%3A06.430Z%22%2C%22userLanguage%22%3A%20%22zh%22%2C%22env%22%3A%20%22production%22%2C%22version%22%3A%20%2211.21.3-private.8%22%2C%22daysSinceRegistered%22%3A%201152%2C%22timezone%22%3A%208%2C%22experiments%22%3A%20%5B%5D%2C%22%24os_version%22%3A%20%22Macintosh%3B%20Intel%20Mac%20OS%20X%2010_14_6%22%2C%22%24initial_referrer%22%3A%20%22http%3A%2F%2Fteambition.ximalaya.com%2Flogin%3F%22%2C%22%24initial_referring_domain%22%3A%20%22teambition.ximalaya.com%22%7D; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh_CN; _const_cas_ticket=797a564635904b1f87bef27e89342cd3","Content-Type": "application/json;"}'
+Traceback (most recent call last):
+  File "/Users/nali/AutoApiTest/common/config_module/config_manage.py", line 22, in conf_manage
+    param = cf.read_config(name)
+  File "/Users/nali/AutoApiTest/common/config_module/config_read.py", line 86, in read_config
+    option_value_list = cf.items(section)
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 857, in items
+    return [(option, value_getter(option)) for option in d.keys()]
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 857, in <listcomp>
+    return [(option, value_getter(option)) for option in d.keys()]
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 854, in <lambda>
+    section, option, d[option], d)
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 394, in before_get
+    self._interpolate_some(parser, option, L, value, section, defaults, 1)
+  File "/Users/nali/anaconda3/lib/python3.7/configparser.py", line 444, in _interpolate_some
+    "found: %r" % (rest,))
+configparser.InterpolationSyntaxError: '%' must be followed by '%' or '(', found: '%7B%22distinct_id%22%3A%20%22176a73b06d372d-0074a026119f6b-32667006-1aeaa0-176a73b06d4691%22%2C%22_id%22%3A%20%225a5da72e83e7280001435057%22%2C%22email%22%3A%20%22qi.an%40ximalaya.com%22%2C%22lang%22%3A%20%22zh%22%2C%22name%22%3A%20%22%E5%AE%89%E7%90%AA%22%2C%22userKey%22%3A%20%225a5da72e83e7280001435057%22%2C%22%24os_version%22%3A%20%22Macintosh%3B%20Intel%20Mac%20OS%20X%2010_14_6%22%2C%22%24initial_referrer%22%3A%20%22http%3A%2F%2Fteambition.ximalaya.com%2F%22%2C%22%24initial_referring_domain%22%3A%20%22teambition.ximalaya.com%22%7D; teambition_private_sid=eyJhdXRoVXBkYXRlZCI6MTYwNjA5NzE4MjQzMiwibG9naW5Gcm9tIjoidGVhbWJpdGlvbiIsInVpZCI6IjVhNWRhNzJlODNlNzI4MDAwMTQzNTA1NyIsInVzZXIiOnsiX2lkIjoiNWE1ZGE3MmU4M2U3MjgwMDAxNDM1MDU3IiwibmFtZSI6IuWuieeQqiIsImVtYWlsIjoicWkuYW5AeGltYWxheWEuY29tIiwiYXZhdGFyVXJsIjoiaHR0cHM6Ly9zdHJpa2VyLnRlYW1iaXRpb24ubmV0L3RodW1ibmFpbC8xMTExNjcxNjI5YmVkNDE5YWUxZWUyYzZlODg4OTQ2M2E4MDMvdy8xMDAvaC8xMDAiLCJyZWdpb24iOiJjbiIsImxhbmciOiIiLCJpc1JvYm90IjpmYWxzZSwib3BlbklkIjoiIiwicGhvbmVGb3JMb2dpbiI6IiJ9fQ==; teambition_private_sid.sig=DtpBLo9eYghey5CE9QRRoe7t8Ds; referral=%7B%22domain%22%3A%22teambition.ximalaya.com%22%2C%22path%22%3A%22%2Flogin%22%2C%22query%22%3A%22%3Fnext_url%3Dhttp%253A%252F%252Fteambition.ximalaya.com%252Fproject%252F5b39ebb6f686d8001909c919%252FsmartGroups%252F%22%2C%22hash%22%3A%22%22%7D; Hm_lvt_4a7d8ec50cfd6af753c4f8aee3425070=1614924404; mp_123456_mixpanel=%7B%22distinct_id%22%3A%20%221769925fd8b35a-0cbddd7a0b988a-32667006-1aeaa0-1769925fd8c87d%22%2C%22userKey%22%3A%20%225a5da72e83e7280001435057%22%2C%22created_at%22%3A%20%222018-01-16T07%3A18%3A06.430Z%22%2C%22userLanguage%22%3A%20%22zh%22%2C%22env%22%3A%20%22production%22%2C%22version%22%3A%20%2211.21.3-private.8%22%2C%22daysSinceRegistered%22%3A%201152%2C%22timezone%22%3A%208%2C%22experiments%22%3A%20%5B%5D%2C%22%24os_version%22%3A%20%22Macintosh%3B%20Intel%20Mac%20OS%20X%2010_14_6%22%2C%22%24initial_referrer%22%3A%20%22http%3A%2F%2Fteambition.ximalaya.com%2Flogin%3F%22%2C%22%24initial_referring_domain%22%3A%20%22teambition.ximalaya.com%22%7D; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh_CN; _const_cas_ticket=797a564635904b1f87bef27e89342cd3","Content-Type": "application/json;"}'
+2021-03-17 21:53:22,089-INFO-请求方法为 post
+2021-03-17 21:57:56,958-INFO-请求方法为 post
+2021-03-17 22:03:50,507-INFO-请求方法为 post
+2021-03-17 22:03:50,902-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': 10131})
+2021-03-17 22:06:42,161-INFO-请求方法为 post
+2021-03-17 22:06:42,415-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': 10132})
+2021-03-17 22:07:16,318-INFO-请求方法为 post
+2021-03-17 22:07:16,585-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': 10133})

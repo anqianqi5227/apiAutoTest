@@ -1,0 +1,1 @@
+INFO     root:api_send.py:113 请求方法为 get

@@ -1,0 +1,90 @@
+{
+  "uid" : "cb1694baa24ddbd2",
+  "name" : "test_premise[case_data0]",
+  "fullName" : "tests.TestScript.infoApi.test_info.TestInfo#test_premise",
+  "historyId" : "36906718d1cf7c55437b4665e9600dc4",
+  "time" : {
+    "start" : 1617517302067,
+    "stop" : 1617517302070,
+    "duration" : 3
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1617517302064,
+      "stop" : 1617517302064,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "3c5c9787923169b9",
+      "name" : "stdout",
+      "source" : "3c5c9787923169b9.txt",
+      "type" : "text/plain",
+      "size" : 62
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "info"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.infoApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_info"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestInfo"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "80329-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.infoApi.test_info"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'is_run': False}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "cb1694baa24ddbd2.json",
+  "parameterValues" : [ "{'is_run': False}" ]
+}

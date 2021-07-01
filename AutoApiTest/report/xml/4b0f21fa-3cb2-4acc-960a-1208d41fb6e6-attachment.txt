@@ -1,0 +1,10 @@
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['URL_OMS', 'HOST1', 'HOST2'])
+INFO     root:replace_relevance.py:23 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['HEADERS_OMS', 'HEADERS_OMS1', 'HEADERS_ENTERPRISE', 'headers1', 'headers2'])
+INFO     root:replace_relevance.py:23 param_value {"content-type": "application/x-www-form-urlencoded; charset=UTF-8"}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': [{'type': 1, 'status': 1}, {'type': 2, 'status': 1}, {'type': 10, 'subConfigs': [{'type': 3, 'status': 1}, {'type': 4, 'status': 1}]}, {'type': 5, 'status': 1}, {'type': 11, 'subConfigs': [{'type': 6, 'status': 1}, {'type': 7, 'status': 1}, {'type': 8, 'status': 1}, {'type': 9, 'status': 1}]}]})
+INFO     root:api_send_check.py:38 h None

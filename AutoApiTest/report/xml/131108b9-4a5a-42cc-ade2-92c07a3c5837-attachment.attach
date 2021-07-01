@@ -1,0 +1,1 @@
+{'ret': 0, 'msg': '操作成功', 'data': [{'type': 1, 'status': 1}, {'type': 2, 'status': 1}, {'type': 10, 'subConfigs': [{'type': 3, 'status': 1}, {'type': 4, 'status': 1}]}, {'type': 5, 'status': 1}, {'type': 11, 'subConfigs': [{'type': 6, 'status': 1}, {'type': 7, 'status': 1}, {'type': 8, 'status': 1}, {'type': 9, 'status': 1}]}]}

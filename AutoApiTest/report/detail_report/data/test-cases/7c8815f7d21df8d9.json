@@ -1,0 +1,90 @@
+{
+  "uid" : "7c8815f7d21df8d9",
+  "name" : "test_case[login0-case_data0]",
+  "fullName" : "tests.TestScript.simpleinfoApi.test_simpleinfo.TestSimpleinfo#test_case",
+  "historyId" : "cc723712ae40a12b7b390ac5b3604e9d",
+  "time" : {
+    "start" : 1617801448911,
+    "stop" : 1617801448911,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'",
+  "statusTrace" : "request = <SubRequest 'login' for <Function test_premise[login0-case_data0]>>\n\n>   ???\n\n/Users/nali/AutoApiTest/conftest.py:29: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/Users/nali/ApiAutoTest/common/unit/api_send_check.py:28: in api_send_check\n    res = api_send.api_send(case_data, case_dict, case_path, relevance)\n/Users/nali/ApiAutoTest/common/unit/api_send.py:85: in api_send\n    host = conf_manage(cur_host, 'HOST')\n/Users/nali/ApiAutoTest/common/config_module/config_manage.py:22: in conf_manage\n    param = cf.read_config(name)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <common.config_module.config_read.Config object at 0x11dbf4c88>\nsection = 'HOST'\n\n    def read_config(self, section):\n        \"\"\"\n        以dict方式返回ini文件中option键值对\n        :param section: section\n        :return: option键值对\n        \"\"\"\n        cf = ConfigOveride()\n>       os.chdir(self.path)\nE       FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'\n\n/Users/nali/ApiAutoTest/common/config_module/config_read.py:84: FileNotFoundError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "login",
+    "time" : {
+      "start" : 1617801448562,
+      "stop" : 1617801448569,
+      "duration" : 7
+    },
+    "status" : "broken",
+    "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'\n",
+    "statusTrace" : "  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/_pytest/fixtures.py\", line 964, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/_pytest/fixtures.py\", line 788, in call_fixture_func\n    res = next(it)\n  File \"/Users/nali/AutoApiTest/conftest.py\", line 29, in login\n  File \"/Users/nali/ApiAutoTest/common/unit/api_send_check.py\", line 28, in api_send_check\n    res = api_send.api_send(case_data, case_dict, case_path, relevance)\n  File \"/Users/nali/ApiAutoTest/common/unit/api_send.py\", line 85, in api_send\n    host = conf_manage(cur_host, 'HOST')\n  File \"/Users/nali/ApiAutoTest/common/config_module/config_manage.py\", line 22, in conf_manage\n    param = cf.read_config(name)\n  File \"/Users/nali/ApiAutoTest/common/config_module/config_read.py\", line 84, in read_config\n    os.chdir(self.path)\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "simpleinfo"
+  }, {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "story",
+    "value" : "simpleinfo"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.simpleinfoApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_simpleinfo"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestSimpleinfo"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "86863-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.simpleinfoApi.test_simpleinfo"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'simpleinfo_1', 'case_id': 1, 'is_run': None, 'info': 'simpleinfo', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'corpId': 'corpId'}}"
+  }, {
+    "name" : "login",
+    "value" : "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "7c8815f7d21df8d9.json",
+  "parameterValues" : [ "{'test_name': 'simpleinfo_1', 'case_id': 1, 'is_run': None, 'info': 'simpleinfo', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'corpId': 'corpId'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+}

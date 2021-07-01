@@ -1,0 +1,569 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "tests.TestScript",
+    "children" : [ {
+      "name" : "infoApi.test_info",
+      "children" : [ {
+        "name" : "test_premise[None]",
+        "uid" : "1c0071824c7d7ce1",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617514333829,
+          "stop" : 1617514333830,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "parameters" : [ "None" ]
+      }, {
+        "name" : "test_premise[login0-None]",
+        "uid" : "6a4adf8f6d3a1d2a",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617514927093,
+          "stop" : 1617514927093,
+          "duration" : 0
+        },
+        "flaky" : true,
+        "parameters" : [ "None", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[login0-case_data0]",
+        "uid" : "31ef2a6d809c2a02",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617515198736,
+          "stop" : 1617515198738,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "parameters" : [ "{'is_run': False}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "898c9853188f4fd0",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617515198743,
+          "stop" : 1617515199122,
+          "duration" : 379
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[case_data0]",
+        "uid" : "e32b682c498046a3",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617516894321,
+          "stop" : 1617516894323,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "parameters" : [ "{'is_run': False}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "5da7d2fd921067c6",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617516894329,
+          "stop" : 1617516894713,
+          "duration" : 384
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}" ]
+      }, {
+        "name" : "test_premise[case_data0]",
+        "uid" : "69be4905eabd3b95",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617631088449,
+          "stop" : 1617631088451,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "parameters" : [ "{'is_run': False}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "13605a2d78f80254",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631088463,
+          "stop" : 1617631088624,
+          "duration" : 161
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode', 'corpCode': 'corpCode'}}" ]
+      }, {
+        "name" : "test_premise[login0-case_data0]",
+        "uid" : "887cd8259c0d4c77",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288571328,
+          "stop" : 1618288571330,
+          "duration" : 2
+        },
+        "flaky" : true,
+        "parameters" : [ "{'is_run': False}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "34a7b632e7ab3ee1",
+        "parentUid" : "969a8b2628d9b790b0918e506e12c568",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288571336,
+          "stop" : 1618288571588,
+          "duration" : 252
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode', 'corpCode': 'corpCode'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "infoApi.test_info"
+    }, {
+      "name" : "configsAPI.test_configs",
+      "children" : [ {
+        "name" : "test_premise[case_data0]",
+        "uid" : "7bb633b4d69c4e3f",
+        "parentUid" : "2eeeefe46fa4571ec2600101c8ec5992",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617631086806,
+          "stop" : 1617631086810,
+          "duration" : 4
+        },
+        "flaky" : false,
+        "parameters" : [ "{'is_run': False}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "f24443ca8950a38",
+        "parentUid" : "2eeeefe46fa4571ec2600101c8ec5992",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631086820,
+          "stop" : 1617631086989,
+          "duration" : 169
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'configs_1', 'case_id': 1, 'is_run': None, 'info': '我的页配置信息', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[login0-case_data0]",
+        "uid" : "66eadb6b58d1b924",
+        "parentUid" : "2eeeefe46fa4571ec2600101c8ec5992",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288570161,
+          "stop" : 1618288570164,
+          "duration" : 3
+        },
+        "flaky" : true,
+        "parameters" : [ "{'is_run': False}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "d2de64403236e535",
+        "parentUid" : "2eeeefe46fa4571ec2600101c8ec5992",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288570173,
+          "stop" : 1618288570302,
+          "duration" : 129
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'configs_1', 'case_id': 1, 'is_run': None, 'info': '我的页配置信息', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "configsAPI.test_configs"
+    }, {
+      "name" : "configsmainApi.test_configsmain",
+      "children" : [ {
+        "name" : "test_premise[case_data0]",
+        "uid" : "e737de6fe8156202",
+        "parentUid" : "19e29834de9a3d37c9bde1a26ecf8db6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617631087562,
+          "stop" : 1617631087565,
+          "duration" : 3
+        },
+        "flaky" : false,
+        "parameters" : [ "{'is_run': False}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "3049a103d2cf6ee",
+        "parentUid" : "19e29834de9a3d37c9bde1a26ecf8db6",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631087579,
+          "stop" : 1617631087723,
+          "duration" : 144
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'configsmain_1', 'case_id': 1, 'is_run': None, 'info': 'configsmain', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[login0-case_data0]",
+        "uid" : "1f26ae04d59709ab",
+        "parentUid" : "19e29834de9a3d37c9bde1a26ecf8db6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288570316,
+          "stop" : 1618288570324,
+          "duration" : 8
+        },
+        "flaky" : true,
+        "parameters" : [ "{'is_run': False}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "e00e3a1b4c0be891",
+        "parentUid" : "19e29834de9a3d37c9bde1a26ecf8db6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288570333,
+          "stop" : 1618288570416,
+          "duration" : 83
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'configsmain_1', 'case_id': 1, 'is_run': None, 'info': 'configsmain', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "configsmainApi.test_configsmain"
+    }, {
+      "name" : "countApi.test_count",
+      "children" : [ {
+        "name" : "test_premise[case_data0]",
+        "uid" : "8bcd99d8a588c288",
+        "parentUid" : "cc236ebad86aff9339a72b762f211e1c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617631087846,
+          "stop" : 1617631087848,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "parameters" : [ "{'is_run': False}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "d49e110caf9f25b7",
+        "parentUid" : "cc236ebad86aff9339a72b762f211e1c",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631087860,
+          "stop" : 1617631088003,
+          "duration" : 143
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'count_1', 'info': '消息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/notice/count', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[login0-case_data0]",
+        "uid" : "7c350f89326e82de",
+        "parentUid" : "cc236ebad86aff9339a72b762f211e1c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288570427,
+          "stop" : 1618288570430,
+          "duration" : 3
+        },
+        "flaky" : true,
+        "parameters" : [ "{'is_run': False}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "9ae1aaa0ade758f8",
+        "parentUid" : "cc236ebad86aff9339a72b762f211e1c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288570440,
+          "stop" : 1618288570847,
+          "duration" : 407
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'count_1', 'info': '消息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/notice/count', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': None, 'relevance': None}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "countApi.test_count"
+    }, {
+      "name" : "homeindexApi.test_homeindex",
+      "children" : [ {
+        "name" : "test_premise[case_data0]",
+        "uid" : "3cf22b0af860fc1e",
+        "parentUid" : "e293c694fea0562463f0a760cf832384",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617631088150,
+          "stop" : 1617631088152,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "parameters" : [ "{'is_run': False}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "28c0b6c62e503534",
+        "parentUid" : "e293c694fea0562463f0a760cf832384",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631088164,
+          "stop" : 1617631088313,
+          "duration" : 149
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'homeindex_1', 'case_id': 1, 'is_run': None, 'info': '首页频道列表信息', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[login0-case_data0]",
+        "uid" : "a37c1097dc806a7c",
+        "parentUid" : "e293c694fea0562463f0a760cf832384",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288570862,
+          "stop" : 1618288570864,
+          "duration" : 2
+        },
+        "flaky" : true,
+        "parameters" : [ "{'is_run': False}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "fea9f3587272a8ba",
+        "parentUid" : "e293c694fea0562463f0a760cf832384",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618288570871,
+          "stop" : 1618288571190,
+          "duration" : 319
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'homeindex_1', 'case_id': 1, 'is_run': None, 'info': '首页频道列表信息', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'pageId': 'pageId', 'pageSource': 'pageSource'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "homeindexApi.test_homeindex"
+    }, {
+      "name" : "pageApi.test_page",
+      "children" : [ {
+        "name" : "test_premise[case_data0]",
+        "uid" : "e22147de06cd9784",
+        "parentUid" : "3d4fedef4df6a523cbf5c534b45a2b7a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617631088770,
+          "stop" : 1617631088773,
+          "duration" : 3
+        },
+        "flaky" : false,
+        "parameters" : [ "{'is_run': False}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "85a1dd136ea56c75",
+        "parentUid" : "3d4fedef4df6a523cbf5c534b45a2b7a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631088792,
+          "stop" : 1617631088799,
+          "duration" : 7
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'page_1', 'info': '频道数据', 'is_run': None, 'host': None, 'headers': None, 'address': None, 'http_type': 'https', 'request_type': 'get', 'parameter_type': 'data', 'parameter': None, 'cookies': None, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}" ]
+      }, {
+        "name" : "test_premise[login0-case_data0]",
+        "uid" : "d8013f2f2962e74c",
+        "parentUid" : "3d4fedef4df6a523cbf5c534b45a2b7a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288571606,
+          "stop" : 1618288571612,
+          "duration" : 6
+        },
+        "flaky" : true,
+        "parameters" : [ "{'is_run': False}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "b3278c8581595767",
+        "parentUid" : "3d4fedef4df6a523cbf5c534b45a2b7a",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618288571619,
+          "stop" : 1618288572373,
+          "duration" : 754
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'page_1', 'info': '频道数据', 'is_run': None, 'request_type': 'get', 'parameter_type': 'data', 'parameter': {'pageId': '${pageId}$', 'pageSource': '${pageSource}$'}, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"pageId\": \"${pageId}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': None, 'relevance': None}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "pageApi.test_page"
+    }, {
+      "name" : "projectApi.test_project",
+      "children" : [ {
+        "name" : "test_premise[case_data0]",
+        "uid" : "137cc4691e4c9fd8",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1617631088921,
+          "stop" : 1617631088921,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "{'test_name': 'add_project', 'info': '新增项目', 'host': '${URL_OMS}$', 'address': '/co-oms/api/project/add', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'json', 'headers': '${HEADERS_OMS}$', 'timeout': 10, 'parameter': 'test_project.json', 'check_type': 'only_check_status', 'file': False, 'global_relevance': True, 'relevance': {'project_id': 'data'}}" ]
+      }, {
+        "name" : "test_premise[case_data1]",
+        "uid" : "dac72a29671fed16",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1617631088941,
+          "stop" : 1617631088941,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "{'test_name': '分配项目', 'info': '分配项目给企业', 'host': '${URL_OMS}$', 'address': '/co-oms/api/project/${project_id}$/dispatch', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'json', 'headers': '${HEADERS_OMS}$', 'timeout': 10, 'parameter': [{'corpId': 43, 'totalCount': -1}], 'check_type': 'only_check_status', 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[case_data2]",
+        "uid" : "7f21f0103b705a0d",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1617631088976,
+          "stop" : 1617631088976,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "{'test_name': '企业分配员工', 'info': '企业分配员工', 'host': '${URL_ENTERPRISE}$', 'address': '/admin/api/project/target/assign', 'http_type': 'https', 'request_type': 'post', 'parameter_type': 'data.yaml', 'headers': '${HEADERS_ENTERPRISE}$', 'timeout': 10, 'parameter': {'projectId': '${project_id}$', 'uids': '${uid}$', 'deptIds': None, 'classIds': None, 'secretSign': '${assignSign}$'}, 'check_type': 'only_check_status', 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[case_data3]",
+        "uid" : "ce5c1f4c92c017c7",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1617631089016,
+          "stop" : 1617631089016,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "{'test_name': '项目id转code', 'info': '项目id转code', 'host': '${URL_OMS}$', 'address': '/co-oms/api/hook/invoke', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'data.yaml', 'headers': '${HEADERS_OMS1}$', 'timeout': 10, 'parameter': {'serverName': 'id-encode', 'params': 'long:${project_id}$'}, 'check_type': 'only_check_status', 'file': False, 'global_relevance': True, 'relevance': {'project_code': 'data'}}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "8647daa310310426",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1617631089041,
+          "stop" : 1617631089041,
+          "duration" : 0
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'project_detail', 'case_id': 1, 'is_run': None, 'info': '项目详情', 'host': '${HOST2}$', 'address': '/h5/api/project/v1/${project_code}$', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'headers': '${headers1}$', 'parameter': None, 'timeout': 10, 'check_type': 'only_check_status', 'global_relevance': True, 'relevance': {'chenkin_code': 'checkinCode'}}" ]
+      }, {
+        "name" : "test_premise[login0-case_data0]",
+        "uid" : "77762b7610d38443",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1618288572442,
+          "stop" : 1618288572442,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "{'test_name': 'add_project', 'info': '新增项目', 'host': '${URL_OMS}$', 'address': '/co-oms/api/project/add', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'json', 'headers': '${HEADERS_OMS}$', 'timeout': 10, 'parameter': 'test_project.json', 'check_type': 'only_check_status', 'file': False, 'global_relevance': True, 'relevance': {'project_id': 'data'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[login0-case_data1]",
+        "uid" : "ff7e45afce1765ef",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1618288572446,
+          "stop" : 1618288572446,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "{'test_name': '分配项目', 'info': '分配项目给企业', 'host': '${URL_OMS}$', 'address': '/co-oms/api/project/${project_id}$/dispatch', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'json', 'headers': '${HEADERS_OMS}$', 'timeout': 10, 'parameter': [{'corpId': 43, 'totalCount': -1}], 'check_type': 'only_check_status', 'file': False, 'global_relevance': None, 'relevance': None}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[login0-case_data2]",
+        "uid" : "c5ec88cce07a32ce",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1618288572450,
+          "stop" : 1618288572450,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "{'test_name': '企业分配员工', 'info': '企业分配员工', 'host': '${URL_ENTERPRISE}$', 'address': '/admin/api/project/target/assign', 'http_type': 'https', 'request_type': 'post', 'parameter_type': 'data.yaml', 'headers': '${HEADERS_ENTERPRISE}$', 'timeout': 10, 'parameter': {'projectId': '${project_id}$', 'uids': '${uid}$', 'deptIds': None, 'classIds': None, 'secretSign': '${assignSign}$'}, 'check_type': 'only_check_status', 'file': False, 'global_relevance': None, 'relevance': None}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_premise[login0-case_data3]",
+        "uid" : "dfc8d50830cb92ee",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1618288572454,
+          "stop" : 1618288572454,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "{'test_name': '项目id转code', 'info': '项目id转code', 'host': '${URL_OMS}$', 'address': '/co-oms/api/hook/invoke', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'data.yaml', 'headers': '${HEADERS_OMS1}$', 'timeout': 10, 'parameter': {'serverName': 'id-encode', 'params': 'long:${project_id}$'}, 'check_type': 'only_check_status', 'file': False, 'global_relevance': True, 'relevance': {'project_code': 'data'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "fa8009227382c402",
+        "parentUid" : "3e642ea21c8bb3df4b5daaecd86865d6",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1618288572458,
+          "stop" : 1618288572458,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "{'test_name': 'project_detail', 'case_id': 1, 'is_run': None, 'info': '项目详情', 'host': '${HOST2}$', 'address': '/h5/api/project/v1/${project_code}$', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'headers': '${headers1}$', 'parameter': None, 'cookies': True, 'timeout': 10, 'check_type': 'only_check_status', 'global_relevance': True, 'relevance': {'chenkin_code': 'checkinCode'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "projectApi.test_project"
+    }, {
+      "name" : "simpleinfoApi.test_simpleinfo",
+      "children" : [ {
+        "name" : "test_premise[case_data0]",
+        "uid" : "e0d1a5869d2b6491",
+        "parentUid" : "bd0e2eb6e399dd974940013f2f061bca",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617631089057,
+          "stop" : 1617631089059,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "parameters" : [ "{'is_run': False}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "8129daf45a4096e2",
+        "parentUid" : "bd0e2eb6e399dd974940013f2f061bca",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631089073,
+          "stop" : 1617631089241,
+          "duration" : 168
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'simpleinfo_1', 'case_id': 1, 'is_run': None, 'info': 'simpleinfo', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'corpId': 'corpId'}}" ]
+      }, {
+        "name" : "test_premise[login0-case_data0]",
+        "uid" : "f94b25940237d36b",
+        "parentUid" : "bd0e2eb6e399dd974940013f2f061bca",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288572466,
+          "stop" : 1618288572468,
+          "duration" : 2
+        },
+        "flaky" : true,
+        "parameters" : [ "{'is_run': False}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "31b4a270e56be6ea",
+        "parentUid" : "bd0e2eb6e399dd974940013f2f061bca",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618288572477,
+          "stop" : 1618288572649,
+          "duration" : 172
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'simpleinfo_1', 'case_id': 1, 'is_run': None, 'info': 'simpleinfo', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'corpId': 'corpId'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "simpleinfoApi.test_simpleinfo"
+    } ],
+    "uid" : "tests.TestScript"
+  } ]
+}

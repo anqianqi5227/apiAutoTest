@@ -1,0 +1,8 @@
+${HOST2}$
+None
+None
+/mapi/corp/simpleInfo
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 0, 'corpCode': 'cmylIoBd6pU', 'name': '轻学堂', 'simpleName': '轻学堂', 'h5Title': '企业版', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}})
+Regular_check

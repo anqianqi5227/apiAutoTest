@@ -1,0 +1,4 @@
+/Users/nali/ApiAutoTest/tests/CommonApi/loginApi/relevance.ini
+None
+{'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}
+/passport/api/pwdLogin

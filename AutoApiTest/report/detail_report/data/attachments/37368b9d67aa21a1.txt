@@ -1,0 +1,9 @@
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{'cookie': 'COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxNDQ5LCJpYXQiOjE2MTc2Njc0NDksInJtYiI6MSwidWlkIjoyMzkyODN9.F54F32AEA58A74CB439A9312FD4DF2786AE093E3EE988A61A7DC005555A47B55;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxNDQ5LCJpYXQiOjE2MTc2Njc0NDksInJtYiI6MSwidWlkIjoyMzkyODN9.F54F32AEA58A74CB439A9312FD4DF2786AE093E3EE988A61A7DC005555A47B55;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxNDQ5LCJpYXQiOjE2MTc2Njc0NDksInJtYiI6MSwidWlkIjoyMzkyODN9.F54F32AEA58A74CB439A9312FD4DF2786AE093E3EE988A61A7DC005555A47B55;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxNDQ5LCJpYXQiOjE2MTc2Njc0NDksInJtYiI6MSwidWlkIjoyMzkyODN9.F54F32AEA58A74CB439A9312FD4DF2786AE093E3EE988A61A7DC005555A47B55;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;'}
+None
+/mapi/mine/configs
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(200, {'ret': 0, 'msg': '操作成功', 'data': [{'type': 1, 'status': 1}, {'type': 2, 'status': 1}, {'type': 10, 'subConfigs': [{'type': 3, 'status': 1}, {'type': 4, 'status': 1}]}, {'type': 5, 'status': 1}, {'type': 11, 'subConfigs': [{'type': 6, 'status': 1}, {'type': 7, 'status': 1}, {'type': 8, 'status': 1}, {'type': 9, 'status': 1}]}]})
+Regular_check
+['"ret": 0']

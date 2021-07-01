@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <link href="assets/style.css" rel="stylesheet" type="text/css"/></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function find_all(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sort_column(elem) {
+    toggle_sort_states(elem);
+    var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    var key;
+    if (elem.classList.contains('numeric')) {
+        key = key_num;
+    } else if (elem.classList.contains('result')) {
+        key = key_result;
+    } else {
+        key = key_alpha;
+    }
+    sort_table(elem, key(colIndex));
+}
+
+function show_all_extras() {
+    find_all('.col-result').forEach(show_extras);
+}
+
+function hide_all_extras() {
+    find_all('.col-result').forEach(hide_extras);
+}
+
+function show_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.remove("collapsed");
+    expandcollapse.classList.remove("expander");
+    expandcollapse.classList.add("collapser");
+}
+
+function hide_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.add("collapsed");
+    expandcollapse.classList.remove("collapser");
+    expandcollapse.classList.add("expander");
+}
+
+function show_filters() {
+    var filter_items = document.getElementsByClassName('filter');
+    for (var i = 0; i < filter_items.length; i++)
+        filter_items[i].hidden = false;
+}
+
+function add_collapse() {
+    // Add links for show/hide all
+    var resulttable = find('table#results-table');
+    var showhideall = document.createElement("p");
+    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
+        var extras = elem.parentNode.nextElementSibling;
+        var expandcollapse = document.createElement("span");
+        if (extras.classList.contains("collapsed")) {
+            expandcollapse.classList.add("expander")
+        } else if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add("collapsed");
+            expandcollapse.classList.add("expander");
+        } else {
+            expandcollapse.classList.add("collapser");
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener("click", function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains("collapsed")) {
+                show_extras(event.currentTarget);
+            } else {
+                hide_extras(event.currentTarget);
+            }
+        });
+    })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () {
+    reset_sort_headers();
+
+    add_collapse();
+
+    show_filters();
+
+    sort_column(find('.initial-sort'));
+
+    find_all('.sortable').forEach(function(elem) {
+        elem.addEventListener("click",
+                              function(event) {
+                                  sort_column(elem);
+                              }, false)
+    });
+
+};
+
+function sort_table(clicked, key_func) {
+    var rows = find_all('.results-table-row');
+    var reversed = !clicked.classList.contains('asc');
+    var sorted_rows = sort(rows, key_func, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    var thead = document.getElementById("results-table-head");
+    document.getElementById('results-table').remove();
+    var parent = document.createElement("table");
+    parent.id = "results-table";
+    parent.appendChild(thead);
+    sorted_rows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName("BODY")[0].appendChild(parent);
+}
+
+function sort(items, key_func, reversed) {
+    var sort_array = items.map(function(item, i) {
+        return [key_func(item), i];
+    });
+
+    sort_array.sort(function(a, b) {
+        var key_a = a[0];
+        var key_b = b[0];
+
+        if (key_a == key_b) return 0;
+
+        if (reversed) {
+            return (key_a < key_b ? 1 : -1);
+        } else {
+            return (key_a > key_b ? 1 : -1);
+        }
+    });
+
+    return sort_array.map(function(item) {
+        var index = item[1];
+        return items[index];
+    });
+}
+
+function key_alpha(col_index) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
+    };
+}
+
+function key_num(col_index) {
+    return function(elem) {
+        return parseFloat(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function key_result(col_index) {
+    return function(elem) {
+        var strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+                       'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function reset_sort_headers() {
+    find_all('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    find_all('.sortable').forEach(function(elem) {
+        var icon = document.createElement("div");
+        icon.className = "sort-icon";
+        icon.textContent = "vvv";
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove("desc", "active");
+        elem.classList.add("asc", "inactive");
+    });
+}
+
+function toggle_sort_states(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        reset_sort_headers();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function is_all_rows_hidden(value) {
+  return value.hidden == false;
+}
+
+function filter_table(elem) {
+    var outcome_att = "data-test-result";
+    var outcome = elem.getAttribute(outcome_att);
+    class_outcome = outcome + " results-table-row";
+    var outcome_rows = document.getElementsByClassName(class_outcome);
+
+    for(var i = 0; i < outcome_rows.length; i++){
+        outcome_rows[i].hidden = !elem.checked;
+    }
+
+    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
+    var all_rows_hidden = rows.length == 0 ? true : false;
+    var not_found_message = document.getElementById("not-found-message");
+    not_found_message.hidden = !all_rows_hidden;
+}
+</script>
+    <h1>summary_report.html</h1>
+    <p>Report generated on 15-Apr-2021 at 14:44:50 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.1.1</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>JAVA_HOME</td>
+        <td>/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home</td></tr>
+      <tr>
+        <td>Packages</td>
+        <td>{"pluggy": "0.13.1", "py": "1.9.0", "pytest": "5.4.3"}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Darwin-18.7.0-x86_64-i386-64bit</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{"allure-pytest": "2.8.22", "arraydiff": "0.3", "doctestplus": "0.2.0", "html": "2.1.1", "metadata": "1.11.0", "openfiles": "0.3.1", "remotedata": "0.3.1"}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.7.1</td></tr></table>
+    <h2>Summary</h2>
+    <p>11 tests ran in 829952.29 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">10 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="name">Test</th>
+          <th class="sortable numeric" col="duration">Duration</th>
+          <th>Links</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">tests/TestScript/homeindexApi/test_homeindex.py::TestHomeindex::test_case[login0-case_data0]</td>
+          <td class="col-duration">0.23</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;test_homeindex.TestHomeindex object at 0x11b1292b0&gt;<br/>case_data = {&#x27;case_id&#x27;: 1, &#x27;check&#x27;: {&#x27;check_type&#x27;: &#x27;Regular_check&#x27;, &#x27;expected_code&#x27;: 200, &#x27;expected_result&#x27;: [&#x27;&quot;corpCode&quot;: &quot;${corpCode}$&quot;&#x27;]}, &#x27;cookies&#x27;: True, &#x27;global_relevance&#x27;: True, ...}<br/>setupClass = {}<br/><br/>    @pytest.mark.skipif(case_dict[&quot;test_info&quot;][&quot;product_version&quot;] in product_version,<br/>                        reason=&quot;该用例所属版本为：{0}，在本次排除版本{1}内&quot;.format(case_dict[&quot;test_info&quot;][&quot;product_version&quot;],<br/>                                                                 product_version))<br/>    @pytest.mark.skipif(case_dict[&quot;test_info&quot;][&quot;case_level&quot;] not in case_level,<br/>                        reason=&quot;该用例的用例等级为：{0}，不在本次运行级别{1}内&quot;.format(case_dict[&quot;test_info&quot;][&quot;case_level&quot;], case_level))<br/>    # @pytest.mark.run(order=case_dict[&quot;test_info&quot;][&quot;run_order&quot;])<br/>    @allure.severity(case_dict[&quot;test_info&quot;][&quot;case_level&quot;])<br/>    @pytest.mark.parametrize(&quot;case_data&quot;, case_dict[&quot;test_case&quot;], ids=[])<br/>    @allure.story(&quot;homeindex&quot;)<br/>    def test_case(self, case_data, setupClass):<br/>        self.relevance = setupTest(relevance_path, case_data, setupClass)<br/>&gt;       api_send_check(case_data, case_dict, case_path, self.relevance)<br/><br/>/Users/nali/AutoApiTest/tests/TestScript/homeindexApi/test_homeindex.py:47: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Users/nali/AutoApiTest/common/unit/api_send_check.py:35: in api_send_check<br/>    check_result.check_result(test_name, check_data, code, data, case_path, relevance)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>test_name = &#x27;homeindex_1&#x27;<br/>case = {&#x27;check_type&#x27;: &#x27;Regular_check&#x27;, &#x27;expected_code&#x27;: 200, &#x27;expected_result&#x27;: [&#x27;&quot;corpCode&quot;: &quot;${corpCode}$&quot;&#x27;]}<br/>code = 200<br/>data = {&#x27;data&#x27;: {&#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;, &#x27;needBindMobile&#x27;: False, &#x27;pageList&#x27;: [{&#x27;pageId&#x27;: 256, &#x27;pageSource&#x27;: 2, &#x27;title&#x27;: &#x27;...: &#x27;二轮回归&#x27;}, {&#x27;pageId&#x27;: 2, &#x27;pageSource&#x27;: 1, &#x27;title&#x27;: &#x27;有声图书馆&#x27;}], &#x27;shareIntro&#x27;: &#x27;企业在线学习平台呦&#x27;, ...}, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;ret&#x27;: 0}<br/>_path = &#x27;/Users/nali/AutoApiTest/tests/TestCases/homeindexApi&#x27;, relevance = {}<br/><br/>    def check_result(test_name, case, code, data, _path, relevance=None):<br/>        &quot;&quot;&quot;<br/>        校验测试结果<br/>        :param test_name: 测试名称<br/>        :param case: 测试用例中check字段，默认为dict<br/>        :param code: HTTP状态<br/>        :param data: 返回的接口json数据<br/>        :param relevance: 关联值对象<br/>        :param _path: case路径<br/>        :return:<br/>        &quot;&quot;&quot;<br/>        # 不校验结果<br/>        print(case[&quot;check_type&quot;])<br/>        if case[&quot;check_type&quot;] == &#x27;no_check&#x27;:<br/>            with allure.step(&quot;不校验结果&quot;):<br/>                pass<br/>    <br/>        # json格式校验<br/>        elif case[&quot;check_type&quot;] == &#x27;json&#x27;:<br/>            expected_result = case[&quot;expected_result&quot;]<br/>            if isinstance(case[&quot;expected_result&quot;], str):<br/>                expected_result = read_param(test_name, expected_result, _path, relevance)<br/>            with allure.step(&quot;JSON格式校验&quot;):<br/>                allure.attach(str(case[&quot;expected_code&quot;]), &quot;期望code&quot;)<br/>                allure.attach(str(expected_result), &#x27;期望data&#x27;)<br/>                allure.attach(str(code), &quot;实际code&quot;)<br/>                allure.attach(str(data), &#x27;实际data&#x27;)<br/>            if int(code) == case[&quot;expected_code&quot;]:<br/>                if not data:<br/>                    data = &quot;{}&quot;<br/>                check_json(expected_result, data)<br/>            else:<br/>                raise Exception(&quot;http状态码错误！\n {0} != {1}&quot;.format(code, case[&quot;expected_code&quot;]))<br/>    <br/>        # 只校验状态码<br/>        elif case[&quot;check_type&quot;] == &#x27;only_check_status&#x27;:<br/>            with allure.step(&quot;校验HTTP状态&quot;):<br/>                allure.attach(str(case[&quot;expected_code&quot;]), &quot;期望code&quot;)<br/>                allure.attach(str(code), &quot;实际code&quot;)<br/>                allure.attach(str(data), &#x27;实际data&#x27;)<br/>            if code == case[&quot;expected_code&quot;]:<br/>                pass<br/>            else:<br/>                print(code)<br/>                raise Exception(&quot;http状态码错误！\n {0} != {1}&quot;.format(code, case[&quot;expected_code&quot;]))<br/>    <br/>        # 完全校验<br/>        # elif case[&quot;check_type&quot;] == &#x27;entirely_check&#x27;:<br/>        #     expected_result = case[&quot;expected_result&quot;]<br/>        #     if isinstance(case[&quot;expected_result&quot;], str):<br/>        #         expected_result = read_json(test_name, expected_result, _path, relevance)<br/>        #     # with allure.step(&quot;完全校验结果&quot;):<br/>        #     #     allure.attach(&quot;期望code&quot;, str(case[&quot;expected_code&quot;]))<br/>        #     #     allure.attach(&#x27;期望data&#x27;, str(expected_result))<br/>        #     #     allure.attach(&quot;实际code&quot;, str(code))<br/>        #     #     allure.attach(&#x27;实际data&#x27;, str(data.yaml))<br/>        #     if int(code) == case[&quot;expected_code&quot;]:<br/>        #         result = operator.eq(expected_result, data.yaml)<br/>        #         if result:<br/>        #             pass<br/>        #         else:<br/>        #             raise Exception(&quot;完全校验失败！ {0} ! = {1}&quot;.format(expected_result, data.yaml))<br/>        #     else:<br/>        #         raise Exception(&quot;http状态码错误！\n {0} != {1}&quot;.format(code, case[&quot;expected_code&quot;]))<br/>    <br/>        # 正则校验<br/>        elif case[&quot;check_type&quot;] == &#x27;Regular_check&#x27;:<br/>            if int(code) == case[&quot;expected_code&quot;]:<br/>                try:<br/>                    result = &quot;&quot;<br/>                    if isinstance(case[&quot;expected_result&quot;], list):<br/>                        print(case[&quot;expected_result&quot;])<br/>                        with allure.step(&quot;正则校验&quot;):<br/>                            for i in case[&quot;expected_result&quot;]:<br/>                                # 替换用例中关联关系<br/>                                re_i = single_replace(i, relevance)<br/>&gt;                               result = re.findall(re_i.replace(&quot;\&quot;&quot;, &quot;\&#x27;&quot;), str(data))<br/><span class="error">E                               AttributeError: &#x27;NoneType&#x27; object has no attribute &#x27;replace&#x27;</span><br/><br/>/Users/nali/AutoApiTest/common/unit/check_result.py:106: AttributeError<br/> ------------------------------Captured stdout call------------------------------ <br/>anqi
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{&#x27;cookie&#x27;: &#x27;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;&#x27;}
+None
+/mapi/home/index
+m.test.qingxuetang.com
+{&#x27;content-type&#x27;: &#x27;application/x-www-form-urlencoded; charset=UTF-8&#x27;}
+(200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: {&#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;, &#x27;title&#x27;: &#x27;安琪175企业简称看你&#x27;, &#x27;shareIntro&#x27;: &#x27;企业在线学习平台呦&#x27;, &#x27;needBindMobile&#x27;: False, &#x27;pageList&#x27;: [{&#x27;title&#x27;: &#x27;企业专区嘿嘿&#x27;, &#x27;pageSource&#x27;: 2, &#x27;pageId&#x27;: 256}, {&#x27;title&#x27;: &#x27;有声商学院&#x27;, &#x27;pageSource&#x27;: 1, &#x27;pageId&#x27;: 21}, {&#x27;title&#x27;: &#x27;二轮回归&#x27;, &#x27;pageSource&#x27;: 1, &#x27;pageId&#x27;: 48}, {&#x27;title&#x27;: &#x27;有声图书馆&#x27;, &#x27;pageSource&#x27;: 1, &#x27;pageId&#x27;: 2}]}})
+Regular_check
+[&#x27;&quot;corpCode&quot;: &quot;${corpCode}$&quot;&#x27;]
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;URL_OMS&#x27;, &#x27;HOST1&#x27;, &#x27;HOST2&#x27;])
+INFO     root:replace_relevance.py:23 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;HEADERS_OMS&#x27;, &#x27;HEADERS_OMS1&#x27;, &#x27;HEADERS_ENTERPRISE&#x27;, &#x27;headers1&#x27;, &#x27;headers2&#x27;])
+INFO     root:replace_relevance.py:23 param_value {&quot;content-type&quot;: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: {&#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;, &#x27;title&#x27;: &#x27;安琪175企业简称看你&#x27;, &#x27;shareIntro&#x27;: &#x27;企业在线学习平台呦&#x27;, &#x27;needBindMobile&#x27;: False, &#x27;pageList&#x27;: [{&#x27;title&#x27;: &#x27;企业专区嘿嘿&#x27;, &#x27;pageSource&#x27;: 2, &#x27;pageId&#x27;: 256}, {&#x27;title&#x27;: &#x27;有声商学院&#x27;, &#x27;pageSource&#x27;: 1, &#x27;pageId&#x27;: 21}, {&#x27;title&#x27;: &#x27;二轮回归&#x27;, &#x27;pageSource&#x27;: 1, &#x27;pageId&#x27;: 48}, {&#x27;title&#x27;: &#x27;有声图书馆&#x27;, &#x27;pageSource&#x27;: 1, &#x27;pageId&#x27;: 2}]}})
+INFO     root:replace_relevance.py:18 param corpCode
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([])<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/configsAPI/test_configs.py::TestConfigs::test_premise[login0-case_data0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>/Users/nali/AutoApiTest/tests/CommonApi/loginApi/relevance.ini
+None
+{&#x27;passport&#x27;: 17521200974, &#x27;password&#x27;: &#x27;anqi666&#x27;, &#x27;passportType&#x27;: 1, &#x27;sign&#x27;: &#x27;F017A0CD674A8B7A4F52B56898D78E6A&#x27;}
+/passport/api/pwdLogin
+www.test.qingxuetang.com
+{&#x27;content-type&#x27;: &#x27;application/x-www-form-urlencoded; charset=UTF-8&#x27;}
+(200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;&#x27;, &#x27;data&#x27;: {&#x27;uid&#x27;: 239283, &#x27;vip&#x27;: {&#x27;type&#x27;: 2, &#x27;name&#x27;: &#x27;会员&#x27;, &#x27;timeExpire&#x27;: 2406974379000, &#x27;status&#x27;: 1, &#x27;hasTrial&#x27;: True}, &#x27;corpId&#x27;: 43, &#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;, &#x27;corpName&#x27;: &#x27;安琪175哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&#x27;, &#x27;corpSimpleName&#x27;: &#x27;安琪175企业简称看你&#x27;, &#x27;corpLogo&#x27;: &#x27;http://imagev2.test.ximalaya.com:8080/storages/efd6-audiotest/F1/43/CAoVUCUDpQyfAAEVwgAAKnPB.jpg!op_type=0&#x27;, &#x27;isMultiCorp&#x27;: 1, &#x27;corpList&#x27;: [{&#x27;corpId&#x27;: 43, &#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;, &#x27;name&#x27;: &#x27;安琪175哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&#x27;, &#x27;simpleName&#x27;: &#x27;安琪175企业简称看你&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com:8080/storages/efd6-audiotest/F1/43/CAoVUCUDpQyfAAEVwgAAKnPB.jpg!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 3339, &#x27;corpCode&#x27;: &#x27;Ulufr7UaB3I&#x27;, &#x27;name&#x27;: &#x27;17521200974&#x27;, &#x27;simpleName&#x27;: &#x27;17521200974&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3338, &#x27;corpCode&#x27;: &#x27;jWUCJFKrgr0&#x27;, &#x27;name&#x27;: &#x27;测试短信验证码&#x27;, &#x27;simpleName&#x27;: &#x27;测试短信验证码&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3328, &#x27;corpCode&#x27;: &#x27;3MDdmKPG60Y&#x27;, &#x27;name&#x27;: &#x27;测试realname&#x27;, &#x27;simpleName&#x27;: &#x27;测试realname&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3327, &#x27;corpCode&#x27;: &#x27;qA_OxWC3c7k&#x27;, &#x27;name&#x27;: &#x27;测试realname&#x27;, &#x27;simpleName&#x27;: &#x27;测试realname&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3326, &#x27;corpCode&#x27;: &#x27;B-DM4obCmPM&#x27;, &#x27;name&#x27;: &#x27;测试昵称&#x27;, &#x27;simpleName&#x27;: &#x27;测试昵称&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 174, &#x27;corpCode&#x27;: &#x27;O9ziY_jBRaI&#x27;, &#x27;name&#x27;: &#x27;小雅的公司&#x27;, &#x27;simpleName&#x27;: &#x27;CCTEST&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com:8080/group1/M01/28/BF/wKgDplsGkfOAWbxPAAT1fujFg28909.png!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 2925, &#x27;corpCode&#x27;: &#x27;G4Av8MW5lu0&#x27;, &#x27;name&#x27;: &#x27;xc&#x27;, &#x27;simpleName&#x27;: &#x27;xc&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3286, &#x27;corpCode&#x27;: &#x27;GFoaKdCrpt8&#x27;, &#x27;name&#x27;: &#x27;9-18企业&#x27;, &#x27;simpleName&#x27;: &#x27;9-18企业&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3284, &#x27;corpCode&#x27;: &#x27;rpt-LjQOyXI&#x27;, &#x27;name&#x27;: &#x27;测试没有渠道企业&#x27;, &#x27;simpleName&#x27;: &#x27;测试没有渠道企业&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3283, &#x27;corpCode&#x27;: &#x27;XMsh1_zu8Is&#x27;, &#x27;name&#x27;: &#x27;测试渠道企业配置&#x27;, &#x27;simpleName&#x27;: &#x27;测试渠道企业配置&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3234, &#x27;corpCode&#x27;: &#x27;713PZWIJMGo&#x27;, &#x27;name&#x27;: &#x27;珠穆朗玛&#x27;, &#x27;simpleName&#x27;: &#x27;珠穆朗玛&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3256, &#x27;corpCode&#x27;: &#x27;jy8zuSv4x9Q&#x27;, &#x27;name&#x27;: &#x27;测试机就很好ｕ……这样我才是我第一眼镜妹纸真的&#x27;, &#x27;simpleName&#x27;: &#x27;测试机就很好ｕ……这样我才是我第一眼镜妹纸真的&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 12, &#x27;corpCode&#x27;: &#x27;JoYOn_ZU-es&#x27;, &#x27;name&#x27;: &#x27;证大喜马拉雅股份有限公司&#x27;, &#x27;simpleName&#x27;: &#x27;证大喜马拉雅股份有限公司&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com:8080/storages/d483-audiotest/C4/1B/CAoVJfkEJkaQAAApswAAA41W.png!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 3214, &#x27;corpCode&#x27;: &#x27;qThEkE3C9fQ&#x27;, &#x27;name&#x27;: &#x27;测试党建-1&#x27;, &#x27;simpleName&#x27;: &#x27;测试党建-1&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3213, &#x27;corpCode&#x27;: &#x27;U0ocsrzx0YM&#x27;, &#x27;name&#x27;: &#x27;测试党建&#x27;, &#x27;simpleName&#x27;: &#x27;测试党建&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3167, &#x27;corpCode&#x27;: &#x27;Sb-efuimksE&#x27;, &#x27;name&#x27;: &#x27;测试初次修改密码&#x27;, &#x27;simpleName&#x27;: &#x27;测试初次修改密码&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2722, &#x27;corpCode&#x27;: &#x27;Q-92xddYARs&#x27;, &#x27;name&#x27;: &#x27;风飞夏夏&#x27;, &#x27;simpleName&#x27;: &#x27;风飞夏夏&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3111, &#x27;corpCode&#x27;: &#x27;WpLRJW3CM7I&#x27;, &#x27;name&#x27;: &#x27;测试展示工号&#x27;, &#x27;simpleName&#x27;: &#x27;测试展示工号&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2986, &#x27;corpCode&#x27;: &#x27;GGlYMartoXE&#x27;, &#x27;name&#x27;: &#x27;测试新建企业&#x27;, &#x27;simpleName&#x27;: &#x27;测试新建企业&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2980, &#x27;corpCode&#x27;: &#x27;b7JVJ8Krm98&#x27;, &#x27;name&#x27;: &#x27;测试渠道2-24&#x27;, &#x27;simpleName&#x27;: &#x27;测试渠道2-24&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2797, &#x27;corpCode&#x27;: &#x27;XaRY45OZqkw&#x27;, &#x27;name&#x27;: &#x27;安琪看手机&#x27;, &#x27;simpleName&#x27;: &#x27;安琪看手机&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2696, &#x27;corpCode&#x27;: &#x27;GPYhdeGrj4o&#x27;, &#x27;name&#x27;: &#x27;amzWY01GSk&#x27;, &#x27;simpleName&#x27;: &#x27;amzWY01GSk&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2687, &#x27;corpCode&#x27;: &#x27;G-Ujtzhgfzc&#x27;, &#x27;name&#x27;: &#x27;短信通知&#x27;, &#x27;simpleName&#x27;: &#x27;短信通知&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2163, &#x27;corpCode&#x27;: &#x27;3sp-HEPCNPU&#x27;, &#x27;name&#x27;: &#x27;zpyin test333&#x27;, &#x27;simpleName&#x27;: &#x27;zpyin test333&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2565, &#x27;corpCode&#x27;: &#x27;qwE1dyD-_6E&#x27;, &#x27;name&#x27;: &#x27;is 就到家&#x27;, &#x27;simpleName&#x27;: &#x27;is 就到家&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2563, &#x27;corpCode&#x27;: &#x27;C2TQKDRNRqc&#x27;, &#x27;name&#x27;: &#x27;测试一二级哈&#x27;, &#x27;simpleName&#x27;: &#x27;测试一二级哈&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2517, &#x27;corpCode&#x27;: &#x27;yaZSnp5yfz8&#x27;, &#x27;name&#x27;: &#x27;哦哦哦哦&#x27;, &#x27;simpleName&#x27;: &#x27;哦哦哦哦&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2515, &#x27;corpCode&#x27;: &#x27;Kr_2h2owRgM&#x27;, &#x27;name&#x27;: &#x27;测试h5注册企业分配会员&#x27;, &#x27;simpleName&#x27;: &#x27;测试h5注册企业分配会员&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2513, &#x27;corpCode&#x27;: &#x27;XsU6cqs1NhY&#x27;, &#x27;name&#x27;: &#x27;思考思考&#x27;, &#x27;simpleName&#x27;: &#x27;思考思考&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2511, &#x27;corpCode&#x27;: &#x27;jL_-uakAofw&#x27;, &#x27;name&#x27;: &#x27;拉黑舒服的&#x27;, &#x27;simpleName&#x27;: &#x27;拉黑舒服的&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2158, &#x27;corpCode&#x27;: &#x27;V0-kYHOm1h0&#x27;, &#x27;name&#x27;: &#x27;hgf&#x27;, &#x27;simpleName&#x27;: &#x27;hgf&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2417, &#x27;corpCode&#x27;: &#x27;Bcro7lLKa2E&#x27;, &#x27;name&#x27;: &#x27;anqi&#x27;, &#x27;simpleName&#x27;: &#x27;anqi&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2416, &#x27;corpCode&#x27;: &#x27;1wAkaSsbomw&#x27;, &#x27;name&#x27;: &#x27;测试222&#x27;, &#x27;simpleName&#x27;: &#x27;测试222&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2415, &#x27;corpCode&#x27;: &#x27;VNJ4JQ9dzoA&#x27;, &#x27;name&#x27;: &#x27;测试新企业切换&#x27;, &#x27;simpleName&#x27;: &#x27;测试新企业切换&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2413, &#x27;corpCode&#x27;: &#x27;GJyXxrpGUGo&#x27;, &#x27;name&#x27;: &#x27;ceshi2111&#x27;, &#x27;simpleName&#x27;: &#x27;ceshi2111&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2412, &#x27;corpCode&#x27;: &#x27;mIkY-8mIv-g&#x27;, &#x27;name&#x27;: &#x27;测试111&#x27;, &#x27;simpleName&#x27;: &#x27;测试111&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2411, &#x27;corpCode&#x27;: &#x27;OIeVywYpgLU&#x27;, &#x27;name&#x27;: &#x27;切换新企业1&#x27;, &#x27;simpleName&#x27;: &#x27;切换新企业1&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2410, &#x27;corpCode&#x27;: &#x27;FYo-Nl6jq84&#x27;, &#x27;name&#x27;: &#x27;测试新注册切换&#x27;, &#x27;simpleName&#x27;: &#x27;测试新注册切换&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 84, &#x27;corpCode&#x27;: &#x27;0sWg3baXeLk&#x27;, &#x27;name&#x27;: &#x27;琪琪琪小公司&#x27;, &#x27;simpleName&#x27;: &#x27;琪琪琪小公司简称&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 44, &#x27;corpCode&#x27;: &#x27;2ouwcErf5y8&#x27;, &#x27;name&#x27;: &#x27;呼哈呼哈&#x27;, &#x27;simpleName&#x27;: &#x27;喜马拉雅企业版&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com:8080/group1/M01/3D/56/wKgD3l7UodSAXoQbAAAeeAMPCE830.jpeg!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 435, &#x27;corpCode&#x27;: &#x27;WL1ahfF3K-Q&#x27;, &#x27;name&#x27;: &#x27;测试官网&#x27;, &#x27;simpleName&#x27;: &#x27;测试官网&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com:8080/storages/ed5a-audiotest/4D/84/CAoVcs0DZrpuAABLegAAIBsb.jpg!op_type=3&amp;columns=480&amp;rows=480&#x27;}], &#x27;nickname&#x27;: &#x27;175昵称&#x27;, &#x27;realName&#x27;: &#x27;阿拉斯加到了借记卡放假啊上岛咖啡就拉开就收到反馈就看啦就是离开的房间两卡就上岛咖啡&#x27;, &#x27;empName&#x27;: &#x27;安琪175&#x27;, &#x27;mobile&#x27;: &#x27;17521200974&#x27;, &#x27;gender&#x27;: 2, &#x27;avatar&#x27;: &#x27;http://imagev2.test.ximalaya.com:8080/storages/6479-audiotest/E8/94/CAoVXrsEKku5AAEkuQAAM3wd.jpg!op_type=3&amp;columns=300&amp;rows=300&#x27;, &#x27;remark&#x27;: &#x27;呜呜呜哦今生今世吧这也算是一个非常好看吗😯……这些是你给我们家了、一定不会改变什么，你去找她吗……这些是你想知道你有时间过来看看吧！你不知道我为什么那么多人呢、不过这嘿嘿希望明天不要在学校吃饭睡觉看电视剧看到一句很开心了、在于我们如何选择的路都走得太好啦……一个人呜呜呜哦今生今世吧这也算是一个非常好看吗😯……这些是你给我们家了、一定不会改变什么，你去找她吗……这些是你想知道你有时间过来看看吧！&#x27;, &#x27;empNo&#x27;: &#x27;00123&#x27;, &#x27;email&#x27;: &#x27;&#x27;, &#x27;job&#x27;: &#x27;&#x27;, &#x27;openRegGuide&#x27;: 0, &#x27;openIndexNewerGuide&#x27;: 0, &#x27;openMineNewerGuide&#x27;: 0}})
+no_check
+/Users/nali/AutoApiTest/tests/TestCases/configsApi/relevance.ini
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     root:conftest.py:26 执行全局用例依赖接口，初始化数据！
+INFO     root:api_send_check.py:25 h {&#x27;sign_h5_login&#x27;: &#x27;F017A0CD674A8B7A4F52B56898D78E6A&#x27;}
+INFO     root:replace_relevance.py:18 param sign_h5_login
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;sign_h5_login&#x27;])
+INFO     root:replace_relevance.py:23 param_value F017A0CD674A8B7A4F52B56898D78E6A
+INFO     root:replace_relevance.py:18 param HOST1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;URL_OMS&#x27;, &#x27;HOST1&#x27;, &#x27;HOST2&#x27;])
+INFO     root:replace_relevance.py:23 param_value www.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;HEADERS_OMS&#x27;, &#x27;HEADERS_OMS1&#x27;, &#x27;HEADERS_ENTERPRISE&#x27;, &#x27;headers1&#x27;, &#x27;headers2&#x27;])
+INFO     root:replace_relevance.py:23 param_value {&quot;content-type&quot;: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;}
+INFO     root:conftest.py:30 初始化数据完成！<br/> ------------------------------Captured stdout call------------------------------ <br/>anqi
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/configsAPI/test_configs.py::TestConfigs::test_case[login0-case_data0]</td>
+          <td class="col-duration">0.15</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>anqi
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{&#x27;cookie&#x27;: &#x27;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;&#x27;}
+None
+/mapi/mine/configs
+m.test.qingxuetang.com
+{&#x27;content-type&#x27;: &#x27;application/x-www-form-urlencoded; charset=UTF-8&#x27;}
+(200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: [{&#x27;type&#x27;: 1, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 2, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 10, &#x27;subConfigs&#x27;: [{&#x27;type&#x27;: 3, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 4, &#x27;status&#x27;: 1}]}, {&#x27;type&#x27;: 5, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 11, &#x27;subConfigs&#x27;: [{&#x27;type&#x27;: 6, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 7, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 8, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 9, &#x27;status&#x27;: 1}]}]})
+Regular_check
+[&#x27;&quot;ret&quot;: 0&#x27;]
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;URL_OMS&#x27;, &#x27;HOST1&#x27;, &#x27;HOST2&#x27;])
+INFO     root:replace_relevance.py:23 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;HEADERS_OMS&#x27;, &#x27;HEADERS_OMS1&#x27;, &#x27;HEADERS_ENTERPRISE&#x27;, &#x27;headers1&#x27;, &#x27;headers2&#x27;])
+INFO     root:replace_relevance.py:23 param_value {&quot;content-type&quot;: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: [{&#x27;type&#x27;: 1, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 2, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 10, &#x27;subConfigs&#x27;: [{&#x27;type&#x27;: 3, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 4, &#x27;status&#x27;: 1}]}, {&#x27;type&#x27;: 5, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 11, &#x27;subConfigs&#x27;: [{&#x27;type&#x27;: 6, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 7, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 8, &#x27;status&#x27;: 1}, {&#x27;type&#x27;: 9, &#x27;status&#x27;: 1}]}]})<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/configsmainApi/test_configsmain.py::TestConfigsmain::test_premise[login0-case_data0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>/Users/nali/AutoApiTest/tests/TestCases/configsmainApi/relevance.ini
+<br/> ------------------------------Captured stdout call------------------------------ <br/>anqi
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/configsmainApi/test_configsmain.py::TestConfigsmain::test_case[login0-case_data0]</td>
+          <td class="col-duration">0.16</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>anqi
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{&#x27;cookie&#x27;: &#x27;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;&#x27;}
+None
+/mapi/configs/main
+m.test.qingxuetang.com
+{&#x27;content-type&#x27;: &#x27;application/x-www-form-urlencoded; charset=UTF-8&#x27;}
+(200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: {&#x27;play&#x27;: {&#x27;draggable&#x27;: False}, &#x27;navigation&#x27;: {&#x27;show&#x27;: False, &#x27;navBtn&#x27;: {&#x27;show&#x27;: False, &#x27;link&#x27;: &#x27;&#x27;}}, &#x27;search&#x27;: {&#x27;show&#x27;: &#x27;1&#x27;}, &#x27;mainNav&#x27;: {&#x27;showStyle&#x27;: &#x27;1&#x27;, &#x27;items&#x27;: [{&#x27;name&#x27;: &#x27;嘿嘿开会&#x27;, &#x27;icon&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/2887-audiotest/44/B6/CAoVUCUDpQyFAABoOQAAKnPA.jpg!op_type=3&amp;columns=80&amp;rows=80&#x27;, &#x27;type&#x27;: 1}, {&#x27;name&#x27;: &#x27;学习&#x27;, &#x27;icon&#x27;: &#x27;&#x27;, &#x27;type&#x27;: 2}, {&#x27;name&#x27;: &#x27;我的&#x27;, &#x27;icon&#x27;: &#x27;&#x27;, &#x27;type&#x27;: 4}]}, &#x27;purchase&#x27;: {&#x27;button&#x27;: &#x27;开通VIP，畅听书课&#x27;, &#x27;toast&#x27;: &#x27; &#x27;, &#x27;personalPurchaseEnable&#x27;: True}, &#x27;subNav&#x27;: True, &#x27;openAnnualReport&#x27;: True, &#x27;version&#x27;: 1, &#x27;user&#x27;: {&#x27;enableModifyUsername&#x27;: True, &#x27;enablePubTopic&#x27;: True}}})
+Regular_check
+[&#x27;&quot;ret&quot;: 0&#x27;]
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;URL_OMS&#x27;, &#x27;HOST1&#x27;, &#x27;HOST2&#x27;])
+INFO     root:replace_relevance.py:23 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;HEADERS_OMS&#x27;, &#x27;HEADERS_OMS1&#x27;, &#x27;HEADERS_ENTERPRISE&#x27;, &#x27;headers1&#x27;, &#x27;headers2&#x27;])
+INFO     root:replace_relevance.py:23 param_value {&quot;content-type&quot;: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: {&#x27;play&#x27;: {&#x27;draggable&#x27;: False}, &#x27;navigation&#x27;: {&#x27;show&#x27;: False, &#x27;navBtn&#x27;: {&#x27;show&#x27;: False, &#x27;link&#x27;: &#x27;&#x27;}}, &#x27;search&#x27;: {&#x27;show&#x27;: &#x27;1&#x27;}, &#x27;mainNav&#x27;: {&#x27;showStyle&#x27;: &#x27;1&#x27;, &#x27;items&#x27;: [{&#x27;name&#x27;: &#x27;嘿嘿开会&#x27;, &#x27;icon&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/2887-audiotest/44/B6/CAoVUCUDpQyFAABoOQAAKnPA.jpg!op_type=3&amp;columns=80&amp;rows=80&#x27;, &#x27;type&#x27;: 1}, {&#x27;name&#x27;: &#x27;学习&#x27;, &#x27;icon&#x27;: &#x27;&#x27;, &#x27;type&#x27;: 2}, {&#x27;name&#x27;: &#x27;我的&#x27;, &#x27;icon&#x27;: &#x27;&#x27;, &#x27;type&#x27;: 4}]}, &#x27;purchase&#x27;: {&#x27;button&#x27;: &#x27;开通VIP，畅听书课&#x27;, &#x27;toast&#x27;: &#x27; &#x27;, &#x27;personalPurchaseEnable&#x27;: True}, &#x27;subNav&#x27;: True, &#x27;openAnnualReport&#x27;: True, &#x27;version&#x27;: 1, &#x27;user&#x27;: {&#x27;enableModifyUsername&#x27;: True, &#x27;enablePubTopic&#x27;: True}}})<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/countApi/test_count.py::TestCount::test_premise[login0-case_data0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>/Users/nali/AutoApiTest/tests/TestCases/countApi/relevance.ini
+<br/> ------------------------------Captured stdout call------------------------------ <br/>anqi
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/countApi/test_count.py::TestCount::test_case[login0-case_data0]</td>
+          <td class="col-duration">0.16</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>anqi
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{&#x27;cookie&#x27;: &#x27;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;&#x27;}
+None
+/mapi/notice/count
+m.test.qingxuetang.com
+{&#x27;content-type&#x27;: &#x27;application/x-www-form-urlencoded; charset=UTF-8&#x27;}
+(200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: {&#x27;34&#x27;: 1, &#x27;101&#x27;: 1, &#x27;102&#x27;: 0, &#x27;103&#x27;: 0, &#x27;104&#x27;: 0}})
+Regular_check
+[&#x27;&quot;ret&quot;: 0&#x27;]
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;URL_OMS&#x27;, &#x27;HOST1&#x27;, &#x27;HOST2&#x27;])
+INFO     root:replace_relevance.py:23 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;HEADERS_OMS&#x27;, &#x27;HEADERS_OMS1&#x27;, &#x27;HEADERS_ENTERPRISE&#x27;, &#x27;headers1&#x27;, &#x27;headers2&#x27;])
+INFO     root:replace_relevance.py:23 param_value {&quot;content-type&quot;: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: {&#x27;34&#x27;: 1, &#x27;101&#x27;: 1, &#x27;102&#x27;: 0, &#x27;103&#x27;: 0, &#x27;104&#x27;: 0}})<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/homeindexApi/test_homeindex.py::TestHomeindex::test_premise[login0-case_data0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>/Users/nali/AutoApiTest/tests/TestCases/homeindexApi/relevance.ini
+<br/> ------------------------------Captured stdout call------------------------------ <br/>anqi
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/infoApi/test_info.py::TestInfo::test_premise[login0-case_data0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>/Users/nali/AutoApiTest/tests/TestCases/infoApi/relevance.ini
+<br/> ------------------------------Captured stdout call------------------------------ <br/>anqi
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/infoApi/test_info.py::TestInfo::test_case[login0-case_data0]</td>
+          <td class="col-duration">0.32</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>anqi
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{&#x27;cookie&#x27;: &#x27;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUxOTM4LCJpYXQiOjE2MTc2Njc5MzgsInJtYiI6MSwidWlkIjoyMzkyODN9.1F6B5B1C1893FDAED02E4F3D97D5AB80185B40832D10756FBD0B826A6A885706;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;&#x27;}
+None
+/mapi/user/info
+m.test.qingxuetang.com
+{&#x27;content-type&#x27;: &#x27;application/x-www-form-urlencoded; charset=UTF-8&#x27;}
+(200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: {&#x27;uid&#x27;: 239283, &#x27;uidCode&#x27;: &#x27;_GAQsTvZuwo&#x27;, &#x27;vip&#x27;: {&#x27;type&#x27;: 2, &#x27;name&#x27;: &#x27;会员&#x27;, &#x27;timeExpire&#x27;: 1616914409000, &#x27;status&#x27;: 6, &#x27;hasTrial&#x27;: True}, &#x27;corpId&#x27;: 43, &#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;, &#x27;corpName&#x27;: &#x27;安琪175哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&#x27;, &#x27;corpSimpleName&#x27;: &#x27;安琪175企业简称看你&#x27;, &#x27;corpLogo&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/efd6-audiotest/F1/43/CAoVUCUDpQyfAAEVwgAAKnPB.jpg!op_type=0&#x27;, &#x27;isMultiCorp&#x27;: 1, &#x27;corpList&#x27;: [{&#x27;corpId&#x27;: 43, &#x27;name&#x27;: &#x27;安琪175哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&#x27;, &#x27;simpleName&#x27;: &#x27;安琪175企业简称看你&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/efd6-audiotest/F1/43/CAoVUCUDpQyfAAEVwgAAKnPB.jpg!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 3339, &#x27;name&#x27;: &#x27;17521200974&#x27;, &#x27;simpleName&#x27;: &#x27;17521200974&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3338, &#x27;name&#x27;: &#x27;测试短信验证码&#x27;, &#x27;simpleName&#x27;: &#x27;测试短信验证码&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3328, &#x27;name&#x27;: &#x27;测试realname&#x27;, &#x27;simpleName&#x27;: &#x27;测试realname&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3327, &#x27;name&#x27;: &#x27;测试realname&#x27;, &#x27;simpleName&#x27;: &#x27;测试realname&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3326, &#x27;name&#x27;: &#x27;测试昵称&#x27;, &#x27;simpleName&#x27;: &#x27;测试昵称&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 174, &#x27;name&#x27;: &#x27;小雅的公司&#x27;, &#x27;simpleName&#x27;: &#x27;CCTEST&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/group1/M01/28/BF/wKgDplsGkfOAWbxPAAT1fujFg28909.png!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 2925, &#x27;name&#x27;: &#x27;xc&#x27;, &#x27;simpleName&#x27;: &#x27;xc&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3286, &#x27;name&#x27;: &#x27;9-18企业&#x27;, &#x27;simpleName&#x27;: &#x27;9-18企业&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3284, &#x27;name&#x27;: &#x27;测试没有渠道企业&#x27;, &#x27;simpleName&#x27;: &#x27;测试没有渠道企业&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3283, &#x27;name&#x27;: &#x27;测试渠道企业配置&#x27;, &#x27;simpleName&#x27;: &#x27;测试渠道企业配置&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3234, &#x27;name&#x27;: &#x27;珠穆朗玛&#x27;, &#x27;simpleName&#x27;: &#x27;珠穆朗玛&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3256, &#x27;name&#x27;: &#x27;测试机就很好ｕ……这样我才是我第一眼镜妹纸真的&#x27;, &#x27;simpleName&#x27;: &#x27;测试机就很好ｕ……这样我才是我第一眼镜妹纸真的&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 12, &#x27;name&#x27;: &#x27;证大喜马拉雅股份有限公司&#x27;, &#x27;simpleName&#x27;: &#x27;证大喜马拉雅股份有限公司&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/d483-audiotest/C4/1B/CAoVJfkEJkaQAAApswAAA41W.png!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 3214, &#x27;name&#x27;: &#x27;测试党建-1&#x27;, &#x27;simpleName&#x27;: &#x27;测试党建-1&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3213, &#x27;name&#x27;: &#x27;测试党建&#x27;, &#x27;simpleName&#x27;: &#x27;测试党建&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3167, &#x27;name&#x27;: &#x27;测试初次修改密码&#x27;, &#x27;simpleName&#x27;: &#x27;测试初次修改密码&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2722, &#x27;name&#x27;: &#x27;风飞夏夏&#x27;, &#x27;simpleName&#x27;: &#x27;风飞夏夏&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3111, &#x27;name&#x27;: &#x27;测试展示工号&#x27;, &#x27;simpleName&#x27;: &#x27;测试展示工号&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2986, &#x27;name&#x27;: &#x27;测试新建企业&#x27;, &#x27;simpleName&#x27;: &#x27;测试新建企业&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2980, &#x27;name&#x27;: &#x27;测试渠道2-24&#x27;, &#x27;simpleName&#x27;: &#x27;测试渠道2-24&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2797, &#x27;name&#x27;: &#x27;安琪看手机&#x27;, &#x27;simpleName&#x27;: &#x27;安琪看手机&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2696, &#x27;name&#x27;: &#x27;amzWY01GSk&#x27;, &#x27;simpleName&#x27;: &#x27;amzWY01GSk&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2687, &#x27;name&#x27;: &#x27;短信通知&#x27;, &#x27;simpleName&#x27;: &#x27;短信通知&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2163, &#x27;name&#x27;: &#x27;zpyin test333&#x27;, &#x27;simpleName&#x27;: &#x27;zpyin test333&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2565, &#x27;name&#x27;: &#x27;is 就到家&#x27;, &#x27;simpleName&#x27;: &#x27;is 就到家&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2563, &#x27;name&#x27;: &#x27;测试一二级哈&#x27;, &#x27;simpleName&#x27;: &#x27;测试一二级哈&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2517, &#x27;name&#x27;: &#x27;哦哦哦哦&#x27;, &#x27;simpleName&#x27;: &#x27;哦哦哦哦&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2515, &#x27;name&#x27;: &#x27;测试h5注册企业分配会员&#x27;, &#x27;simpleName&#x27;: &#x27;测试h5注册企业分配会员&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2513, &#x27;name&#x27;: &#x27;思考思考&#x27;, &#x27;simpleName&#x27;: &#x27;思考思考&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2511, &#x27;name&#x27;: &#x27;拉黑舒服的&#x27;, &#x27;simpleName&#x27;: &#x27;拉黑舒服的&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2158, &#x27;name&#x27;: &#x27;hgf&#x27;, &#x27;simpleName&#x27;: &#x27;hgf&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2417, &#x27;name&#x27;: &#x27;anqi&#x27;, &#x27;simpleName&#x27;: &#x27;anqi&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2416, &#x27;name&#x27;: &#x27;测试222&#x27;, &#x27;simpleName&#x27;: &#x27;测试222&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2415, &#x27;name&#x27;: &#x27;测试新企业切换&#x27;, &#x27;simpleName&#x27;: &#x27;测试新企业切换&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2413, &#x27;name&#x27;: &#x27;ceshi2111&#x27;, &#x27;simpleName&#x27;: &#x27;ceshi2111&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2412, &#x27;name&#x27;: &#x27;测试111&#x27;, &#x27;simpleName&#x27;: &#x27;测试111&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2411, &#x27;name&#x27;: &#x27;切换新企业1&#x27;, &#x27;simpleName&#x27;: &#x27;切换新企业1&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2410, &#x27;name&#x27;: &#x27;测试新注册切换&#x27;, &#x27;simpleName&#x27;: &#x27;测试新注册切换&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 84, &#x27;name&#x27;: &#x27;琪琪琪小公司&#x27;, &#x27;simpleName&#x27;: &#x27;琪琪琪小公司简称&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 44, &#x27;name&#x27;: &#x27;呼哈呼哈&#x27;, &#x27;simpleName&#x27;: &#x27;喜马拉雅企业版&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/group1/M01/3D/56/wKgD3l7UodSAXoQbAAAeeAMPCE830.jpeg!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 435, &#x27;name&#x27;: &#x27;测试官网&#x27;, &#x27;simpleName&#x27;: &#x27;测试官网&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/ed5a-audiotest/4D/84/CAoVcs0DZrpuAABLegAAIBsb.jpg!op_type=3&amp;columns=480&amp;rows=480&#x27;}], &#x27;nickname&#x27;: &#x27;175昵称&#x27;, &#x27;realName&#x27;: &#x27;阿拉斯加到了借记卡放假啊上岛咖啡就拉开就收到反馈就看啦就是离开的房间两卡就上岛咖啡&#x27;, &#x27;empName&#x27;: &#x27;安琪175&#x27;, &#x27;mobile&#x27;: &#x27;175****0974&#x27;, &#x27;gender&#x27;: 2, &#x27;avatar&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/6479-audiotest/E8/94/CAoVXrsEKku5AAEkuQAAM3wd.jpg!op_type=3&amp;columns=300&amp;rows=300&#x27;, &#x27;remark&#x27;: &#x27;呜呜呜哦今生今世吧这也算是一个非常好看吗😯……这些是你给我们家了、一定不会改变什么，你去找她吗……这些是你想知道你有时间过来看看吧！你不知道我为什么那么多人呢、不过这嘿嘿希望明天不要在学校吃饭睡觉看电视剧看到一句很开心了、在于我们如何选择的路都走得太好啦……一个人呜呜呜哦今生今世吧这也算是一个非常好看吗😯……这些是你给我们家了、一定不会改变什么，你去找她吗……这些是你想知道你有时间过来看看吧！&#x27;, &#x27;empNo&#x27;: &#x27;00123&#x27;, &#x27;email&#x27;: &#x27;&#x27;, &#x27;job&#x27;: &#x27;&#x27;, &#x27;depts&#x27;: [{&#x27;deptId&#x27;: 381550, &#x27;name&#x27;: &#x27;三级1阿世界大福利卡就卢卡斯简单了放假阿莱克斯剪短发空间阿里斯顿反馈&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方-三级1阿世界大福利卡就卢卡斯简单了放假阿莱克斯剪短发空间阿里斯顿反馈&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381540, &#x27;name&#x27;: &#x27;二级&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381546, &#x27;name&#x27;: &#x27;二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381547, &#x27;name&#x27;: &#x27;二级2&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级2&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381794, &#x27;name&#x27;: &#x27;；累计收到解放军阿里就是离开对方&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方-三级1阿世界大福利卡就卢卡斯简单了放假阿莱克斯剪短发空间阿里斯顿反馈-；累计收到解放军阿里就是离开对方&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381795, &#x27;name&#x27;: &#x27;阿斯顿发空间里看见&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方-三级1阿世界大福利卡就卢卡斯简单了放假阿莱克斯剪短发空间阿里斯顿反馈-；累计收到解放军阿里就是离开对方-阿斯顿发空间里看见&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 368659, &#x27;name&#x27;: &#x27;88号楼1&#x27;, &#x27;fullName&#x27;: &#x27;88号楼1&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381763, &#x27;name&#x27;: &#x27;4级&#x27;, &#x27;fullName&#x27;: &#x27;4级&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 371372, &#x27;name&#x27;: &#x27;测试1&#x27;, &#x27;fullName&#x27;: &#x27;测试1&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 371375, &#x27;name&#x27;: &#x27;测试3&#x27;, &#x27;fullName&#x27;: &#x27;测试1-测试2-测试3-测试3&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}], &#x27;selfVip&#x27;: {&#x27;type&#x27;: 2, &#x27;name&#x27;: &#x27;会员&#x27;, &#x27;timeExpire&#x27;: 2406974379000, &#x27;status&#x27;: 1, &#x27;hasTrial&#x27;: True}, &#x27;corpVip&#x27;: {&#x27;type&#x27;: 2, &#x27;name&#x27;: &#x27;会员&#x27;, &#x27;timeExpire&#x27;: 1616914409000, &#x27;status&#x27;: 6, &#x27;hasTrial&#x27;: True}, &#x27;vipToShow&#x27;: &#x27;2046.04.10到期&#x27;, &#x27;pwdStatus&#x27;: 1, &#x27;channelName&#x27;: &#x27;45sgg&#x27;, &#x27;capacity&#x27;: 1, &#x27;role&#x27;: 1, &#x27;openIndexNewerGuide&#x27;: 0, &#x27;openMineNewerGuide&#x27;: 0, &#x27;partners&#x27;: []}})
+Regular_check
+[&#x27;&quot;corpId&quot;: 43&#x27;]
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;URL_OMS&#x27;, &#x27;HOST1&#x27;, &#x27;HOST2&#x27;])
+INFO     root:replace_relevance.py:23 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([&#x27;HEADERS_OMS&#x27;, &#x27;HEADERS_OMS1&#x27;, &#x27;HEADERS_ENTERPRISE&#x27;, &#x27;headers1&#x27;, &#x27;headers2&#x27;])
+INFO     root:replace_relevance.py:23 param_value {&quot;content-type&quot;: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {&#x27;ret&#x27;: 0, &#x27;msg&#x27;: &#x27;操作成功&#x27;, &#x27;data&#x27;: {&#x27;uid&#x27;: 239283, &#x27;uidCode&#x27;: &#x27;_GAQsTvZuwo&#x27;, &#x27;vip&#x27;: {&#x27;type&#x27;: 2, &#x27;name&#x27;: &#x27;会员&#x27;, &#x27;timeExpire&#x27;: 1616914409000, &#x27;status&#x27;: 6, &#x27;hasTrial&#x27;: True}, &#x27;corpId&#x27;: 43, &#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;, &#x27;corpName&#x27;: &#x27;安琪175哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&#x27;, &#x27;corpSimpleName&#x27;: &#x27;安琪175企业简称看你&#x27;, &#x27;corpLogo&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/efd6-audiotest/F1/43/CAoVUCUDpQyfAAEVwgAAKnPB.jpg!op_type=0&#x27;, &#x27;isMultiCorp&#x27;: 1, &#x27;corpList&#x27;: [{&#x27;corpId&#x27;: 43, &#x27;name&#x27;: &#x27;安琪175哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&#x27;, &#x27;simpleName&#x27;: &#x27;安琪175企业简称看你&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/efd6-audiotest/F1/43/CAoVUCUDpQyfAAEVwgAAKnPB.jpg!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 3339, &#x27;name&#x27;: &#x27;17521200974&#x27;, &#x27;simpleName&#x27;: &#x27;17521200974&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3338, &#x27;name&#x27;: &#x27;测试短信验证码&#x27;, &#x27;simpleName&#x27;: &#x27;测试短信验证码&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3328, &#x27;name&#x27;: &#x27;测试realname&#x27;, &#x27;simpleName&#x27;: &#x27;测试realname&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3327, &#x27;name&#x27;: &#x27;测试realname&#x27;, &#x27;simpleName&#x27;: &#x27;测试realname&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3326, &#x27;name&#x27;: &#x27;测试昵称&#x27;, &#x27;simpleName&#x27;: &#x27;测试昵称&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 174, &#x27;name&#x27;: &#x27;小雅的公司&#x27;, &#x27;simpleName&#x27;: &#x27;CCTEST&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/group1/M01/28/BF/wKgDplsGkfOAWbxPAAT1fujFg28909.png!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 2925, &#x27;name&#x27;: &#x27;xc&#x27;, &#x27;simpleName&#x27;: &#x27;xc&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3286, &#x27;name&#x27;: &#x27;9-18企业&#x27;, &#x27;simpleName&#x27;: &#x27;9-18企业&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3284, &#x27;name&#x27;: &#x27;测试没有渠道企业&#x27;, &#x27;simpleName&#x27;: &#x27;测试没有渠道企业&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3283, &#x27;name&#x27;: &#x27;测试渠道企业配置&#x27;, &#x27;simpleName&#x27;: &#x27;测试渠道企业配置&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3234, &#x27;name&#x27;: &#x27;珠穆朗玛&#x27;, &#x27;simpleName&#x27;: &#x27;珠穆朗玛&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3256, &#x27;name&#x27;: &#x27;测试机就很好ｕ……这样我才是我第一眼镜妹纸真的&#x27;, &#x27;simpleName&#x27;: &#x27;测试机就很好ｕ……这样我才是我第一眼镜妹纸真的&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 12, &#x27;name&#x27;: &#x27;证大喜马拉雅股份有限公司&#x27;, &#x27;simpleName&#x27;: &#x27;证大喜马拉雅股份有限公司&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/d483-audiotest/C4/1B/CAoVJfkEJkaQAAApswAAA41W.png!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 3214, &#x27;name&#x27;: &#x27;测试党建-1&#x27;, &#x27;simpleName&#x27;: &#x27;测试党建-1&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3213, &#x27;name&#x27;: &#x27;测试党建&#x27;, &#x27;simpleName&#x27;: &#x27;测试党建&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3167, &#x27;name&#x27;: &#x27;测试初次修改密码&#x27;, &#x27;simpleName&#x27;: &#x27;测试初次修改密码&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2722, &#x27;name&#x27;: &#x27;风飞夏夏&#x27;, &#x27;simpleName&#x27;: &#x27;风飞夏夏&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 3111, &#x27;name&#x27;: &#x27;测试展示工号&#x27;, &#x27;simpleName&#x27;: &#x27;测试展示工号&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2986, &#x27;name&#x27;: &#x27;测试新建企业&#x27;, &#x27;simpleName&#x27;: &#x27;测试新建企业&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2980, &#x27;name&#x27;: &#x27;测试渠道2-24&#x27;, &#x27;simpleName&#x27;: &#x27;测试渠道2-24&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2797, &#x27;name&#x27;: &#x27;安琪看手机&#x27;, &#x27;simpleName&#x27;: &#x27;安琪看手机&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2696, &#x27;name&#x27;: &#x27;amzWY01GSk&#x27;, &#x27;simpleName&#x27;: &#x27;amzWY01GSk&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2687, &#x27;name&#x27;: &#x27;短信通知&#x27;, &#x27;simpleName&#x27;: &#x27;短信通知&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2163, &#x27;name&#x27;: &#x27;zpyin test333&#x27;, &#x27;simpleName&#x27;: &#x27;zpyin test333&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2565, &#x27;name&#x27;: &#x27;is 就到家&#x27;, &#x27;simpleName&#x27;: &#x27;is 就到家&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2563, &#x27;name&#x27;: &#x27;测试一二级哈&#x27;, &#x27;simpleName&#x27;: &#x27;测试一二级哈&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2517, &#x27;name&#x27;: &#x27;哦哦哦哦&#x27;, &#x27;simpleName&#x27;: &#x27;哦哦哦哦&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2515, &#x27;name&#x27;: &#x27;测试h5注册企业分配会员&#x27;, &#x27;simpleName&#x27;: &#x27;测试h5注册企业分配会员&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2513, &#x27;name&#x27;: &#x27;思考思考&#x27;, &#x27;simpleName&#x27;: &#x27;思考思考&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2511, &#x27;name&#x27;: &#x27;拉黑舒服的&#x27;, &#x27;simpleName&#x27;: &#x27;拉黑舒服的&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2158, &#x27;name&#x27;: &#x27;hgf&#x27;, &#x27;simpleName&#x27;: &#x27;hgf&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2417, &#x27;name&#x27;: &#x27;anqi&#x27;, &#x27;simpleName&#x27;: &#x27;anqi&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2416, &#x27;name&#x27;: &#x27;测试222&#x27;, &#x27;simpleName&#x27;: &#x27;测试222&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2415, &#x27;name&#x27;: &#x27;测试新企业切换&#x27;, &#x27;simpleName&#x27;: &#x27;测试新企业切换&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2413, &#x27;name&#x27;: &#x27;ceshi2111&#x27;, &#x27;simpleName&#x27;: &#x27;ceshi2111&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2412, &#x27;name&#x27;: &#x27;测试111&#x27;, &#x27;simpleName&#x27;: &#x27;测试111&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2411, &#x27;name&#x27;: &#x27;切换新企业1&#x27;, &#x27;simpleName&#x27;: &#x27;切换新企业1&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 2410, &#x27;name&#x27;: &#x27;测试新注册切换&#x27;, &#x27;simpleName&#x27;: &#x27;测试新注册切换&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 84, &#x27;name&#x27;: &#x27;琪琪琪小公司&#x27;, &#x27;simpleName&#x27;: &#x27;琪琪琪小公司简称&#x27;, &#x27;logo&#x27;: &#x27;https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png&#x27;}, {&#x27;corpId&#x27;: 44, &#x27;name&#x27;: &#x27;呼哈呼哈&#x27;, &#x27;simpleName&#x27;: &#x27;喜马拉雅企业版&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/group1/M01/3D/56/wKgD3l7UodSAXoQbAAAeeAMPCE830.jpeg!op_type=3&amp;columns=480&amp;rows=480&#x27;}, {&#x27;corpId&#x27;: 435, &#x27;name&#x27;: &#x27;测试官网&#x27;, &#x27;simpleName&#x27;: &#x27;测试官网&#x27;, &#x27;logo&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/ed5a-audiotest/4D/84/CAoVcs0DZrpuAABLegAAIBsb.jpg!op_type=3&amp;columns=480&amp;rows=480&#x27;}], &#x27;nickname&#x27;: &#x27;175昵称&#x27;, &#x27;realName&#x27;: &#x27;阿拉斯加到了借记卡放假啊上岛咖啡就拉开就收到反馈就看啦就是离开的房间两卡就上岛咖啡&#x27;, &#x27;empName&#x27;: &#x27;安琪175&#x27;, &#x27;mobile&#x27;: &#x27;175****0974&#x27;, &#x27;gender&#x27;: 2, &#x27;avatar&#x27;: &#x27;http://imagev2.test.ximalaya.com/storages/6479-audiotest/E8/94/CAoVXrsEKku5AAEkuQAAM3wd.jpg!op_type=3&amp;columns=300&amp;rows=300&#x27;, &#x27;remark&#x27;: &#x27;呜呜呜哦今生今世吧这也算是一个非常好看吗😯……这些是你给我们家了、一定不会改变什么，你去找她吗……这些是你想知道你有时间过来看看吧！你不知道我为什么那么多人呢、不过这嘿嘿希望明天不要在学校吃饭睡觉看电视剧看到一句很开心了、在于我们如何选择的路都走得太好啦……一个人呜呜呜哦今生今世吧这也算是一个非常好看吗😯……这些是你给我们家了、一定不会改变什么，你去找她吗……这些是你想知道你有时间过来看看吧！&#x27;, &#x27;empNo&#x27;: &#x27;00123&#x27;, &#x27;email&#x27;: &#x27;&#x27;, &#x27;job&#x27;: &#x27;&#x27;, &#x27;depts&#x27;: [{&#x27;deptId&#x27;: 381550, &#x27;name&#x27;: &#x27;三级1阿世界大福利卡就卢卡斯简单了放假阿莱克斯剪短发空间阿里斯顿反馈&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方-三级1阿世界大福利卡就卢卡斯简单了放假阿莱克斯剪短发空间阿里斯顿反馈&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381540, &#x27;name&#x27;: &#x27;二级&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381546, &#x27;name&#x27;: &#x27;二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381547, &#x27;name&#x27;: &#x27;二级2&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级2&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381794, &#x27;name&#x27;: &#x27;；累计收到解放军阿里就是离开对方&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方-三级1阿世界大福利卡就卢卡斯简单了放假阿莱克斯剪短发空间阿里斯顿反馈-；累计收到解放军阿里就是离开对方&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381795, &#x27;name&#x27;: &#x27;阿斯顿发空间里看见&#x27;, &#x27;fullName&#x27;: &#x27;部门-二级1；啊就是来的看法就了解啦睡觉大福利卡接口拉萨家的肌肤立刻就看啦就是地方-三级1阿世界大福利卡就卢卡斯简单了放假阿莱克斯剪短发空间阿里斯顿反馈-；累计收到解放军阿里就是离开对方-阿斯顿发空间里看见&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 368659, &#x27;name&#x27;: &#x27;88号楼1&#x27;, &#x27;fullName&#x27;: &#x27;88号楼1&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 381763, &#x27;name&#x27;: &#x27;4级&#x27;, &#x27;fullName&#x27;: &#x27;4级&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 371372, &#x27;name&#x27;: &#x27;测试1&#x27;, &#x27;fullName&#x27;: &#x27;测试1&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}, {&#x27;deptId&#x27;: 371375, &#x27;name&#x27;: &#x27;测试3&#x27;, &#x27;fullName&#x27;: &#x27;测试1-测试2-测试3-测试3&#x27;, &#x27;canCheck&#x27;: False, &#x27;checked&#x27;: False}], &#x27;selfVip&#x27;: {&#x27;type&#x27;: 2, &#x27;name&#x27;: &#x27;会员&#x27;, &#x27;timeExpire&#x27;: 2406974379000, &#x27;status&#x27;: 1, &#x27;hasTrial&#x27;: True}, &#x27;corpVip&#x27;: {&#x27;type&#x27;: 2, &#x27;name&#x27;: &#x27;会员&#x27;, &#x27;timeExpire&#x27;: 1616914409000, &#x27;status&#x27;: 6, &#x27;hasTrial&#x27;: True}, &#x27;vipToShow&#x27;: &#x27;2046.04.10到期&#x27;, &#x27;pwdStatus&#x27;: 1, &#x27;channelName&#x27;: &#x27;45sgg&#x27;, &#x27;capacity&#x27;: 1, &#x27;role&#x27;: 1, &#x27;openIndexNewerGuide&#x27;: 0, &#x27;openMineNewerGuide&#x27;: 0, &#x27;partners&#x27;: []}})<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/TestScript/pageApi/test_page.py::TestPage::test_premise[login0-case_data0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>/Users/nali/AutoApiTest/tests/TestCases/pageApi/relevance.ini
+<br/> ------------------------------Captured stdout call------------------------------ <br/>anqi
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:setupTest.py:31 xxx {&#x27;uid&#x27;: &#x27;239283&#x27;, &#x27;uidCode&#x27;: &#x27;_GAQsTvZuwo&#x27;, &#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;}
+INFO     root:setupTest.py:42 xx {&#x27;uid&#x27;: 239283, &#x27;uidCode&#x27;: &#x27;_GAQsTvZuwo&#x27;, &#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;}
+INFO     root:api_send_check.py:25 h {&#x27;uid&#x27;: 239283, &#x27;uidCode&#x27;: &#x27;_GAQsTvZuwo&#x27;, &#x27;corpCode&#x27;: &#x27;p1u5Es8yX98&#x27;}<br/></div></td></tr></tbody></table></body></html>

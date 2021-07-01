@@ -1,0 +1,3 @@
+INFO     root:setupTest.py:30 xxx {}
+INFO     root:setupTest.py:41 xx {}
+INFO     root:api_send_check.py:25 h {}

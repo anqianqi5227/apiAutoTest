@@ -1,0 +1,2 @@
+/Users/nali/AutoApiTest/tests/TestCases/simpleinfoApi/relevance.ini
+anqi

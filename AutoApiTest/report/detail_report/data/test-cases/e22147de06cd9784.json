@@ -1,0 +1,306 @@
+{
+  "uid" : "e22147de06cd9784",
+  "name" : "test_premise[case_data0]",
+  "fullName" : "tests.TestScript.pageApi.test_page.TestPage#test_premise",
+  "historyId" : "f54ac7142005099f3c7317226697fa4f",
+  "time" : {
+    "start" : 1617631088770,
+    "stop" : 1617631088773,
+    "duration" : 3
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1617631088766,
+      "stop" : 1617631088766,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "5e309931cabeda1f",
+      "name" : "stdout",
+      "source" : "5e309931cabeda1f.txt",
+      "type" : "text/plain",
+      "size" : 62
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "page"
+  }, {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.pageApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_page"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPage"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "10637-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.pageApi.test_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'is_run': False}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "blocker",
+    "retries" : [ {
+      "uid" : "dd2ecb73f6db85ca",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617630338769,
+        "stop" : 1617630338771,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "e8a6201ef24f7da4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617629452728,
+        "stop" : 1617629452730,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "6e17d5e5eda93f6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617629114667,
+        "stop" : 1617629114669,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "384139f0c3b3a4d8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617626820468,
+        "stop" : 1617626820470,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "8e7ecf0b9efc8e3f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617614751096,
+        "stop" : 1617614751098,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "e1c7cffa26a1c53e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617614500605,
+        "stop" : 1617614500606,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "cb2dfac45936d4b8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617614384903,
+        "stop" : 1617614384904,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "3f56524a2916079",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617614251109,
+        "stop" : 1617614251111,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "d34c13f74298eef7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617613598972,
+        "stop" : 1617613598974,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "ca9c7daa80ef2850",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617612172092,
+        "stop" : 1617612172093,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "21c658f51d601f58",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617612038087,
+        "stop" : 1617612038088,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "c0cd542bd93aa6c8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617612006866,
+        "stop" : 1617612006867,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "9b4a2a1c0d5f1f9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617611961749,
+        "stop" : 1617611961751,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "3beaeb244120f55a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617611932142,
+        "stop" : 1617611932143,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "29ab4e951042f7b2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617611692935,
+        "stop" : 1617611692936,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "4b3c438c37719abf",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617611620117,
+        "stop" : 1617611620119,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "af8232d8f7550aed",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617610942882,
+        "stop" : 1617610942884,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "93db6404eef4edfc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617610598262,
+        "stop" : 1617610598264,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "7f1135186c812414",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617609971153,
+        "stop" : 1617609971155,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "6c502f0c69e2bdb4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617609803001,
+        "stop" : 1617609803003,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "96d40005846e1fc0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617609723641,
+        "stop" : 1617609723642,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "45cb4cffb4ec4634",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617609377260,
+        "stop" : 1617609377261,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "29fd344d473f02de",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617608244241,
+        "stop" : 1617608244242,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "1ac49a13ddaa0336",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617608093136,
+        "stop" : 1617608093138,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "d515d5d7458617f7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617607869246,
+        "stop" : 1617607869247,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "277828a5734ad804",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617607103278,
+        "stop" : 1617607103283,
+        "duration" : 5
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "e22147de06cd9784.json",
+  "parameterValues" : [ "{'is_run': False}" ]
+}

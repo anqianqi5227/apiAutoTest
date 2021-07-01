@@ -1,0 +1,3 @@
+/Users/nali/AutoApiTest/tests/TestCases/infoApi/relevance.ini
+/Users/nali/AutoApiTest/tests/CommonApi/loginApi/relevance.ini
+{'sign_h5_login': 'F017A0CD674A8B7A4F52B56898D78E6A'}

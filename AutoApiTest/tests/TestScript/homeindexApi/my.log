@@ -1,0 +1,61 @@
+2021-04-05 23:24:33,409-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:24:33,717-INFO-初始化数据完成！
+2021-04-05 23:24:33,725-INFO-请求方法为 get
+2021-04-05 23:24:33,872-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:24:34,042-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:25:41,197-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:25:41,421-INFO-初始化数据完成！
+2021-04-05 23:25:41,432-INFO-请求方法为 get
+2021-04-05 23:25:41,571-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:25:41,713-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:26:30,764-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:26:31,032-INFO-初始化数据完成！
+2021-04-05 23:26:31,038-INFO-请求方法为 get
+2021-04-05 23:26:31,191-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:26:31,275-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:27:22,141-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:27:22,393-INFO-初始化数据完成！
+2021-04-05 23:27:22,401-INFO-请求方法为 get
+2021-04-05 23:27:22,626-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:27:22,849-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:30:19,007-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:30:19,226-INFO-初始化数据完成！
+2021-04-05 23:30:19,233-INFO-请求方法为 get
+2021-04-05 23:30:19,380-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:30:19,474-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:30:48,482-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:30:48,689-INFO-初始化数据完成！
+2021-04-05 23:30:48,695-INFO-请求方法为 get
+2021-04-05 23:30:48,923-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:30:49,040-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:33:07,919-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:33:08,229-INFO-初始化数据完成！
+2021-04-05 23:33:08,251-INFO-请求方法为 get
+2021-04-05 23:33:08,378-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:33:08,519-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:38:34,120-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:38:34,366-INFO-初始化数据完成！
+2021-04-05 23:38:34,373-INFO-请求方法为 get
+2021-04-05 23:38:34,538-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:38:34,670-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:39:38,166-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:39:38,403-INFO-初始化数据完成！
+2021-04-05 23:39:38,409-INFO-请求方法为 get
+2021-04-05 23:39:38,547-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:39:38,641-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:42:18,361-INFO-执行全局用例依赖接口，初始化数据！
+2021-04-05 23:42:18,654-INFO-初始化数据完成！
+2021-04-05 23:42:18,660-INFO-请求方法为 get
+2021-04-05 23:42:18,894-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+2021-04-05 23:42:19,058-INFO-本轮测试已结束，正在还原测试环境！
+2021-04-05 23:44:24,605-INFO-执行全局用例依赖接口，初始化数据！

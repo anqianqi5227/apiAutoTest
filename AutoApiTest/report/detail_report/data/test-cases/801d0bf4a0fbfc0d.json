@@ -1,0 +1,198 @@
+{
+  "uid" : "801d0bf4a0fbfc0d",
+  "name" : "test_case[case_data0]",
+  "fullName" : "tests.TestScript.infoApi.test_info.TestPremise#test_case",
+  "historyId" : "88ff85c5941ab1b201b71956773c97b8",
+  "time" : {
+    "start" : 1617288431272,
+    "stop" : 1617288431508,
+    "duration" : 236
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1617288431266,
+      "stop" : 1617288431266,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "get请求接口",
+      "time" : {
+        "start" : 1617288431275,
+        "stop" : 1617288431276,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "fd9dcc84933f600d",
+        "name" : "请求接口：",
+        "source" : "fd9dcc84933f600d.attach",
+        "type" : "text/plain",
+        "size" : 4
+      }, {
+        "uid" : "4dc900e69974a49e",
+        "name" : "用例描述：",
+        "source" : "4dc900e69974a49e.attach",
+        "type" : "text/plain",
+        "size" : 12
+      }, {
+        "uid" : "79607b90f48f106c",
+        "name" : "请求地址",
+        "source" : "79607b90f48f106c.attach",
+        "type" : "text/plain",
+        "size" : 45
+      }, {
+        "uid" : "6d3cad3acf9bcbfe",
+        "name" : "请求头",
+        "source" : "6d3cad3acf9bcbfe.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "cd0c12f429593c9f",
+        "name" : "请求参数",
+        "source" : "cd0c12f429593c9f.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "正则校验",
+      "time" : {
+        "start" : 1617288431504,
+        "stop" : 1617288431506,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "be6895d2b4cf6ffc",
+        "name" : "正则校验结果\n",
+        "source" : "be6895d2b4cf6ffc.attach",
+        "type" : "text/plain",
+        "size" : 48
+      }, {
+        "uid" : "ea30e8b1543bad4c",
+        "name" : "正则校验结果\n",
+        "source" : "ea30e8b1543bad4c.attach",
+        "type" : "text/plain",
+        "size" : 15
+      }, {
+        "uid" : "54750b28bc19acc2",
+        "name" : "实际data",
+        "source" : "54750b28bc19acc2.attach",
+        "type" : "text/plain",
+        "size" : 9194
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 3,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "关联值写入关联池文件",
+      "time" : {
+        "start" : 1617288431506,
+        "stop" : 1617288431507,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "fb5b666c7796f3a1",
+        "name" : "{'uid': 239283, 'uidCode': '_GAQsTvZuwo'}",
+        "source" : "fb5b666c7796f3a1.attach",
+        "type" : "text/plain",
+        "size" : 27
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "14035d12028fd764",
+      "name" : "log",
+      "source" : "14035d12028fd764.txt",
+      "type" : "text/plain",
+      "size" : 9304
+    }, {
+      "uid" : "46ce305c75af690c",
+      "name" : "stdout",
+      "source" : "46ce305c75af690c.txt",
+      "type" : "text/plain",
+      "size" : 10237
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 11,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "info"
+  }, {
+    "name" : "feature",
+    "value" : "info"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.infoApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_info"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPremise"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "38163-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.infoApi.test_info"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43', '\"corpCode\":${uidCode}$'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "801d0bf4a0fbfc0d.json",
+  "parameterValues" : [ "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43', '\"corpCode\":${uidCode}$'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}" ]
+}

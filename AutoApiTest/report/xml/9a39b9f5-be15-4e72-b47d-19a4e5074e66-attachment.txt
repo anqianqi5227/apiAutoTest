@@ -1,0 +1,9 @@
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{'cookie': 'COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUwOTcyLCJpYXQiOjE2MTc2NjY5NzIsInJtYiI6MSwidWlkIjoyMzkyODN9.E2269678E9CE0881C94CCB6B78F30EBB89920B24B9113C3F76556EC3B83EB390;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUwOTcyLCJpYXQiOjE2MTc2NjY5NzIsInJtYiI6MSwidWlkIjoyMzkyODN9.E2269678E9CE0881C94CCB6B78F30EBB89920B24B9113C3F76556EC3B83EB390;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUwOTcyLCJpYXQiOjE2MTc2NjY5NzIsInJtYiI6MSwidWlkIjoyMzkyODN9.E2269678E9CE0881C94CCB6B78F30EBB89920B24B9113C3F76556EC3B83EB390;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODUwOTcyLCJpYXQiOjE2MTc2NjY5NzIsInJtYiI6MSwidWlkIjoyMzkyODN9.E2269678E9CE0881C94CCB6B78F30EBB89920B24B9113C3F76556EC3B83EB390;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;'}
+None
+/mapi/home/index
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+Regular_check
+['"corpCode": "${corpCode}$"']

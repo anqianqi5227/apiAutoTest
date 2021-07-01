@@ -1,0 +1,64 @@
+# 自动生成测试用例开关，0 -关， 1 -开，根据接口数据自动生成测试用例和单接口执行脚本； 2 -开，根据手工编写的测试用例，自动生成单接口执行脚本
+writeCase_switch: 0
+# 本次自动生成的测试用例归属的功能模块（项目名称/功能模块）比如： /icmc/pushes ；若不填，则默认不归类
+ProjectAndFunction_path: /icmc/pushes
+# 扫描用例路径（相对于TestCases的相对路径），以生成执行脚本；若不填，则默认扫描所有的测试用例（只有自动生成测试用例开关为 2 时，此字段才有效），如 /icmc/pushes
+scan_path:
+# 执行接口测试开关，0 -关， 1 -开
+runTest_switch: 1
+
+# 从上往下逐级筛选
+# 待执行项目 （可用表达式：not、and、or）（项目名最好唯一，若多个项目或测试名的前缀或后缀相同，则也会被检测到；检测规则为“包含”）
+Project: tests
+
+# 待执行接口，可运行单独接口（填接口名），可运行所有接口（None或者空字符串时，即不填），挑选多接口运行可用表达式：not、and、or ,如 parkinside or GetToken or company
+markers:
+
+# 本次测试需排除的产品版本（列表），不填，则默认不排除
+product_version:
+
+# 本次测试执行的用例等级（列表），不填，则默认执行所有用例等级；可选['blocker', 'critical', 'normal', 'minor', 'trivial']
+case_level:
+- blocker
+- critical
+- normal
+- minor
+
+# isRun开关，0 -关， 1 -开 ；关闭时，则用例中的is_run字段无效，即会同时执行is_run为 False 的测试用例
+isRun_switch: 1
+
+# 用例运行间隔时间（s）
+run_interval: 0
+
+# 本轮测试最大允许失败数，达到最大失败数时，则会立即结束当前测试
+maxfail: 20
+
+# 测试结束后，显示执行最慢用例数（如：3，表示显示最慢的三条用例及持续时间）
+slowestNum: 3
+
+# 失败重试次数，0表示不重试
+reruns: 1
+# 失败重试间隔时间（s）
+reruns_delay: 0.1
+
+#发送测试报告邮件开关， 0 -关， 1 -开
+emailSwitch: 0
+#邮件配置
+#发件邮箱
+smtp_server: smtp.126.com
+server_username:XXXX@126.com
+server_pwd: XXXXX
+#收件人（列表）
+msg_to:
+- XXX@163.com
+- XXX@qq.com
+
+#邮件主题
+msg_subject: '[XX项目][测试环境-develop][jira号][接口自动化测试报告]'
+
+#日志级别（字典），由高到低： CRITICAL 、 ERROR 、 WARNING 、 INFO 、 DEBUG
+log:
+    backup: 5
+    console_level: INFO           #控制台日志级别
+    file_level: DEBUG              #文件日志级别
+    pattern: '%(asctime)s - %(filename)s [line:%(lineno)2d] - %(levelname)s: %(message)s'

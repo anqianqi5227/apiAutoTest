@@ -1,0 +1,12 @@
+INFO     root:conftest.py:26 执行全局用例依赖接口，初始化数据！
+INFO     root:api_send_check.py:25 h {'sign_h5_login': 'F017A0CD674A8B7A4F52B56898D78E6A'}
+INFO     root:replace_relevance.py:18 param sign_h5_login
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['sign_h5_login'])
+INFO     root:replace_relevance.py:23 param_value F017A0CD674A8B7A4F52B56898D78E6A
+ERROR    root:config_manage.py:27 读取配置文件报错：[Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'
+Traceback (most recent call last):
+  File "/Users/nali/ApiAutoTest/common/config_module/config_manage.py", line 22, in conf_manage
+    param = cf.read_config(name)
+  File "/Users/nali/ApiAutoTest/common/config_module/config_read.py", line 84, in read_config
+    os.chdir(self.path)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'

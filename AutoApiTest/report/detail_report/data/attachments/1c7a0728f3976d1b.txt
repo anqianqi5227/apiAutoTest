@@ -1,0 +1,8 @@
+True
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{'cookie': 'COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjoxLCJlbnZJZCI6NCwiZXhwIjoxNjE3Mzg5OTQzLCJpYXQiOjE2MTczODYzNDMsInJtYiI6MCwidWlkIjoyMzkyODN9.66846F93CC824E774D26FB167FC8597BC1D8F3622FC908917E3F41EB77A5CE73'}
+None
+/mapi/user/info
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(200, {'data': {}, 'msg': '未登录', 'ret': -10})

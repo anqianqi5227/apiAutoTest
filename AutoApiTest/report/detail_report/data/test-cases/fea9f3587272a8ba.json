@@ -1,0 +1,513 @@
+{
+  "uid" : "fea9f3587272a8ba",
+  "name" : "test_case[login0-case_data0]",
+  "fullName" : "tests.TestScript.homeindexApi.test_homeindex.TestHomeindex#test_case",
+  "historyId" : "60cc82a3d6f307aff0e249d05c31de55",
+  "time" : {
+    "start" : 1618288570871,
+    "stop" : 1618288571190,
+    "duration" : 319
+  },
+  "status" : "broken",
+  "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+  "statusTrace" : "self = <test_homeindex.TestHomeindex object at 0x11a964cf8>\ncase_data = {'case_id': 1, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpCode\": \"${corpCode}$\"']}, 'cookies': True, 'global_relevance': True, ...}\nsetupClass = {}\n\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"product_version\"] in product_version,\n                        reason=\"该用例所属版本为：{0}，在本次排除版本{1}内\".format(case_dict[\"test_info\"][\"product_version\"],\n                                                                 product_version))\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"case_level\"] not in case_level,\n                        reason=\"该用例的用例等级为：{0}，不在本次运行级别{1}内\".format(case_dict[\"test_info\"][\"case_level\"], case_level))\n    # @pytest.mark.run(order=case_dict[\"test_info\"][\"run_order\"])\n    @allure.severity(case_dict[\"test_info\"][\"case_level\"])\n    @pytest.mark.parametrize(\"case_data\", case_dict[\"test_case\"], ids=[])\n    @allure.story(\"homeindex\")\n    def test_case(self, case_data, setupClass):\n        self.relevance = setupTest(relevance_path, case_data, setupClass)\n>       api_send_check(case_data, case_dict, case_path, self.relevance)\n\n/Users/nali/AutoApiTest/tests/TestScript/homeindexApi/test_homeindex.py:47: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/Users/nali/AutoApiTest/common/unit/api_send_check.py:35: in api_send_check\n    check_result.check_result(test_name, check_data, code, data, case_path, relevance)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ntest_name = 'homeindex_1'\ncase = {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpCode\": \"${corpCode}$\"']}\ncode = 200\ndata = {'data': {'corpCode': 'WL1ahfF3K-Q', 'needBindMobile': False, 'pageList': [{'pageId': 616, 'pageSource': 2, 'title': '...e': '测试轮播图'}, {'pageId': 67, 'pageSource': 1, 'title': 'BB'}], 'shareIntro': '企业在线学习平台', ...}, 'msg': '操作成功', 'ret': 0}\n_path = '/Users/nali/AutoApiTest/tests/TestCases/homeindexApi', relevance = {}\n\n    def check_result(test_name, case, code, data, _path, relevance=None):\n        \"\"\"\n        校验测试结果\n        :param test_name: 测试名称\n        :param case: 测试用例中check字段，默认为dict\n        :param code: HTTP状态\n        :param data: 返回的接口json数据\n        :param relevance: 关联值对象\n        :param _path: case路径\n        :return:\n        \"\"\"\n        # 不校验结果\n        print(case[\"check_type\"])\n        if case[\"check_type\"] == 'no_check':\n            with allure.step(\"不校验结果\"):\n                pass\n    \n        # json格式校验\n        elif case[\"check_type\"] == 'json':\n            expected_result = case[\"expected_result\"]\n            if isinstance(case[\"expected_result\"], str):\n                expected_result = read_param(test_name, expected_result, _path, relevance)\n            with allure.step(\"JSON格式校验\"):\n                allure.attach(str(case[\"expected_code\"]), \"期望code\")\n                allure.attach(str(expected_result), '期望data')\n                allure.attach(str(code), \"实际code\")\n                allure.attach(str(data), '实际data')\n            if int(code) == case[\"expected_code\"]:\n                if not data:\n                    data = \"{}\"\n                check_json(expected_result, data)\n            else:\n                raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 只校验状态码\n        elif case[\"check_type\"] == 'only_check_status':\n            with allure.step(\"校验HTTP状态\"):\n                allure.attach(str(case[\"expected_code\"]), \"期望code\")\n                allure.attach(str(code), \"实际code\")\n                allure.attach(str(data), '实际data')\n            if code == case[\"expected_code\"]:\n                pass\n            else:\n                print(code)\n                raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 完全校验\n        # elif case[\"check_type\"] == 'entirely_check':\n        #     expected_result = case[\"expected_result\"]\n        #     if isinstance(case[\"expected_result\"], str):\n        #         expected_result = read_json(test_name, expected_result, _path, relevance)\n        #     # with allure.step(\"完全校验结果\"):\n        #     #     allure.attach(\"期望code\", str(case[\"expected_code\"]))\n        #     #     allure.attach('期望data', str(expected_result))\n        #     #     allure.attach(\"实际code\", str(code))\n        #     #     allure.attach('实际data', str(data.yaml))\n        #     if int(code) == case[\"expected_code\"]:\n        #         result = operator.eq(expected_result, data.yaml)\n        #         if result:\n        #             pass\n        #         else:\n        #             raise Exception(\"完全校验失败！ {0} ! = {1}\".format(expected_result, data.yaml))\n        #     else:\n        #         raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 正则校验\n        elif case[\"check_type\"] == 'Regular_check':\n            if int(code) == case[\"expected_code\"]:\n                try:\n                    result = \"\"\n                    if isinstance(case[\"expected_result\"], list):\n                        print(case[\"expected_result\"])\n                        with allure.step(\"正则校验\"):\n                            for i in case[\"expected_result\"]:\n                                # 替换用例中关联关系\n                                re_i = single_replace(i, relevance)\n>                               result = re.findall(re_i.replace(\"\\\"\", \"\\'\"), str(data))\nE                               AttributeError: 'NoneType' object has no attribute 'replace'\n\n/Users/nali/AutoApiTest/common/unit/check_result.py:106: AttributeError",
+  "flaky" : true,
+  "beforeStages" : [ {
+    "name" : "login",
+    "time" : {
+      "start" : 1618288569900,
+      "stop" : 1618288570159,
+      "duration" : 259
+    },
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "POST请求接口",
+      "time" : {
+        "start" : 1618288569908,
+        "stop" : 1618288569915,
+        "duration" : 7
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "f2b4bf60ee8fbfe1",
+        "name" : "请求接口：",
+        "source" : "f2b4bf60ee8fbfe1.attach",
+        "type" : "text/plain",
+        "size" : 8
+      }, {
+        "uid" : "7bca45ba9adcb491",
+        "name" : "用例描述：",
+        "source" : "7bca45ba9adcb491.attach",
+        "type" : "text/plain",
+        "size" : 16
+      }, {
+        "uid" : "372b26a47f80597a",
+        "name" : "请求地址",
+        "source" : "372b26a47f80597a.attach",
+        "type" : "text/plain",
+        "size" : 54
+      }, {
+        "uid" : "8df4e903d393f5b9",
+        "name" : "请求头",
+        "source" : "8df4e903d393f5b9.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "bc0f94977719ede1",
+        "name" : "请求参数",
+        "source" : "bc0f94977719ede1.attach",
+        "type" : "text/plain",
+        "size" : 111
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "不校验结果",
+      "time" : {
+        "start" : 1618288570158,
+        "stop" : 1618288570158,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "关联值写入关联池文件",
+      "time" : {
+        "start" : 1618288570158,
+        "stop" : 1618288570159,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "114ee260436108d7",
+        "name" : "接口中获取的关联值",
+        "source" : "114ee260436108d7.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 6,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  }, {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1618288570860,
+      "stop" : 1618288570860,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+    "statusTrace" : "self = <test_homeindex.TestHomeindex object at 0x11a964cf8>\ncase_data = {'case_id': 1, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpCode\": \"${corpCode}$\"']}, 'cookies': True, 'global_relevance': True, ...}\nsetupClass = {}\n\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"product_version\"] in product_version,\n                        reason=\"该用例所属版本为：{0}，在本次排除版本{1}内\".format(case_dict[\"test_info\"][\"product_version\"],\n                                                                 product_version))\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"case_level\"] not in case_level,\n                        reason=\"该用例的用例等级为：{0}，不在本次运行级别{1}内\".format(case_dict[\"test_info\"][\"case_level\"], case_level))\n    # @pytest.mark.run(order=case_dict[\"test_info\"][\"run_order\"])\n    @allure.severity(case_dict[\"test_info\"][\"case_level\"])\n    @pytest.mark.parametrize(\"case_data\", case_dict[\"test_case\"], ids=[])\n    @allure.story(\"homeindex\")\n    def test_case(self, case_data, setupClass):\n        self.relevance = setupTest(relevance_path, case_data, setupClass)\n>       api_send_check(case_data, case_dict, case_path, self.relevance)\n\n/Users/nali/AutoApiTest/tests/TestScript/homeindexApi/test_homeindex.py:47: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/Users/nali/AutoApiTest/common/unit/api_send_check.py:35: in api_send_check\n    check_result.check_result(test_name, check_data, code, data, case_path, relevance)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ntest_name = 'homeindex_1'\ncase = {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpCode\": \"${corpCode}$\"']}\ncode = 200\ndata = {'data': {'corpCode': 'WL1ahfF3K-Q', 'needBindMobile': False, 'pageList': [{'pageId': 616, 'pageSource': 2, 'title': '...e': '测试轮播图'}, {'pageId': 67, 'pageSource': 1, 'title': 'BB'}], 'shareIntro': '企业在线学习平台', ...}, 'msg': '操作成功', 'ret': 0}\n_path = '/Users/nali/AutoApiTest/tests/TestCases/homeindexApi', relevance = {}\n\n    def check_result(test_name, case, code, data, _path, relevance=None):\n        \"\"\"\n        校验测试结果\n        :param test_name: 测试名称\n        :param case: 测试用例中check字段，默认为dict\n        :param code: HTTP状态\n        :param data: 返回的接口json数据\n        :param relevance: 关联值对象\n        :param _path: case路径\n        :return:\n        \"\"\"\n        # 不校验结果\n        print(case[\"check_type\"])\n        if case[\"check_type\"] == 'no_check':\n            with allure.step(\"不校验结果\"):\n                pass\n    \n        # json格式校验\n        elif case[\"check_type\"] == 'json':\n            expected_result = case[\"expected_result\"]\n            if isinstance(case[\"expected_result\"], str):\n                expected_result = read_param(test_name, expected_result, _path, relevance)\n            with allure.step(\"JSON格式校验\"):\n                allure.attach(str(case[\"expected_code\"]), \"期望code\")\n                allure.attach(str(expected_result), '期望data')\n                allure.attach(str(code), \"实际code\")\n                allure.attach(str(data), '实际data')\n            if int(code) == case[\"expected_code\"]:\n                if not data:\n                    data = \"{}\"\n                check_json(expected_result, data)\n            else:\n                raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 只校验状态码\n        elif case[\"check_type\"] == 'only_check_status':\n            with allure.step(\"校验HTTP状态\"):\n                allure.attach(str(case[\"expected_code\"]), \"期望code\")\n                allure.attach(str(code), \"实际code\")\n                allure.attach(str(data), '实际data')\n            if code == case[\"expected_code\"]:\n                pass\n            else:\n                print(code)\n                raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 完全校验\n        # elif case[\"check_type\"] == 'entirely_check':\n        #     expected_result = case[\"expected_result\"]\n        #     if isinstance(case[\"expected_result\"], str):\n        #         expected_result = read_json(test_name, expected_result, _path, relevance)\n        #     # with allure.step(\"完全校验结果\"):\n        #     #     allure.attach(\"期望code\", str(case[\"expected_code\"]))\n        #     #     allure.attach('期望data', str(expected_result))\n        #     #     allure.attach(\"实际code\", str(code))\n        #     #     allure.attach('实际data', str(data.yaml))\n        #     if int(code) == case[\"expected_code\"]:\n        #         result = operator.eq(expected_result, data.yaml)\n        #         if result:\n        #             pass\n        #         else:\n        #             raise Exception(\"完全校验失败！ {0} ! = {1}\".format(expected_result, data.yaml))\n        #     else:\n        #         raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 正则校验\n        elif case[\"check_type\"] == 'Regular_check':\n            if int(code) == case[\"expected_code\"]:\n                try:\n                    result = \"\"\n                    if isinstance(case[\"expected_result\"], list):\n                        print(case[\"expected_result\"])\n                        with allure.step(\"正则校验\"):\n                            for i in case[\"expected_result\"]:\n                                # 替换用例中关联关系\n                                re_i = single_replace(i, relevance)\n>                               result = re.findall(re_i.replace(\"\\\"\", \"\\'\"), str(data))\nE                               AttributeError: 'NoneType' object has no attribute 'replace'\n\n/Users/nali/AutoApiTest/common/unit/check_result.py:106: AttributeError",
+    "steps" : [ {
+      "name" : "get请求接口",
+      "time" : {
+        "start" : 1618288570876,
+        "stop" : 1618288570879,
+        "duration" : 3
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "8cd705d823a8284c",
+        "name" : "请求接口：",
+        "source" : "8cd705d823a8284c.attach",
+        "type" : "text/plain",
+        "size" : 11
+      }, {
+        "uid" : "21f76e3b873e752e",
+        "name" : "用例描述：",
+        "source" : "21f76e3b873e752e.attach",
+        "type" : "text/plain",
+        "size" : 24
+      }, {
+        "uid" : "b43f710d3598c5bd",
+        "name" : "请求地址",
+        "source" : "b43f710d3598c5bd.attach",
+        "type" : "text/plain",
+        "size" : 46
+      }, {
+        "uid" : "97ccbda06154f43c",
+        "name" : "请求头",
+        "source" : "97ccbda06154f43c.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "6dc21fd20423f1f3",
+        "name" : "请求参数",
+        "source" : "6dc21fd20423f1f3.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "正则校验",
+      "time" : {
+        "start" : 1618288571188,
+        "stop" : 1618288571188,
+        "duration" : 0
+      },
+      "status" : "broken",
+      "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'replace'\n",
+      "statusTrace" : "  File \"/Users/nali/AutoApiTest/common/unit/check_result.py\", line 106, in check_result\n    result = re.findall(re_i.replace(\"\\\"\", \"\\'\"), str(data))\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "6597db59c04903c5",
+      "name" : "log",
+      "source" : "6597db59c04903c5.txt",
+      "type" : "text/plain",
+      "size" : 1393
+    }, {
+      "uid" : "97aaac102d3fe488",
+      "name" : "stdout",
+      "source" : "97aaac102d3fe488.txt",
+      "type" : "text/plain",
+      "size" : 1602
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 2,
+    "attachmentsCount" : 7,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "login::0",
+    "time" : {
+      "start" : 1618288572652,
+      "stop" : 1618288572653,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "story",
+    "value" : "homeindex"
+  }, {
+    "name" : "feature",
+    "value" : "homeindex"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.homeindexApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_homeindex"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestHomeindex"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "8800-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.homeindexApi.test_homeindex"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'homeindex_1', 'case_id': 1, 'is_run': None, 'info': '首页频道列表信息', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'pageId': 'pageId', 'pageSource': 'pageSource'}}"
+  }, {
+    "name" : "login",
+    "value" : "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "blocker",
+    "retries" : [ {
+      "uid" : "88de0d9ca4a1f290",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: module 'allure' has no attribute 'environment'",
+      "time" : {
+        "start" : 1618288546343,
+        "stop" : 1618288546343,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "60a2f7fc4e1e68ed",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: module 'allure' has no attribute 'environment'",
+      "time" : {
+        "start" : 1617807207225,
+        "stop" : 1617807207225,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "abd8579494b19a88",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: module 'allure' has no attribute 'environment'",
+      "time" : {
+        "start" : 1617806989948,
+        "stop" : 1617806989948,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "dee04156cdb95378",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617805032553,
+        "stop" : 1617805032704,
+        "duration" : 151
+      }
+    }, {
+      "uid" : "899b4168828af11e",
+      "status" : "broken",
+      "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'",
+      "time" : {
+        "start" : 1617802197827,
+        "stop" : 1617802197827,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "b8a68826c52d041b",
+      "status" : "broken",
+      "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'",
+      "time" : {
+        "start" : 1617802162089,
+        "stop" : 1617802162089,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "83fb1c93e6b34ed7",
+      "status" : "broken",
+      "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'",
+      "time" : {
+        "start" : 1617801448763,
+        "stop" : 1617801448763,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "75b6f00a85744ed9",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617639138973,
+        "stop" : 1617639139206,
+        "duration" : 233
+      }
+    }, {
+      "uid" : "3f0d5abca115c97b",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617639002399,
+        "stop" : 1617639002608,
+        "duration" : 209
+      }
+    }, {
+      "uid" : "10e247d6d718768c",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617638649751,
+        "stop" : 1617638649915,
+        "duration" : 164
+      }
+    }, {
+      "uid" : "6fc731f422ebccdb",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617638454361,
+        "stop" : 1617638454543,
+        "duration" : 182
+      }
+    }, {
+      "uid" : "ecb0f54a244587a1",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617638334680,
+        "stop" : 1617638334887,
+        "duration" : 207
+      }
+    }, {
+      "uid" : "226b223d0a7883e2",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617638173495,
+        "stop" : 1617638173745,
+        "duration" : 250
+      }
+    }, {
+      "uid" : "fdc6675c8746522d",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617638001780,
+        "stop" : 1617638001948,
+        "duration" : 168
+      }
+    }, {
+      "uid" : "ca6cd3b9afab676c",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617637939505,
+        "stop" : 1617637939766,
+        "duration" : 261
+      }
+    }, {
+      "uid" : "82c9d8d0f902bcc6",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617637775702,
+        "stop" : 1617637775955,
+        "duration" : 253
+      }
+    }, {
+      "uid" : "6ada270197f33ad7",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617636892860,
+        "stop" : 1617636893036,
+        "duration" : 176
+      }
+    }, {
+      "uid" : "bf9d06db6e1c9f61",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617636752848,
+        "stop" : 1617636753027,
+        "duration" : 179
+      }
+    }, {
+      "uid" : "e19da8fd9b54d70c",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617635946344,
+        "stop" : 1617635946522,
+        "duration" : 178
+      }
+    }, {
+      "uid" : "2ae5373146f8fb41",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617635704690,
+        "stop" : 1617635704963,
+        "duration" : 273
+      }
+    }, {
+      "uid" : "aac2244fea99dc3b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617635417588,
+        "stop" : 1617635417771,
+        "duration" : 183
+      }
+    }, {
+      "uid" : "68d005546b1c8f23",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617635159827,
+        "stop" : 1617635159998,
+        "duration" : 171
+      }
+    }, {
+      "uid" : "de3ee6a92229f260",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617633207116,
+        "stop" : 1617633207345,
+        "duration" : 229
+      }
+    }, {
+      "uid" : "3359a71435b15a0e",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'SubRequest' object has no attribute 'params'",
+      "time" : {
+        "start" : 1617633164607,
+        "stop" : 1617633164607,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "bee06fe49acde64d",
+      "status" : "broken",
+      "statusDetails" : "TypeError: a bytes-like object is required, not 'NoneType'",
+      "time" : {
+        "start" : 1617608531549,
+        "stop" : 1617608531555,
+        "duration" : 6
+      }
+    } ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "fea9f3587272a8ba.json",
+  "parameterValues" : [ "{'test_name': 'homeindex_1', 'case_id': 1, 'is_run': None, 'info': '首页频道列表信息', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'pageId': 'pageId', 'pageSource': 'pageSource'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+}

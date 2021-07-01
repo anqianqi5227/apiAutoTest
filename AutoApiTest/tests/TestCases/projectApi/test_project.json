@@ -1,0 +1,63 @@
+[
+  {
+    "test_name": "add_project",
+    "parameter": {
+      "title": "测试-安琪",
+      "subtitle": "啊啊啊",
+      "categoryId": 275,
+      "cover": "http://imagev2.test.ximalaya.com/storages/621a-audiotest/EC/88/CAoVOjADk_skAAErvQAAKeIu.jpg!op_type=3&columns=400&rows=400",
+      "intro": "<div class=\"qxt-editor\"><style>.qxt-editor p{color:#7f7f7f;line-height:1.5;font-size:15px;} </style><div></div><p>阿斯顿接口房间阿拉山口大家放假啦是的封口机阿世界离开的肌肤加拉加斯快点放假阿拉斯加的封口机洛杉矶的封口机阿里斯顿肌肤阿拉斯加的房间</p></div>",
+      "sharePic": "http://imagev2.test.ximalaya.com/storages/baa5-audiotest/CE/AA/CAoVAh8D8Wf8AAQhLAAAAL4K.jpg!op_type=0",
+      "cerCover": "http://imagev2.test.ximalaya.com/storages/c387-audiotest/E1/A5/CAoVAh8D8WunAAflEAAAAL-F.jpg!op_type=3&columns=600&rows=900",
+      "assignType": 1,
+      "completeBy": 1,
+      "completeTaskCount": 1,
+      "stages": [
+        {
+          "stageName": "阶段一",
+          "checkinRule": 2,
+          "checkinLearnTime": 1,
+          "resources": [
+            {
+              "resourceType": 1,
+              "resourceId": 6388,
+              "selected": false,
+              "title": "资源错误不可用"
+            }
+          ],
+          "beginTime": "${beginTime}$",
+          "endTime": "${endTime}$"
+        }
+      ],
+      "enableCer": 1,
+      "enableUserProfit": 1,
+      "enableUserTask": 0,
+      "beginTime": "${beginTime}$",
+      "endTime": "${endTime}$",
+      "status": 1
+    }
+  },
+  {
+    "test_name": "hhadd_project",
+    "parameter": {
+      "stages": [
+        {
+
+          "checkinLearnTime": 1,
+          "resources": [
+            {
+              "resourceType": 1,
+              "resourceId": 6388,
+              "selected": false,
+              "title": "资源错误不可用"
+            }
+          ],
+          "beginTime": "${beginTime}$",
+          "endTime": "${endTime}$"
+        }
+      ],
+      "enableCer": 1,
+      "enableUserProfit": 1
+    }
+  }
+]

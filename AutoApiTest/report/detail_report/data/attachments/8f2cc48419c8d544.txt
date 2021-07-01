@@ -1,0 +1,12 @@
+INFO     root:conftest.py:32 执行全局用例依赖接口，初始化数据！
+INFO     root:api_send_check.py:25 h {'sign_h5_login': 'F017A0CD674A8B7A4F52B56898D78E6A'}
+INFO     root:replace_relevance.py:18 param sign_h5_login
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['sign_h5_login'])
+INFO     root:replace_relevance.py:23 param_value F017A0CD674A8B7A4F52B56898D78E6A
+INFO     root:replace_relevance.py:18 param HOST1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['URL_OMS', 'HOST1', 'HOST2'])
+INFO     root:replace_relevance.py:23 param_value www.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['HEADERS_OMS', 'HEADERS_OMS1', 'HEADERS_ENTERPRISE', 'headers1', 'headers2'])
+INFO     root:replace_relevance.py:23 param_value {"content-type": "application/x-www-form-urlencoded; charset=UTF-8"}
+INFO     root:conftest.py:36 初始化数据完成！

@@ -1,0 +1,198 @@
+{
+  "uid" : "cce25babcf774198",
+  "name" : "test_premise[login0-case_data0]",
+  "fullName" : "tests.TestScript.homeindexApi.test_homeindex.TestHomeindex#test_premise",
+  "historyId" : "5959c57e2b635897eb846141232b7bae",
+  "time" : {
+    "start" : 1617807207212,
+    "stop" : 1617807207212,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "statusMessage" : "AttributeError: module 'allure' has no attribute 'environment'",
+  "statusTrace" : "@pytest.fixture(scope=\"session\", autouse=True)\n    def setup_env():\n        # 定义环境；定义报告中environment\n        Host = Config(conf_path).read_config(\"HOST\")\n>       allure.environment(测试环境=\"测试环境\", hostName=Host[\"HOST2\"], 执行人=\"安琪\", 测试项目=\"m站线上接口测试\")\nE       AttributeError: module 'allure' has no attribute 'environment'\n\n/Users/nali/AutoApiTest/conftest.py:22: AttributeError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "login",
+    "time" : {
+      "start" : 1617807206756,
+      "stop" : 1617807207047,
+      "duration" : 291
+    },
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "POST请求接口",
+      "time" : {
+        "start" : 1617807206771,
+        "stop" : 1617807206775,
+        "duration" : 4
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "83ff612cc127e67e",
+        "name" : "请求接口：",
+        "source" : "83ff612cc127e67e.attach",
+        "type" : "text/plain",
+        "size" : 8
+      }, {
+        "uid" : "8ff905d0e0b19bc2",
+        "name" : "用例描述：",
+        "source" : "8ff905d0e0b19bc2.attach",
+        "type" : "text/plain",
+        "size" : 16
+      }, {
+        "uid" : "c21ab17e3a400880",
+        "name" : "请求地址",
+        "source" : "c21ab17e3a400880.attach",
+        "type" : "text/plain",
+        "size" : 54
+      }, {
+        "uid" : "1fe5c5911ba6c58",
+        "name" : "请求头",
+        "source" : "1fe5c5911ba6c58.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "ed47dc4066344d72",
+        "name" : "请求参数",
+        "source" : "ed47dc4066344d72.attach",
+        "type" : "text/plain",
+        "size" : 111
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "不校验结果",
+      "time" : {
+        "start" : 1617807207046,
+        "stop" : 1617807207046,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "关联值写入关联池文件",
+      "time" : {
+        "start" : 1617807207046,
+        "stop" : 1617807207047,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "4233d5947f7b58dd",
+        "name" : "接口中获取的关联值",
+        "source" : "4233d5947f7b58dd.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 6,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  }, {
+    "name" : "setup_env",
+    "time" : {
+      "start" : 1617807207048,
+      "stop" : 1617807207048,
+      "duration" : 0
+    },
+    "status" : "broken",
+    "statusMessage" : "AttributeError: module 'allure' has no attribute 'environment'\n",
+    "statusTrace" : "  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/_pytest/fixtures.py\", line 964, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/_pytest/fixtures.py\", line 792, in call_fixture_func\n    res = fixturefunc(**kwargs)\n  File \"/Users/nali/AutoApiTest/conftest.py\", line 22, in setup_env\n    allure.environment(测试环境=\"测试环境\", hostName=Host[\"HOST2\"], 执行人=\"安琪\", 测试项目=\"m站线上接口测试\")\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  } ],
+  "afterStages" : [ {
+    "name" : "login::0",
+    "time" : {
+      "start" : 1617807207337,
+      "stop" : 1617807207337,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "feature",
+    "value" : "homeindex"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.homeindexApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_homeindex"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestHomeindex"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "93042-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.homeindexApi.test_homeindex"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'is_run': False}"
+  }, {
+    "name" : "login",
+    "value" : "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "cce25babcf774198.json",
+  "parameterValues" : [ "{'is_run': False}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+}

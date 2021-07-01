@@ -1,0 +1,92 @@
+{
+  "total" : 8,
+  "items" : [ {
+    "uid" : "72546ea368d27a00d265714862fc3d3b",
+    "name" : "tests.TestScript.homeindexApi",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 2,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "161b401b55d2db0b307ccbe60b64ccb0",
+    "name" : "tests.TestScript.pageApi",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 2,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "c46d99cf1ace95a07e29c51e05fb6c65",
+    "name" : "tests.TestScript.infoApi",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 9,
+      "unknown" : 0,
+      "total" : 10
+    }
+  }, {
+    "uid" : "d98fb5084fbed9f0035b8dfc1f8e3e87",
+    "name" : "tests.TestScript.configsAPI",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "aae8478a192263a05e2a3d635747cb33",
+    "name" : "tests.TestScript.configsmainApi",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "5aa577ec85f4807daf0b51c8eec5bd31",
+    "name" : "tests.TestScript.countApi",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "9d937a59b546170c2eb7d5270844579b",
+    "name" : "tests.TestScript.simpleinfoApi",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "f509743b642df47f656b145388e8faa9",
+    "name" : "tests.TestScript.projectApi",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 10,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 10
+    }
+  } ]
+}

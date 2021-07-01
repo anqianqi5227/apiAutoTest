@@ -1,0 +1,10 @@
+anqi
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{'cookie': 'COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzMDE3ODIzLCJpYXQiOjE2MTc4MzM4MjMsInJtYiI6MSwidWlkIjoyMzkyODN9.ACBDD0E38332E83A5A7010EEBBA214C8FEA1E7B381A5BC0E13933306C2345CF1;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzMDE3ODIzLCJpYXQiOjE2MTc4MzM4MjMsInJtYiI6MSwidWlkIjoyMzkyODN9.ACBDD0E38332E83A5A7010EEBBA214C8FEA1E7B381A5BC0E13933306C2345CF1;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzMDE3ODIzLCJpYXQiOjE2MTc4MzM4MjMsInJtYiI6MSwidWlkIjoyMzkyODN9.ACBDD0E38332E83A5A7010EEBBA214C8FEA1E7B381A5BC0E13933306C2345CF1;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzMDE3ODIzLCJpYXQiOjE2MTc4MzM4MjMsInJtYiI6MSwidWlkIjoyMzkyODN9.ACBDD0E38332E83A5A7010EEBBA214C8FEA1E7B381A5BC0E13933306C2345CF1;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;'}
+None
+/mapi/configs/main
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(200, {'ret': 0, 'msg': '操作成功', 'data': {'play': {'draggable': False}, 'navigation': {'show': False, 'navBtn': {'show': False, 'link': ''}}, 'search': {'show': '1'}, 'mainNav': {'showStyle': '1', 'items': [{'name': '嘿嘿开会', 'icon': 'http://imagev2.test.ximalaya.com/storages/2887-audiotest/44/B6/CAoVUCUDpQyFAABoOQAAKnPA.jpg!op_type=3&columns=80&rows=80', 'type': 1}, {'name': '学习', 'icon': '', 'type': 2}, {'name': '我的', 'icon': '', 'type': 4}]}, 'purchase': {'button': '开通VIP，畅听书课', 'toast': ' ', 'personalPurchaseEnable': True}, 'subNav': True, 'openAnnualReport': True, 'version': 1, 'user': {'enableModifyUsername': True, 'enablePubTopic': True}}})
+Regular_check
+['"ret": 0']

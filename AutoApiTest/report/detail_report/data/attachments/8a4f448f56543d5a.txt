@@ -1,0 +1,1 @@
+INFO     root:api_send_check.py:25 h {'uid': 239283, 'uidCode': '_GAQsTvZuwo', 'corpCode': 'p1u5Es8yX98'}

@@ -1,0 +1,3 @@
+INFO     root:api_send.py:113 请求方法为 get
+INFO     root:api_send.py:125 请求接口结果：
+ (200, {'data': {}, 'msg': '未登录', 'ret': -10})

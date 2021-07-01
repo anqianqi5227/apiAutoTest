@@ -1,0 +1,2 @@
+INFO     root:conftest.py:25 执行全局用例依赖接口，初始化数据！
+INFO     root:conftest.py:29 初始化数据完成！

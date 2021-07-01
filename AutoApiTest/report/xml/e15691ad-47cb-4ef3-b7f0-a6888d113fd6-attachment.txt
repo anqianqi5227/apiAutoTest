@@ -1,0 +1,8 @@
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{'cookie': 'COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODQ3OTU5LCJpYXQiOjE2MTc2NjM5NTksInJtYiI6MSwidWlkIjoyMzkyODN9.4F31EF6B740E4A0D4B74295B2F2DAB8CF087F7B9795CE99C3BF13C17EBAF6539;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODQ3OTU5LCJpYXQiOjE2MTc2NjM5NTksInJtYiI6MSwidWlkIjoyMzkyODN9.4F31EF6B740E4A0D4B74295B2F2DAB8CF087F7B9795CE99C3BF13C17EBAF6539;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODQ3OTU5LCJpYXQiOjE2MTc2NjM5NTksInJtYiI6MSwidWlkIjoyMzkyODN9.4F31EF6B740E4A0D4B74295B2F2DAB8CF087F7B9795CE99C3BF13C17EBAF6539;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIyODQ3OTU5LCJpYXQiOjE2MTc2NjM5NTksInJtYiI6MSwidWlkIjoyMzkyODN9.4F31EF6B740E4A0D4B74295B2F2DAB8CF087F7B9795CE99C3BF13C17EBAF6539;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;'}
+None
+/mapi/corp/simpleInfo
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 43, 'corpCode': 'p1u5Es8yX98', 'name': '安琪175哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈', 'simpleName': '安琪175企业简称看你', 'h5Title': '哈哈哈h5分享信息', 'logo': 'http://imagev2.test.ximalaya.com/storages/efd6-audiotest/F1/43/CAoVUCUDpQyfAAEVwgAAKnPB.jpg!op_type=3&columns=480&rows=480'}})
+Regular_check

@@ -1,0 +1,15 @@
+2021-04-05 17:12:53,816-INFO-请求方法为 get
+2021-04-05 17:12:53,956-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 0, 'corpCode': 'cmylIoBd6pU', 'name': '轻学堂', 'simpleName': '轻学堂', 'h5Title': '企业版', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}})
+2021-04-05 17:13:32,862-INFO-请求方法为 get
+2021-04-05 17:13:32,980-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 0, 'corpCode': 'cmylIoBd6pU', 'name': '轻学堂', 'simpleName': '轻学堂', 'h5Title': '企业版', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}})
+2021-04-05 17:14:53,665-INFO-请求方法为 get
+2021-04-05 17:14:53,841-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 0, 'corpCode': 'cmylIoBd6pU', 'name': '轻学堂', 'simpleName': '轻学堂', 'h5Title': '企业版', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}})
+2021-04-05 17:15:43,212-INFO-请求方法为 get
+2021-04-05 17:15:43,360-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 0, 'corpCode': 'cmylIoBd6pU', 'name': '轻学堂', 'simpleName': '轻学堂', 'h5Title': '企业版', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}})
+2021-04-05 17:16:02,404-INFO-请求方法为 get
+2021-04-05 17:16:02,565-INFO-请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 0, 'corpCode': 'cmylIoBd6pU', 'name': '轻学堂', 'simpleName': '轻学堂', 'h5Title': '企业版', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}})

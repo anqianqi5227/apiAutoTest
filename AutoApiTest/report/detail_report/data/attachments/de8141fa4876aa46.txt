@@ -1,0 +1,10 @@
+INFO     root:api_send_check.py:25 h {}
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['URL_OMS', 'HOST1', 'HOST2'])
+INFO     root:replace_relevance.py:23 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['HEADERS_OMS', 'HEADERS_OMS1', 'HEADERS_ENTERPRISE', 'headers1', 'headers2'])
+INFO     root:replace_relevance.py:23 param_value {"content-type": "application/x-www-form-urlencoded; charset=UTF-8"}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'play': {'draggable': False}, 'navigation': {'show': False, 'navBtn': {'show': False, 'link': ''}}, 'search': {'show': '1'}, 'mainNav': {'showStyle': '1', 'items': [{'name': '嘿嘿开会', 'icon': 'http://imagev2.test.ximalaya.com/storages/2887-audiotest/44/B6/CAoVUCUDpQyFAABoOQAAKnPA.jpg!op_type=3&columns=80&rows=80', 'type': 1}, {'name': '学习', 'icon': '', 'type': 2}, {'name': '我的', 'icon': '', 'type': 4}]}, 'purchase': {'button': '开通VIP，畅听书课', 'toast': ' ', 'personalPurchaseEnable': True}, 'subNav': True, 'openAnnualReport': True, 'version': 1, 'user': {'enableModifyUsername': True, 'enablePubTopic': True}}})

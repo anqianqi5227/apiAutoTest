@@ -1,0 +1,397 @@
+{
+  "uid" : "8129daf45a4096e2",
+  "name" : "test_case[case_data0]",
+  "fullName" : "tests.TestScript.simpleinfoApi.test_simpleinfo.TestSimpleinfo#test_case",
+  "historyId" : "71b4676c9b7f80a41a7156a462e7a163",
+  "time" : {
+    "start" : 1617631089073,
+    "stop" : 1617631089241,
+    "duration" : 168
+  },
+  "status" : "broken",
+  "statusMessage" : "Exception: 正则未校验到内容！ ['\"corpCode\": \"${corpCode}$\"']",
+  "statusTrace" : "self = <test_simpleinfo.TestSimpleinfo object at 0x123e07048>\ncase_data = {'case_id': 1, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpCode\": \"${corpCode}$\"']}, 'cookies': True, 'global_relevance': True, ...}\nsetupClass = {}\n\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"product_version\"] in product_version,\n                        reason=\"该用例所属版本为：{0}，在本次排除版本{1}内\".format(case_dict[\"test_info\"][\"product_version\"],\n                                                                 product_version))\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"case_level\"] not in case_level,\n                        reason=\"该用例的用例等级为：{0}，不在本次运行级别{1}内\".format(case_dict[\"test_info\"][\"case_level\"], case_level))\n    # @pytest.mark.run(order=case_dict[\"test_info\"][\"run_order\"])\n    @allure.severity(case_dict[\"test_info\"][\"case_level\"])\n    @pytest.mark.parametrize(\"case_data\", case_dict[\"test_case\"], ids=[])\n    @allure.story(\"simpleinfo\")\n    def test_case(self, case_data, setupClass):\n        self.relevance = setupTest(relevance_path, case_data, setupClass)\n>       api_send_check(case_data, case_dict, case_path, self.relevance)\n\n/Users/nali/AutoApiTest/tests/TestScript/simpleinfoApi/test_simpleinfo.py:47: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/Users/nali/AutoApiTest/common/unit/api_send_check.py:33: in api_send_check\n    check_result.check_result(test_name, check_data, code, data, case_path, relevance)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ntest_name = 'simpleinfo_1'\ncase = {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpCode\": \"${corpCode}$\"']}\ncode = 200\ndata = {'data': {'corpCode': 'cmylIoBd6pU', 'corpId': 0, 'h5Title': '企业版', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png', ...}, 'msg': '操作成功', 'ret': 0}\n_path = '/Users/nali/AutoApiTest/tests/TestCases/simpleinfoApi'\nrelevance = {'corpCode': 'p1u5Es8yX98', 'corpId': 43, 'uid': 239283, 'uidCode': '_GAQsTvZuwo'}\n\n    def check_result(test_name, case, code, data, _path, relevance=None):\n        \"\"\"\n        校验测试结果\n        :param test_name: 测试名称\n        :param case: 测试用例中check字段，默认为dict\n        :param code: HTTP状态\n        :param data: 返回的接口json数据\n        :param relevance: 关联值对象\n        :param _path: case路径\n        :return:\n        \"\"\"\n        # 不校验结果\n        print(case[\"check_type\"])\n        if case[\"check_type\"] == 'no_check':\n            with allure.step(\"不校验结果\"):\n                pass\n    \n        # json格式校验\n        elif case[\"check_type\"] == 'json':\n            expected_result = case[\"expected_result\"]\n            if isinstance(case[\"expected_result\"], str):\n                expected_result = read_param(test_name, expected_result, _path, relevance)\n            with allure.step(\"JSON格式校验\"):\n                allure.attach(str(case[\"expected_code\"]), \"期望code\")\n                allure.attach(str(expected_result), '期望data')\n                allure.attach(str(code), \"实际code\")\n                allure.attach(str(data), '实际data')\n            if int(code) == case[\"expected_code\"]:\n                if not data:\n                    data = \"{}\"\n                check_json(expected_result, data)\n            else:\n                raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 只校验状态码\n        elif case[\"check_type\"] == 'only_check_status':\n            with allure.step(\"校验HTTP状态\"):\n                allure.attach(str(case[\"expected_code\"]), \"期望code\")\n                allure.attach(str(code), \"实际code\")\n                allure.attach(str(data), '实际data')\n            if code == case[\"expected_code\"]:\n                pass\n            else:\n                print(code)\n                raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 完全校验\n        # elif case[\"check_type\"] == 'entirely_check':\n        #     expected_result = case[\"expected_result\"]\n        #     if isinstance(case[\"expected_result\"], str):\n        #         expected_result = read_json(test_name, expected_result, _path, relevance)\n        #     # with allure.step(\"完全校验结果\"):\n        #     #     allure.attach(\"期望code\", str(case[\"expected_code\"]))\n        #     #     allure.attach('期望data', str(expected_result))\n        #     #     allure.attach(\"实际code\", str(code))\n        #     #     allure.attach('实际data', str(data.yaml))\n        #     if int(code) == case[\"expected_code\"]:\n        #         result = operator.eq(expected_result, data.yaml)\n        #         if result:\n        #             pass\n        #         else:\n        #             raise Exception(\"完全校验失败！ {0} ! = {1}\".format(expected_result, data.yaml))\n        #     else:\n        #         raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 正则校验\n        elif case[\"check_type\"] == 'Regular_check':\n            if int(code) == case[\"expected_code\"]:\n                try:\n                    result = \"\"\n                    if isinstance(case[\"expected_result\"], list):\n                        with allure.step(\"正则校验\"):\n                            for i in case[\"expected_result\"]:\n                                # 替换用例中关联关系\n                                re_i = single_replace(i, relevance)\n                                result = re.findall(re_i.replace(\"\\\"\", \"\\'\"), str(data))\n                                allure.attach(str(result),'正则校验结果\\n')\n                            allure.attach(str(data),'实际data')\n                    else:\n                        result = re.findall(case[\"expected_result\"].replace(\"\\\"\", \"\\'\"), str(data))\n                        with allure.step(\"正则校验\"):\n                            allure.attach(\"期望code\", str(case[\"expected_code\"]))\n                            allure.attach('正则表达式', str(case[\"expected_result\"]).replace(\"\\'\", \"\\\"\"))\n                            allure.attach(\"实际code\", str(code))\n                            allure.attach('实际data', str(data))\n                            allure.attach(case[\"expected_result\"].replace(\"\\\"\", \"\\'\") + '校验完成结果',\n                                          str(result).replace(\"\\'\", \"\\\"\"))\n                    if not result:\n>                       raise Exception(\"正则未校验到内容！ {}\".format(case[\"expected_result\"]))\nE                       Exception: 正则未校验到内容！ ['\"corpCode\": \"${corpCode}$\"']\n\n/Users/nali/AutoApiTest/common/unit/check_result.py:118: Exception",
+  "flaky" : true,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1617631089054,
+      "stop" : 1617631089054,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "Exception: 正则未校验到内容！ ['\"corpCode\": \"${corpCode}$\"']",
+    "statusTrace" : "self = <test_simpleinfo.TestSimpleinfo object at 0x123e07048>\ncase_data = {'case_id': 1, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpCode\": \"${corpCode}$\"']}, 'cookies': True, 'global_relevance': True, ...}\nsetupClass = {}\n\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"product_version\"] in product_version,\n                        reason=\"该用例所属版本为：{0}，在本次排除版本{1}内\".format(case_dict[\"test_info\"][\"product_version\"],\n                                                                 product_version))\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"case_level\"] not in case_level,\n                        reason=\"该用例的用例等级为：{0}，不在本次运行级别{1}内\".format(case_dict[\"test_info\"][\"case_level\"], case_level))\n    # @pytest.mark.run(order=case_dict[\"test_info\"][\"run_order\"])\n    @allure.severity(case_dict[\"test_info\"][\"case_level\"])\n    @pytest.mark.parametrize(\"case_data\", case_dict[\"test_case\"], ids=[])\n    @allure.story(\"simpleinfo\")\n    def test_case(self, case_data, setupClass):\n        self.relevance = setupTest(relevance_path, case_data, setupClass)\n>       api_send_check(case_data, case_dict, case_path, self.relevance)\n\n/Users/nali/AutoApiTest/tests/TestScript/simpleinfoApi/test_simpleinfo.py:47: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/Users/nali/AutoApiTest/common/unit/api_send_check.py:33: in api_send_check\n    check_result.check_result(test_name, check_data, code, data, case_path, relevance)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ntest_name = 'simpleinfo_1'\ncase = {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpCode\": \"${corpCode}$\"']}\ncode = 200\ndata = {'data': {'corpCode': 'cmylIoBd6pU', 'corpId': 0, 'h5Title': '企业版', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png', ...}, 'msg': '操作成功', 'ret': 0}\n_path = '/Users/nali/AutoApiTest/tests/TestCases/simpleinfoApi'\nrelevance = {'corpCode': 'p1u5Es8yX98', 'corpId': 43, 'uid': 239283, 'uidCode': '_GAQsTvZuwo'}\n\n    def check_result(test_name, case, code, data, _path, relevance=None):\n        \"\"\"\n        校验测试结果\n        :param test_name: 测试名称\n        :param case: 测试用例中check字段，默认为dict\n        :param code: HTTP状态\n        :param data: 返回的接口json数据\n        :param relevance: 关联值对象\n        :param _path: case路径\n        :return:\n        \"\"\"\n        # 不校验结果\n        print(case[\"check_type\"])\n        if case[\"check_type\"] == 'no_check':\n            with allure.step(\"不校验结果\"):\n                pass\n    \n        # json格式校验\n        elif case[\"check_type\"] == 'json':\n            expected_result = case[\"expected_result\"]\n            if isinstance(case[\"expected_result\"], str):\n                expected_result = read_param(test_name, expected_result, _path, relevance)\n            with allure.step(\"JSON格式校验\"):\n                allure.attach(str(case[\"expected_code\"]), \"期望code\")\n                allure.attach(str(expected_result), '期望data')\n                allure.attach(str(code), \"实际code\")\n                allure.attach(str(data), '实际data')\n            if int(code) == case[\"expected_code\"]:\n                if not data:\n                    data = \"{}\"\n                check_json(expected_result, data)\n            else:\n                raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 只校验状态码\n        elif case[\"check_type\"] == 'only_check_status':\n            with allure.step(\"校验HTTP状态\"):\n                allure.attach(str(case[\"expected_code\"]), \"期望code\")\n                allure.attach(str(code), \"实际code\")\n                allure.attach(str(data), '实际data')\n            if code == case[\"expected_code\"]:\n                pass\n            else:\n                print(code)\n                raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 完全校验\n        # elif case[\"check_type\"] == 'entirely_check':\n        #     expected_result = case[\"expected_result\"]\n        #     if isinstance(case[\"expected_result\"], str):\n        #         expected_result = read_json(test_name, expected_result, _path, relevance)\n        #     # with allure.step(\"完全校验结果\"):\n        #     #     allure.attach(\"期望code\", str(case[\"expected_code\"]))\n        #     #     allure.attach('期望data', str(expected_result))\n        #     #     allure.attach(\"实际code\", str(code))\n        #     #     allure.attach('实际data', str(data.yaml))\n        #     if int(code) == case[\"expected_code\"]:\n        #         result = operator.eq(expected_result, data.yaml)\n        #         if result:\n        #             pass\n        #         else:\n        #             raise Exception(\"完全校验失败！ {0} ! = {1}\".format(expected_result, data.yaml))\n        #     else:\n        #         raise Exception(\"http状态码错误！\\n {0} != {1}\".format(code, case[\"expected_code\"]))\n    \n        # 正则校验\n        elif case[\"check_type\"] == 'Regular_check':\n            if int(code) == case[\"expected_code\"]:\n                try:\n                    result = \"\"\n                    if isinstance(case[\"expected_result\"], list):\n                        with allure.step(\"正则校验\"):\n                            for i in case[\"expected_result\"]:\n                                # 替换用例中关联关系\n                                re_i = single_replace(i, relevance)\n                                result = re.findall(re_i.replace(\"\\\"\", \"\\'\"), str(data))\n                                allure.attach(str(result),'正则校验结果\\n')\n                            allure.attach(str(data),'实际data')\n                    else:\n                        result = re.findall(case[\"expected_result\"].replace(\"\\\"\", \"\\'\"), str(data))\n                        with allure.step(\"正则校验\"):\n                            allure.attach(\"期望code\", str(case[\"expected_code\"]))\n                            allure.attach('正则表达式', str(case[\"expected_result\"]).replace(\"\\'\", \"\\\"\"))\n                            allure.attach(\"实际code\", str(code))\n                            allure.attach('实际data', str(data))\n                            allure.attach(case[\"expected_result\"].replace(\"\\\"\", \"\\'\") + '校验完成结果',\n                                          str(result).replace(\"\\'\", \"\\\"\"))\n                    if not result:\n>                       raise Exception(\"正则未校验到内容！ {}\".format(case[\"expected_result\"]))\nE                       Exception: 正则未校验到内容！ ['\"corpCode\": \"${corpCode}$\"']\n\n/Users/nali/AutoApiTest/common/unit/check_result.py:118: Exception",
+    "steps" : [ {
+      "name" : "get请求接口",
+      "time" : {
+        "start" : 1617631089078,
+        "stop" : 1617631089082,
+        "duration" : 4
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "84573bec24f3eb7c",
+        "name" : "请求接口：",
+        "source" : "84573bec24f3eb7c.attach",
+        "type" : "text/plain",
+        "size" : 12
+      }, {
+        "uid" : "ca6182acea9bdbd5",
+        "name" : "用例描述：",
+        "source" : "ca6182acea9bdbd5.attach",
+        "type" : "text/plain",
+        "size" : 10
+      }, {
+        "uid" : "eed638fb1a5349a8",
+        "name" : "请求地址",
+        "source" : "eed638fb1a5349a8.attach",
+        "type" : "text/plain",
+        "size" : 51
+      }, {
+        "uid" : "be72e1f960543e53",
+        "name" : "请求头",
+        "source" : "be72e1f960543e53.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "9ca7755c3cd51743",
+        "name" : "请求参数",
+        "source" : "9ca7755c3cd51743.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "正则校验",
+      "time" : {
+        "start" : 1617631089231,
+        "stop" : 1617631089238,
+        "duration" : 7
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "ff12409fa82f83ee",
+        "name" : "正则校验结果\n",
+        "source" : "ff12409fa82f83ee.attach",
+        "type" : "text/plain",
+        "size" : 2
+      }, {
+        "uid" : "cc36d880a43b306f",
+        "name" : "实际data",
+        "source" : "cc36d880a43b306f.attach",
+        "type" : "text/plain",
+        "size" : 239
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "fc6d210da122cb3",
+      "name" : "log",
+      "source" : "fc6d210da122cb3.txt",
+      "type" : "text/plain",
+      "size" : 349
+    }, {
+      "uid" : "c546e0071a12d501",
+      "name" : "stdout",
+      "source" : "c546e0071a12d501.txt",
+      "type" : "text/plain",
+      "size" : 449
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 2,
+    "attachmentsCount" : 9,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "simpleinfo"
+  }, {
+    "name" : "feature",
+    "value" : "simpleinfo"
+  }, {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.simpleinfoApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_simpleinfo"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestSimpleinfo"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "10637-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.simpleinfoApi.test_simpleinfo"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'simpleinfo_1', 'case_id': 1, 'is_run': None, 'info': 'simpleinfo', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'corpId': 'corpId'}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "blocker",
+    "retries" : [ {
+      "uid" : "727bc14976b9b8f6",
+      "status" : "broken",
+      "statusDetails" : "Exception: 正则未校验到内容！ ['\"corpCode\": \"${corpCode}$\"']",
+      "time" : {
+        "start" : 1617630338855,
+        "stop" : 1617630338998,
+        "duration" : 143
+      }
+    }, {
+      "uid" : "4a7276e771b7e781",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617629452898,
+        "stop" : 1617629453062,
+        "duration" : 164
+      }
+    }, {
+      "uid" : "1b1f46923c516028",
+      "status" : "broken",
+      "statusDetails" : "Exception: 正则未校验到内容！ ['\"corpCode\": \"${corpCode}$\"']",
+      "time" : {
+        "start" : 1617629114835,
+        "stop" : 1617629115007,
+        "duration" : 172
+      }
+    }, {
+      "uid" : "308dc2ffa72c1a28",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617626820632,
+        "stop" : 1617626820739,
+        "duration" : 107
+      }
+    }, {
+      "uid" : "aa436882e8365e1b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617614751302,
+        "stop" : 1617614751442,
+        "duration" : 140
+      }
+    }, {
+      "uid" : "e8cc63bd310beb8f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617614500670,
+        "stop" : 1617614500786,
+        "duration" : 116
+      }
+    }, {
+      "uid" : "3557331a16ad21c8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617614385142,
+        "stop" : 1617614385327,
+        "duration" : 185
+      }
+    }, {
+      "uid" : "d7bc3b788717d880",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617614251225,
+        "stop" : 1617614251368,
+        "duration" : 143
+      }
+    }, {
+      "uid" : "a9ca473911c23ce9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617613599219,
+        "stop" : 1617613599351,
+        "duration" : 132
+      }
+    }, {
+      "uid" : "313da4416867251d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617612172146,
+        "stop" : 1617612172273,
+        "duration" : 127
+      }
+    }, {
+      "uid" : "ca68ae9d83aa87d9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617612038199,
+        "stop" : 1617612038351,
+        "duration" : 152
+      }
+    }, {
+      "uid" : "3c0a6cf2707799fc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617612006943,
+        "stop" : 1617612007084,
+        "duration" : 141
+      }
+    }, {
+      "uid" : "6efd9f14306783bc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617611961850,
+        "stop" : 1617611961963,
+        "duration" : 113
+      }
+    }, {
+      "uid" : "42d265b54baf238c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617611932222,
+        "stop" : 1617611932361,
+        "duration" : 139
+      }
+    }, {
+      "uid" : "c9728500dc1a2a25",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617611693005,
+        "stop" : 1617611693144,
+        "duration" : 139
+      }
+    }, {
+      "uid" : "91aeb4eb03b898b9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617611620184,
+        "stop" : 1617611620331,
+        "duration" : 147
+      }
+    }, {
+      "uid" : "819adffd33762c8c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617610942940,
+        "stop" : 1617610943086,
+        "duration" : 146
+      }
+    }, {
+      "uid" : "2cbf749ba5eb6bd0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617610598339,
+        "stop" : 1617610598492,
+        "duration" : 153
+      }
+    }, {
+      "uid" : "47de0594cb93f2c0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617609971258,
+        "stop" : 1617609971394,
+        "duration" : 136
+      }
+    }, {
+      "uid" : "facdbd01c2ce03c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617609803079,
+        "stop" : 1617609803240,
+        "duration" : 161
+      }
+    }, {
+      "uid" : "b9cccfba6bbbd940",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617609723697,
+        "stop" : 1617609723830,
+        "duration" : 133
+      }
+    }, {
+      "uid" : "192832000be97386",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617609377346,
+        "stop" : 1617609377475,
+        "duration" : 129
+      }
+    }, {
+      "uid" : "83b596e2c2260f73",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617608244389,
+        "stop" : 1617608244619,
+        "duration" : 230
+      }
+    }, {
+      "uid" : "5ed9ded7d34418aa",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617608093213,
+        "stop" : 1617608093361,
+        "duration" : 148
+      }
+    }, {
+      "uid" : "7bceab4908539061",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617607869301,
+        "stop" : 1617607869435,
+        "duration" : 134
+      }
+    }, {
+      "uid" : "80c58ddbc814b921",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617607103363,
+        "stop" : 1617607103489,
+        "duration" : 126
+      }
+    } ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "8129daf45a4096e2.json",
+  "parameterValues" : [ "{'test_name': 'simpleinfo_1', 'case_id': 1, 'is_run': None, 'info': 'simpleinfo', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'corpId': 'corpId'}}" ]
+}

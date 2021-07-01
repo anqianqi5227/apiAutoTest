@@ -1,0 +1,8 @@
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:21 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:21 param_value {"content-type": "application/x-www-form-urlencoded; charset=UTF-8"}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'p1u5Es8yX98', 'title': '安琪175企业简称看你', 'shareIntro': '企业在线学习平台呦', 'needBindMobile': False, 'pageList': [{'title': '企业专区嘿嘿', 'pageSource': 2, 'pageId': 256}, {'title': '有声商学院', 'pageSource': 1, 'pageId': 21}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}]}})
+INFO     root:replace_relevance.py:18 param corpCode

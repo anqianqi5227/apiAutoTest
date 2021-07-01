@@ -1,0 +1,2 @@
+INFO     root:api_send.py:114 请求方法为 get
+ERROR    root:api_method.py:78 Expecting value: line 1 column 1 (char 0)

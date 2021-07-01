@@ -1,0 +1,501 @@
+{
+  "uid" : "5da7d2fd921067c6",
+  "name" : "test_case[case_data0]",
+  "fullName" : "tests.TestScript.infoApi.test_info.TestPremise#test_case",
+  "historyId" : "88ff85c5941ab1b201b71956773c97b8",
+  "time" : {
+    "start" : 1617516894329,
+    "stop" : 1617516894713,
+    "duration" : 384
+  },
+  "status" : "passed",
+  "flaky" : true,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1617516894319,
+      "stop" : 1617516894319,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "get请求接口",
+      "time" : {
+        "start" : 1617516894332,
+        "stop" : 1617516894334,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "31a47cf43a9b5d44",
+        "name" : "请求接口：",
+        "source" : "31a47cf43a9b5d44.attach",
+        "type" : "text/plain",
+        "size" : 4
+      }, {
+        "uid" : "4fcde49f675fc0d3",
+        "name" : "用例描述：",
+        "source" : "4fcde49f675fc0d3.attach",
+        "type" : "text/plain",
+        "size" : 12
+      }, {
+        "uid" : "5a0e724b9b40c423",
+        "name" : "请求地址",
+        "source" : "5a0e724b9b40c423.attach",
+        "type" : "text/plain",
+        "size" : 45
+      }, {
+        "uid" : "91fde0b928245535",
+        "name" : "请求头",
+        "source" : "91fde0b928245535.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "f0c6122ec14378b4",
+        "name" : "请求参数",
+        "source" : "f0c6122ec14378b4.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "正则校验",
+      "time" : {
+        "start" : 1617516894709,
+        "stop" : 1617516894711,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "107d6102b26c9a9d",
+        "name" : "正则校验结果\n",
+        "source" : "107d6102b26c9a9d.attach",
+        "type" : "text/plain",
+        "size" : 48
+      }, {
+        "uid" : "366a81c2e3937865",
+        "name" : "实际data",
+        "source" : "366a81c2e3937865.attach",
+        "type" : "text/plain",
+        "size" : 11325
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "关联值写入关联池文件",
+      "time" : {
+        "start" : 1617516894711,
+        "stop" : 1617516894712,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "68e10d1dc305fc90",
+        "name" : "接口中获取的关联值",
+        "source" : "68e10d1dc305fc90.attach",
+        "type" : "text/plain",
+        "size" : 41
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "40988ad24386633d",
+      "name" : "log",
+      "source" : "40988ad24386633d.txt",
+      "type" : "text/plain",
+      "size" : 11435
+    }, {
+      "uid" : "f31fb88c77bbc5c7",
+      "name" : "stdout",
+      "source" : "f31fb88c77bbc5c7.txt",
+      "type" : "text/plain",
+      "size" : 12382
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 10,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "info"
+  }, {
+    "name" : "story",
+    "value" : "info"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.infoApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_info"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPremise"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "79835-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.infoApi.test_info"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "312ce89dc54152d9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617516527808,
+        "stop" : 1617516528163,
+        "duration" : 355
+      }
+    }, {
+      "uid" : "357c6c09612527de",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617515813199,
+        "stop" : 1617515813600,
+        "duration" : 401
+      }
+    }, {
+      "uid" : "819564243f75ae77",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617515383744,
+        "stop" : 1617515384036,
+        "duration" : 292
+      }
+    }, {
+      "uid" : "4d3e686971667e8f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617515322603,
+        "stop" : 1617515322916,
+        "duration" : 313
+      }
+    }, {
+      "uid" : "78d488857529d8f0",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617514277353,
+        "stop" : 1617514277842,
+        "duration" : 489
+      }
+    }, {
+      "uid" : "1ac321e331add9ac",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617513965495,
+        "stop" : 1617513965643,
+        "duration" : 148
+      }
+    }, {
+      "uid" : "ac583e3e7d2d5a8d",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617513825106,
+        "stop" : 1617513825262,
+        "duration" : 156
+      }
+    }, {
+      "uid" : "d22b566a5367a0e6",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617513430152,
+        "stop" : 1617513430363,
+        "duration" : 211
+      }
+    }, {
+      "uid" : "34736aa7a52cbf2",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "time" : {
+        "start" : 1617513387262,
+        "stop" : 1617513387670,
+        "duration" : 408
+      }
+    }, {
+      "uid" : "e61404cc908a90ed",
+      "status" : "broken",
+      "statusDetails" : "configparser.NoSectionError: No section: 'cookie'",
+      "time" : {
+        "start" : 1617289283891,
+        "stop" : 1617289283893,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "bc644914890ef281",
+      "status" : "broken",
+      "statusDetails" : "configparser.NoSectionError: No section: 'cookie'",
+      "time" : {
+        "start" : 1617289134613,
+        "stop" : 1617289134615,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "f1f814d20ec3818a",
+      "status" : "broken",
+      "statusDetails" : "configparser.NoSectionError: No section: 'cookie'",
+      "time" : {
+        "start" : 1617289097872,
+        "stop" : 1617289097875,
+        "duration" : 3
+      }
+    }, {
+      "uid" : "f1684bac64cc9b81",
+      "status" : "broken",
+      "statusDetails" : "configparser.NoSectionError: No section: 'cookie'",
+      "time" : {
+        "start" : 1617289025186,
+        "stop" : 1617289025188,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "ec69cb9ed8a561d8",
+      "status" : "broken",
+      "statusDetails" : "configparser.NoSectionError: No section: 'cookie'",
+      "time" : {
+        "start" : 1617288715476,
+        "stop" : 1617288715478,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "cd620c200a9af2de",
+      "status" : "broken",
+      "statusDetails" : "configparser.NoSectionError: No section: 'cookie'",
+      "time" : {
+        "start" : 1617288487381,
+        "stop" : 1617288487383,
+        "duration" : 2
+      }
+    }, {
+      "uid" : "801d0bf4a0fbfc0d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617288431272,
+        "stop" : 1617288431508,
+        "duration" : 236
+      }
+    }, {
+      "uid" : "2721ce274f2bcde6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617288273661,
+        "stop" : 1617288273976,
+        "duration" : 315
+      }
+    }, {
+      "uid" : "6ad5cf068b06c87c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617287562439,
+        "stop" : 1617287562651,
+        "duration" : 212
+      }
+    }, {
+      "uid" : "2c3af851a935a7ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617287462809,
+        "stop" : 1617287463244,
+        "duration" : 435
+      }
+    }, {
+      "uid" : "2516b5a24cd885c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617281636159,
+        "stop" : 1617281636412,
+        "duration" : 253
+      }
+    }, {
+      "uid" : "b973ad9c73da7bff",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617281525213,
+        "stop" : 1617281525509,
+        "duration" : 296
+      }
+    }, {
+      "uid" : "919c16efda4c581c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617281262985,
+        "stop" : 1617281263230,
+        "duration" : 245
+      }
+    }, {
+      "uid" : "46acd219ceff2ac",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617281218536,
+        "stop" : 1617281218746,
+        "duration" : 210
+      }
+    }, {
+      "uid" : "740961a6c1c59da3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617281079244,
+        "stop" : 1617281079615,
+        "duration" : 371
+      }
+    }, {
+      "uid" : "3ac93edd8e99c878",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617272989397,
+        "stop" : 1617272989559,
+        "duration" : 162
+      }
+    }, {
+      "uid" : "f63d3576b05b7f48",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617272838495,
+        "stop" : 1617272838794,
+        "duration" : 299
+      }
+    }, {
+      "uid" : "ec92ab3f30bfc3ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617271900630,
+        "stop" : 1617271900810,
+        "duration" : 180
+      }
+    }, {
+      "uid" : "14bfc3134d3051d1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617269867015,
+        "stop" : 1617269867177,
+        "duration" : 162
+      }
+    }, {
+      "uid" : "4a688e07c7a1f87f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617269797207,
+        "stop" : 1617269797605,
+        "duration" : 398
+      }
+    }, {
+      "uid" : "ac8efe7c025f7721",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617269401102,
+        "stop" : 1617269401749,
+        "duration" : 647
+      }
+    }, {
+      "uid" : "bcb66e4d596b6495",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617118853066,
+        "stop" : 1617118853308,
+        "duration" : 242
+      }
+    }, {
+      "uid" : "1ea1185f566df67d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617118679177,
+        "stop" : 1617118679564,
+        "duration" : 387
+      }
+    }, {
+      "uid" : "f27a843ada2cacb5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617117777405,
+        "stop" : 1617117777724,
+        "duration" : 319
+      }
+    }, {
+      "uid" : "b7b855c62fb49257",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617115566562,
+        "stop" : 1617115566880,
+        "duration" : 318
+      }
+    }, {
+      "uid" : "b28f6feebbc755b1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617110855470,
+        "stop" : 1617110855710,
+        "duration" : 240
+      }
+    }, {
+      "uid" : "609e3d517c802782",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617110312423,
+        "stop" : 1617110312790,
+        "duration" : 367
+      }
+    }, {
+      "uid" : "47cb94cd468599af",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617109469528,
+        "stop" : 1617109469731,
+        "duration" : 203
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5da7d2fd921067c6.json",
+  "parameterValues" : [ "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}" ]
+}

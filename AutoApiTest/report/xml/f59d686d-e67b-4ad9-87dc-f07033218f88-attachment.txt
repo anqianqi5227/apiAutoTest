@@ -1,0 +1,10 @@
+anqi
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{'cookie': 'COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzNTAxMzUwLCJpYXQiOjE2MTgzMTczNTAsInJtYiI6MSwidWlkIjoyMzkyODN9.75AD44D3A3FD2A218128B05D3304816B25C71AAFD5D125A15D4FFE5504EBA377;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzNTAxMzUwLCJpYXQiOjE2MTgzMTczNTAsInJtYiI6MSwidWlkIjoyMzkyODN9.75AD44D3A3FD2A218128B05D3304816B25C71AAFD5D125A15D4FFE5504EBA377;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzNTAxMzUwLCJpYXQiOjE2MTgzMTczNTAsInJtYiI6MSwidWlkIjoyMzkyODN9.75AD44D3A3FD2A218128B05D3304816B25C71AAFD5D125A15D4FFE5504EBA377;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzNTAxMzUwLCJpYXQiOjE2MTgzMTczNTAsInJtYiI6MSwidWlkIjoyMzkyODN9.75AD44D3A3FD2A218128B05D3304816B25C71AAFD5D125A15D4FFE5504EBA377;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;'}
+None
+/mapi/home/index
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'WL1ahfF3K-Q', 'title': '测试官网', 'shareIntro': '企业在线学习平台', 'needBindMobile': False, 'pageList': [{'title': '企业专区', 'pageSource': 2, 'pageId': 616}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '推荐', 'pageSource': 1, 'pageId': 1}, {'title': '测试轮播图', 'pageSource': 1, 'pageId': 50}, {'title': 'BB', 'pageSource': 1, 'pageId': 67}]}})
+Regular_check
+['"corpCode": "${corpCode}$"']

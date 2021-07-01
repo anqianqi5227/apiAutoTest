@@ -1,0 +1,3 @@
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 43, 'corpCode': 'p1u5Es8yX98', 'name': '安琪175哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈', 'simpleName': '安琪175企业简称看你', 'h5Title': '哈哈哈h5分享信息', 'logo': 'http://imagev2.test.ximalaya.com/storages/efd6-audiotest/F1/43/CAoVUCUDpQyfAAEVwgAAKnPB.jpg!op_type=3&columns=480&rows=480'}})

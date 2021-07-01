@@ -1,0 +1,70 @@
+{
+  "uid" : "bc75ce2a5ceffb6a",
+  "name" : "test_premise[case_data3]",
+  "fullName" : "tests.TestScript.projectApi.test_project.TestProject#test_premise",
+  "historyId" : "5bd569208df49b85485c18a1216f0904",
+  "time" : {
+    "start" : 1617611692992,
+    "stop" : 1617611692992,
+    "duration" : 0
+  },
+  "status" : "skipped",
+  "statusMessage" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+  "statusTrace" : "('tests/TestScript/projectApi/test_project.py', 21, \"Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内\")",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "project"
+  }, {
+    "name" : "severity",
+    "value" : "trivial"
+  }, {
+    "name" : "tag",
+    "value" : "run(order=1)"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(True, reason='该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.projectApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_project"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProject"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "17898-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.projectApi.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': '项目id转code', 'info': '项目id转code', 'host': '${URL_OMS}$', 'address': '/co-oms/api/hook/invoke', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'data.yaml', 'headers': '${HEADERS_OMS1}$', 'timeout': 10, 'parameter': {'serverName': 'id-encode', 'params': 'long:${project_id}$'}, 'check_type': 'only_check_status', 'file': False, 'global_relevance': True, 'relevance': {'project_code': 'data'}}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.skipif(True, reason='该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')", "run(order=1)" ]
+  },
+  "source" : "bc75ce2a5ceffb6a.json",
+  "parameterValues" : [ "{'test_name': '项目id转code', 'info': '项目id转code', 'host': '${URL_OMS}$', 'address': '/co-oms/api/hook/invoke', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'data.yaml', 'headers': '${HEADERS_OMS1}$', 'timeout': 10, 'parameter': {'serverName': 'id-encode', 'params': 'long:${project_id}$'}, 'check_type': 'only_check_status', 'file': False, 'global_relevance': True, 'relevance': {'project_code': 'data'}}" ]
+}

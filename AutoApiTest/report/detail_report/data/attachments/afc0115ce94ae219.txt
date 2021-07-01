@@ -1,0 +1,2 @@
+True
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini

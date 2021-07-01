@@ -1,0 +1,87 @@
+{
+  "uid" : "df928d468a59c94b",
+  "name" : "test_premise[login0-case_data2]",
+  "fullName" : "tests.TestScript.projectApi.test_project.TestProject#test_premise",
+  "historyId" : "6b46e24b70309d635aae7f7c4b79d44c",
+  "time" : {
+    "start" : 1617801448859,
+    "stop" : 1617801448859,
+    "duration" : 0
+  },
+  "status" : "skipped",
+  "statusMessage" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+  "statusTrace" : "('tests/TestScript/projectApi/test_project.py', 21, \"Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内\")",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "login",
+    "time" : {
+      "start" : 1617801448562,
+      "stop" : 1617801448569,
+      "duration" : 7
+    },
+    "status" : "broken",
+    "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'\n",
+    "statusTrace" : "  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/_pytest/fixtures.py\", line 964, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/_pytest/fixtures.py\", line 788, in call_fixture_func\n    res = next(it)\n  File \"/Users/nali/AutoApiTest/conftest.py\", line 29, in login\n  File \"/Users/nali/ApiAutoTest/common/unit/api_send_check.py\", line 28, in api_send_check\n    res = api_send.api_send(case_data, case_dict, case_path, relevance)\n  File \"/Users/nali/ApiAutoTest/common/unit/api_send.py\", line 85, in api_send\n    host = conf_manage(cur_host, 'HOST')\n  File \"/Users/nali/ApiAutoTest/common/config_module/config_manage.py\", line 22, in conf_manage\n    param = cf.read_config(name)\n  File \"/Users/nali/ApiAutoTest/common/config_module/config_read.py\", line 84, in read_config\n    os.chdir(self.path)\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "project"
+  }, {
+    "name" : "severity",
+    "value" : "trivial"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(True, reason='该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.projectApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_project"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProject"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "86863-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.projectApi.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': '企业分配员工', 'info': '企业分配员工', 'host': '${URL_ENTERPRISE}$', 'address': '/admin/api/project/target/assign', 'http_type': 'https', 'request_type': 'post', 'parameter_type': 'data.yaml', 'headers': '${HEADERS_ENTERPRISE}$', 'timeout': 10, 'parameter': {'projectId': '${project_id}$', 'uids': '${uid}$', 'deptIds': None, 'classIds': None, 'secretSign': '${assignSign}$'}, 'check_type': 'only_check_status', 'file': False, 'global_relevance': None, 'relevance': None}"
+  }, {
+    "name" : "login",
+    "value" : "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.skipif(True, reason='该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "df928d468a59c94b.json",
+  "parameterValues" : [ "{'test_name': '企业分配员工', 'info': '企业分配员工', 'host': '${URL_ENTERPRISE}$', 'address': '/admin/api/project/target/assign', 'http_type': 'https', 'request_type': 'post', 'parameter_type': 'data.yaml', 'headers': '${HEADERS_ENTERPRISE}$', 'timeout': 10, 'parameter': {'projectId': '${project_id}$', 'uids': '${uid}$', 'deptIds': None, 'classIds': None, 'secretSign': '${assignSign}$'}, 'check_type': 'only_check_status', 'file': False, 'global_relevance': None, 'relevance': None}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+}

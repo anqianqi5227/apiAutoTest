@@ -1,0 +1,522 @@
+{
+  "uid" : "e00e3a1b4c0be891",
+  "name" : "test_case[login0-case_data0]",
+  "fullName" : "tests.TestScript.configsmainApi.test_configsmain.TestConfigsmain#test_case",
+  "historyId" : "ef0ca4c28e6bf02f15ad091966a42fd3",
+  "time" : {
+    "start" : 1618288570333,
+    "stop" : 1618288570416,
+    "duration" : 83
+  },
+  "status" : "passed",
+  "flaky" : true,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1618288570314,
+      "stop" : 1618288570315,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "login",
+    "time" : {
+      "start" : 1618288569900,
+      "stop" : 1618288570159,
+      "duration" : 259
+    },
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "POST请求接口",
+      "time" : {
+        "start" : 1618288569908,
+        "stop" : 1618288569915,
+        "duration" : 7
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "f2b4bf60ee8fbfe1",
+        "name" : "请求接口：",
+        "source" : "f2b4bf60ee8fbfe1.attach",
+        "type" : "text/plain",
+        "size" : 8
+      }, {
+        "uid" : "7bca45ba9adcb491",
+        "name" : "用例描述：",
+        "source" : "7bca45ba9adcb491.attach",
+        "type" : "text/plain",
+        "size" : 16
+      }, {
+        "uid" : "372b26a47f80597a",
+        "name" : "请求地址",
+        "source" : "372b26a47f80597a.attach",
+        "type" : "text/plain",
+        "size" : 54
+      }, {
+        "uid" : "8df4e903d393f5b9",
+        "name" : "请求头",
+        "source" : "8df4e903d393f5b9.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "bc0f94977719ede1",
+        "name" : "请求参数",
+        "source" : "bc0f94977719ede1.attach",
+        "type" : "text/plain",
+        "size" : 111
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "不校验结果",
+      "time" : {
+        "start" : 1618288570158,
+        "stop" : 1618288570158,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "关联值写入关联池文件",
+      "time" : {
+        "start" : 1618288570158,
+        "stop" : 1618288570159,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "114ee260436108d7",
+        "name" : "接口中获取的关联值",
+        "source" : "114ee260436108d7.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 6,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "get请求接口",
+      "time" : {
+        "start" : 1618288570338,
+        "stop" : 1618288570342,
+        "duration" : 4
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "405d052d454241e1",
+        "name" : "请求接口：",
+        "source" : "405d052d454241e1.attach",
+        "type" : "text/plain",
+        "size" : 13
+      }, {
+        "uid" : "e4d437469571928e",
+        "name" : "用例描述：",
+        "source" : "e4d437469571928e.attach",
+        "type" : "text/plain",
+        "size" : 11
+      }, {
+        "uid" : "909fca1081870eec",
+        "name" : "请求地址",
+        "source" : "909fca1081870eec.attach",
+        "type" : "text/plain",
+        "size" : 48
+      }, {
+        "uid" : "7393a8493f10d6a8",
+        "name" : "请求头",
+        "source" : "7393a8493f10d6a8.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "8bb8b68cfdf0968f",
+        "name" : "请求参数",
+        "source" : "8bb8b68cfdf0968f.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "正则校验",
+      "time" : {
+        "start" : 1618288570413,
+        "stop" : 1618288570415,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "3db47f4c68063acb",
+        "name" : "正则校验结果\n",
+        "source" : "3db47f4c68063acb.attach",
+        "type" : "text/plain",
+        "size" : 12
+      }, {
+        "uid" : "4bec6e6cd94a67b7",
+        "name" : "实际data",
+        "source" : "4bec6e6cd94a67b7.attach",
+        "type" : "text/plain",
+        "size" : 557
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "关联值写入关联池文件",
+      "time" : {
+        "start" : 1618288570415,
+        "stop" : 1618288570415,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "8f193c6b3479cb39",
+        "name" : "接口中获取的关联值",
+        "source" : "8f193c6b3479cb39.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "5295507129a79593",
+      "name" : "log",
+      "source" : "5295507129a79593.txt",
+      "type" : "text/plain",
+      "size" : 1315
+    }, {
+      "uid" : "a83626a059d63d19",
+      "name" : "stdout",
+      "source" : "a83626a059d63d19.txt",
+      "type" : "text/plain",
+      "size" : 1630
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 10,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "login::0",
+    "time" : {
+      "start" : 1618288572652,
+      "stop" : 1618288572653,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "configsmain"
+  }, {
+    "name" : "story",
+    "value" : "configsmain"
+  }, {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.configsmainApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_configsmain"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestConfigsmain"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "8800-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.configsmainApi.test_configsmain"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'configsmain_1', 'case_id': 1, 'is_run': None, 'info': 'configsmain', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}"
+  }, {
+    "name" : "login",
+    "value" : "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "blocker",
+    "retries" : [ {
+      "uid" : "6dae6ee2be67def",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: module 'allure' has no attribute 'environment'",
+      "time" : {
+        "start" : 1618288546289,
+        "stop" : 1618288546289,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "dbb7d796db27d088",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: module 'allure' has no attribute 'environment'",
+      "time" : {
+        "start" : 1617807207171,
+        "stop" : 1617807207171,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "810ca8b0b3abc8a9",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: module 'allure' has no attribute 'environment'",
+      "time" : {
+        "start" : 1617806989919,
+        "stop" : 1617806989919,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "fc3249d7b60b7843",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617805032151,
+        "stop" : 1617805032375,
+        "duration" : 224
+      }
+    }, {
+      "uid" : "2bc165939a6327f4",
+      "status" : "broken",
+      "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'",
+      "time" : {
+        "start" : 1617802197631,
+        "stop" : 1617802197631,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "c4b9a88b3f9a2439",
+      "status" : "broken",
+      "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'",
+      "time" : {
+        "start" : 1617802162006,
+        "stop" : 1617802162006,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "211ae9a2b18c5b44",
+      "status" : "broken",
+      "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nali/AutoApiTest/config'",
+      "time" : {
+        "start" : 1617801448703,
+        "stop" : 1617801448703,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "607982f9ccfa814d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617639138638,
+        "stop" : 1617639138794,
+        "duration" : 156
+      }
+    }, {
+      "uid" : "94b5eb8974c7839a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617639002063,
+        "stop" : 1617639002200,
+        "duration" : 137
+      }
+    }, {
+      "uid" : "c9742e3567c4f3fd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617638649308,
+        "stop" : 1617638649501,
+        "duration" : 193
+      }
+    }, {
+      "uid" : "c64290a2141d8174",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617638453960,
+        "stop" : 1617638454159,
+        "duration" : 199
+      }
+    }, {
+      "uid" : "9882a9e370eac89f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617638334261,
+        "stop" : 1617638334446,
+        "duration" : 185
+      }
+    }, {
+      "uid" : "da1d20014b1495f3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617638173070,
+        "stop" : 1617638173243,
+        "duration" : 173
+      }
+    }, {
+      "uid" : "341b86b03983012a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617638001345,
+        "stop" : 1617638001528,
+        "duration" : 183
+      }
+    }, {
+      "uid" : "aed2c89a1841a3c3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617637939045,
+        "stop" : 1617637939267,
+        "duration" : 222
+      }
+    }, {
+      "uid" : "39eab5f6f9475256",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617637775293,
+        "stop" : 1617637775467,
+        "duration" : 174
+      }
+    }, {
+      "uid" : "a0cfc7555284dd1d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617636892433,
+        "stop" : 1617636892606,
+        "duration" : 173
+      }
+    }, {
+      "uid" : "93b40865d412500c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617636752400,
+        "stop" : 1617636752607,
+        "duration" : 207
+      }
+    }, {
+      "uid" : "bf0d7f42c04edb27",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617635945931,
+        "stop" : 1617635946106,
+        "duration" : 175
+      }
+    }, {
+      "uid" : "61785463da5b02e3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617635704274,
+        "stop" : 1617635704482,
+        "duration" : 208
+      }
+    }, {
+      "uid" : "7b5cfeea1b4558cb",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617635417196,
+        "stop" : 1617635417385,
+        "duration" : 189
+      }
+    }, {
+      "uid" : "6553864d58acdc49",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617635159313,
+        "stop" : 1617635159526,
+        "duration" : 213
+      }
+    }, {
+      "uid" : "e53c0fa4f11b737",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617633206732,
+        "stop" : 1617633206874,
+        "duration" : 142
+      }
+    }, {
+      "uid" : "d51751f5dc28193",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'SubRequest' object has no attribute 'params'",
+      "time" : {
+        "start" : 1617633164546,
+        "stop" : 1617633164546,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "5cc38ce030b59376",
+      "status" : "broken",
+      "statusDetails" : "TypeError: a bytes-like object is required, not 'NoneType'",
+      "time" : {
+        "start" : 1617608531427,
+        "stop" : 1617608531431,
+        "duration" : 4
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "e00e3a1b4c0be891.json",
+  "parameterValues" : [ "{'test_name': 'configsmain_1', 'case_id': 1, 'is_run': None, 'info': 'configsmain', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+}

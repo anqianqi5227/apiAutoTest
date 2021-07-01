@@ -1,0 +1,201 @@
+{
+  "uid" : "ec92ab3f30bfc3ce",
+  "name" : "test_case[case_data0]",
+  "fullName" : "tests.TestScript.infoApi.test_info.TestPremise#test_case",
+  "historyId" : "88ff85c5941ab1b201b71956773c97b8",
+  "time" : {
+    "start" : 1617271900630,
+    "stop" : 1617271900810,
+    "duration" : 180
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1617271900621,
+      "stop" : 1617271900621,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "POST请求接口",
+      "time" : {
+        "start" : 1617271900635,
+        "stop" : 1617271900638,
+        "duration" : 3
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "446bc3e21743e12b",
+        "name" : "info",
+        "source" : "446bc3e21743e12b.attach",
+        "type" : "text/plain",
+        "size" : 15
+      }, {
+        "uid" : "2bfa2f8fd1039d60",
+        "name" : "新增项目",
+        "source" : "2bfa2f8fd1039d60.attach",
+        "type" : "text/plain",
+        "size" : 15
+      }, {
+        "uid" : "f4ffe4af658169f5",
+        "name" : "https://m.test.qingxuetang.com/mapi/user/info",
+        "source" : "f4ffe4af658169f5.attach",
+        "type" : "text/plain",
+        "size" : 12
+      }, {
+        "uid" : "43dc2379921ee08f",
+        "name" : "{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}",
+        "source" : "43dc2379921ee08f.attach",
+        "type" : "text/plain",
+        "size" : 9
+      }, {
+        "uid" : "a27e0b4f1ac23afe",
+        "name" : "None",
+        "source" : "a27e0b4f1ac23afe.attach",
+        "type" : "text/plain",
+        "size" : 12
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "正则校验",
+      "time" : {
+        "start" : 1617271900788,
+        "stop" : 1617271900792,
+        "duration" : 4
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "f21a1c4441689fd",
+        "name" : "[\"'corpId': 43\", \"'corpId': 43\", \"'corpId': 43\"]",
+        "source" : "f21a1c4441689fd.attach",
+        "type" : "text/plain",
+        "size" : 19
+      }, {
+        "uid" : "9738932f2e06c044",
+        "name" : "['_GAQsTvZuwo']",
+        "source" : "9738932f2e06c044.attach",
+        "type" : "text/plain",
+        "size" : 19
+      }, {
+        "uid" : "68978f284539709b",
+        "name" : "{'ret': 0, 'msg': '操作成功', 'data': {'uid': 239283, 'uidCode': '_GAQsTvZuwo', 'vip': {'type': 1, 'name': '体验会员', 'timeExpire': 1538705350000, 'status': 6, 'hasTrial': True}, 'corpId': 435, 'corpCode': 'WL1ahfF3K-Q', 'corpName': '测试官网', 'corpSimpleName': '', 'corpLogo': 'http://imagev2.test.ximalaya.com/storages/ed5a-audiotest/4D/84/CAoVcs0DZrpuAABLegAAIBsb.jpg!op_type=0', 'isMultiCorp': 1, 'corpList': [{'corpId': 435, 'name': '测试官网', 'simpleName': '测试官网', 'logo': 'http://imagev2.test.ximalaya.com/storages/ed5a-audiotest/4D/84/CAoVcs0DZrpuAABLegAAIBsb.jpg!op_type=3&columns=480&rows=480'}, {'corpId': 3339, 'name': '17521200974', 'simpleName': '17521200974', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3338, 'name': '测试短信验证码', 'simpleName': '测试短信验证码', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3328, 'name': '测试realname', 'simpleName': '测试realname', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3327, 'name': '测试realname', 'simpleName': '测试realname', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3326, 'name': '测试昵称', 'simpleName': '测试昵称', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 174, 'name': '小雅的公司', 'simpleName': 'CCTEST', 'logo': 'http://imagev2.test.ximalaya.com/group1/M01/28/BF/wKgDplsGkfOAWbxPAAT1fujFg28909.png!op_type=3&columns=480&rows=480'}, {'corpId': 2925, 'name': 'xc', 'simpleName': 'xc', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3286, 'name': '9-18企业', 'simpleName': '9-18企业', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3284, 'name': '测试没有渠道企业', 'simpleName': '测试没有渠道企业', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3283, 'name': '测试渠道企业配置', 'simpleName': '测试渠道企业配置', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3234, 'name': '珠穆朗玛', 'simpleName': '珠穆朗玛', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3256, 'name': '测试机就很好ｕ……这样我才是我第一眼镜妹纸真的', 'simpleName': '测试机就很好ｕ……这样我才是我第一眼镜妹纸真的', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 12, 'name': '证大喜马拉雅股份有限公司', 'simpleName': '证大喜马拉雅股份有限公司', 'logo': 'http://imagev2.test.ximalaya.com/storages/d483-audiotest/C4/1B/CAoVJfkEJkaQAAApswAAA41W.png!op_type=3&columns=480&rows=480'}, {'corpId': 3214, 'name': '测试党建-1', 'simpleName': '测试党建-1', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3213, 'name': '测试党建', 'simpleName': '测试党建', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3167, 'name': '测试初次修改密码', 'simpleName': '测试初次修改密码', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2722, 'name': '风飞夏夏', 'simpleName': '风飞夏夏', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 3111, 'name': '测试展示工号', 'simpleName': '测试展示工号', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2986, 'name': '测试新建企业', 'simpleName': '测试新建企业', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2980, 'name': '测试渠道2-24', 'simpleName': '测试渠道2-24', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 43, 'name': '安琪175哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈', 'simpleName': '安琪175企业简称看你', 'logo': 'http://imagev2.test.ximalaya.com/storages/efd6-audiotest/F1/43/CAoVUCUDpQyfAAEVwgAAKnPB.jpg!op_type=3&columns=480&rows=480'}, {'corpId': 2797, 'name': '安琪看手机', 'simpleName': '安琪看手机', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2696, 'name': 'amzWY01GSk', 'simpleName': 'amzWY01GSk', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2687, 'name': '短信通知', 'simpleName': '短信通知', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2163, 'name': 'zpyin test333', 'simpleName': 'zpyin test333', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2565, 'name': 'is 就到家', 'simpleName': 'is 就到家', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2563, 'name': '测试一二级哈', 'simpleName': '测试一二级哈', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2517, 'name': '哦哦哦哦', 'simpleName': '哦哦哦哦', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2515, 'name': '测试h5注册企业分配会员', 'simpleName': '测试h5注册企业分配会员', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2513, 'name': '思考思考', 'simpleName': '思考思考', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2511, 'name': '拉黑舒服的', 'simpleName': '拉黑舒服的', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2158, 'name': 'hgf', 'simpleName': 'hgf', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2417, 'name': 'anqi', 'simpleName': 'anqi', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2416, 'name': '测试222', 'simpleName': '测试222', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2415, 'name': '测试新企业切换', 'simpleName': '测试新企业切换', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2413, 'name': 'ceshi2111', 'simpleName': 'ceshi2111', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2412, 'name': '测试111', 'simpleName': '测试111', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2411, 'name': '切换新企业1', 'simpleName': '切换新企业1', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 2410, 'name': '测试新注册切换', 'simpleName': '测试新注册切换', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 84, 'name': '琪琪琪小公司', 'simpleName': '琪琪琪小公司简称', 'logo': 'https://s1.xmcdn.com/lib/enterprise-user-admin/last/css/img/logo-qxt.png'}, {'corpId': 44, 'name': '呼哈呼哈', 'simpleName': '喜马拉雅企业版', 'logo': 'http://imagev2.test.ximalaya.com/group1/M01/3D/56/wKgD3l7UodSAXoQbAAAeeAMPCE830.jpeg!op_type=3&columns=480&rows=480'}], 'nickname': '175昵称', 'realName': '阿拉斯加到了借记卡放假啊上岛咖啡就拉开就收到反馈就看啦就是离开的房间两卡就上岛咖啡', 'empName': '\" onclick=alert(/xss/) // ', 'mobile': '175****0974', 'gender': 2, 'avatar': 'http://imagev2.test.ximalaya.com/storages/6479-audiotest/E8/94/CAoVXrsEKku5AAEkuQAAM3wd.jpg!op_type=3&columns=300&rows=300', 'remark': '呜呜呜哦今生今世吧这也算是一个非常好看吗\uD83D\uDE2F……这些是你给我们家了、一定不会改变什么，你去找她吗……这些是你想知道你有时间过来看看吧！你不知道我为什么那么多人呢、不过这嘿嘿希望明天不要在学校吃饭睡觉看电视剧看到一句很开心了、在于我们如何选择的路都走得太好啦……一个人呜呜呜哦今生今世吧这也算是一个非常好看吗\uD83D\uDE2F……这些是你给我们家了、一定不会改变什么，你去找她吗……这些是你想知道你有时间过来看看吧！', 'empNo': '175', 'email': '', 'job': '', 'depts': [{'deptId': 0, 'name': '测试官网', 'fullName': '测试官网', 'canCheck': False, 'checked': False}], 'selfVip': {'type': 2, 'name': '会员', 'timeExpire': 2406974379000, 'status': 1, 'hasTrial': True}, 'corpVip': {'type': 1, 'name': '体验会员', 'timeExpire': 1538705350000, 'status': 6, 'hasTrial': True}, 'vipToShow': '2046.04.10到期', 'pwdStatus': 1, 'channelName': '', 'capacity': 1, 'role': 1, 'openRegGuide': 0, 'openIndexNewerGuide': 0, 'openMineNewerGuide': 0, 'partners': []}}",
+        "source" : "68978f284539709b.attach",
+        "type" : "text/plain",
+        "size" : 10
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 3,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "关联值写入关联池文件",
+      "time" : {
+        "start" : 1617271900793,
+        "stop" : 1617271900809,
+        "duration" : 16
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "e368ed79aa66f6df",
+        "name" : "{'uid': 239283, 'uidCode': '_GAQsTvZuwo'}",
+        "source" : "e368ed79aa66f6df.attach",
+        "type" : "text/plain",
+        "size" : 27
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "f0c17f77f3990fd8",
+      "name" : "log",
+      "source" : "f0c17f77f3990fd8.txt",
+      "type" : "text/plain",
+      "size" : 9304
+    }, {
+      "uid" : "a333b8c8ee6003f1",
+      "name" : "stdout",
+      "source" : "a333b8c8ee6003f1.txt",
+      "type" : "text/plain",
+      "size" : 10237
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 11,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "info"
+  }, {
+    "name" : "story",
+    "value" : "info"
+  }, {
+    "name" : "tag",
+    "value" : "run(order=1)"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.infoApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_info"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPremise"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "29415-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.infoApi.test_info"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'info', 'info': '新增项目', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43', '\"corpCode\":${uidCode}$'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "run(order=1)" ]
+  },
+  "source" : "ec92ab3f30bfc3ce.json",
+  "parameterValues" : [ "{'test_name': 'info', 'info': '新增项目', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43', '\"corpCode\":${uidCode}$'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}" ]
+}

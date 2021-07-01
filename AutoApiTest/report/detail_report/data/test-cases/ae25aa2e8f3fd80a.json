@@ -1,0 +1,184 @@
+{
+  "uid" : "ae25aa2e8f3fd80a",
+  "name" : "test_case[login0-case_data0]",
+  "fullName" : "tests.TestScript.projectApi.test_project.TestProject#test_case",
+  "historyId" : "9e54795b678c888c98e490ab7328a856",
+  "time" : {
+    "start" : 1617639003345,
+    "stop" : 1617639003345,
+    "duration" : 0
+  },
+  "status" : "skipped",
+  "statusMessage" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+  "statusTrace" : "('tests/TestScript/projectApi/test_project.py', 36, \"Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内\")",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "login",
+    "time" : {
+      "start" : 1617639001607,
+      "stop" : 1617639001880,
+      "duration" : 273
+    },
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "POST请求接口",
+      "time" : {
+        "start" : 1617639001612,
+        "stop" : 1617639001613,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "6763ed60a94b3103",
+        "name" : "请求接口：",
+        "source" : "6763ed60a94b3103.attach",
+        "type" : "text/plain",
+        "size" : 8
+      }, {
+        "uid" : "18a6e0f6bbb4089c",
+        "name" : "用例描述：",
+        "source" : "18a6e0f6bbb4089c.attach",
+        "type" : "text/plain",
+        "size" : 16
+      }, {
+        "uid" : "593a1d4ad8482994",
+        "name" : "请求地址",
+        "source" : "593a1d4ad8482994.attach",
+        "type" : "text/plain",
+        "size" : 54
+      }, {
+        "uid" : "689c3beec7d20bcd",
+        "name" : "请求头",
+        "source" : "689c3beec7d20bcd.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "5fbfbc945dc25bb1",
+        "name" : "请求参数",
+        "source" : "5fbfbc945dc25bb1.attach",
+        "type" : "text/plain",
+        "size" : 111
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "不校验结果",
+      "time" : {
+        "start" : 1617639001879,
+        "stop" : 1617639001879,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "关联值写入关联池文件",
+      "time" : {
+        "start" : 1617639001879,
+        "stop" : 1617639001879,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "14193bf08c9a1c9a",
+        "name" : "接口中获取的关联值",
+        "source" : "14193bf08c9a1c9a.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 6,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  } ],
+  "afterStages" : [ {
+    "name" : "login::0",
+    "time" : {
+      "start" : 1617639003509,
+      "stop" : 1617639003509,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "trivial"
+  }, {
+    "name" : "story",
+    "value" : "project"
+  }, {
+    "name" : "feature",
+    "value" : "project"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(True, reason='该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.projectApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_project"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProject"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "21175-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.projectApi.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'project_detail', 'case_id': 1, 'is_run': None, 'info': '项目详情', 'host': '${HOST2}$', 'address': '/h5/api/project/v1/${project_code}$', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'headers': '${headers1}$', 'parameter': None, 'timeout': 10, 'check_type': 'only_check_status', 'global_relevance': True, 'relevance': {'chenkin_code': 'checkinCode'}}"
+  }, {
+    "name" : "login",
+    "value" : "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.skipif(True, reason='该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "ae25aa2e8f3fd80a.json",
+  "parameterValues" : [ "{'test_name': 'project_detail', 'case_id': 1, 'is_run': None, 'info': '项目详情', 'host': '${HOST2}$', 'address': '/h5/api/project/v1/${project_code}$', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'headers': '${headers1}$', 'parameter': None, 'timeout': 10, 'check_type': 'only_check_status', 'global_relevance': True, 'relevance': {'chenkin_code': 'checkinCode'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+}

@@ -1,0 +1,1 @@
+/Users/nali/AutoApiTest/tests/CommonApi/loginApi/relevance.ini

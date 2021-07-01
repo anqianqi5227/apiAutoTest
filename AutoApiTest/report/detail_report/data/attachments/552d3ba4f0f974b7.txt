@@ -1,0 +1,6 @@
+${HOST2}$
+None
+None
+/mapi/configs/main
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}

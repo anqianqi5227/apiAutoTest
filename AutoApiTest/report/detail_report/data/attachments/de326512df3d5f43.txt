@@ -1,0 +1,1 @@
+/Users/nali/AutoApiTest/tests/TestCases/countApi/relevance.ini

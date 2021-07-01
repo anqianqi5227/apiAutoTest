@@ -1,0 +1,141 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Exception: 正则未校验到内容！ ['\"ret\": 0']",
+      "children" : [ {
+        "name" : "test_case[case_data0]",
+        "uid" : "f24443ca8950a38",
+        "parentUid" : "87ec60f07c20340207f352676d8d2b27",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631086820,
+          "stop" : 1617631086989,
+          "duration" : 169
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'configs_1', 'case_id': 1, 'is_run': None, 'info': '我的页配置信息', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "3049a103d2cf6ee",
+        "parentUid" : "87ec60f07c20340207f352676d8d2b27",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631087579,
+          "stop" : 1617631087723,
+          "duration" : 144
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'configsmain_1', 'case_id': 1, 'is_run': None, 'info': 'configsmain', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "d49e110caf9f25b7",
+        "parentUid" : "87ec60f07c20340207f352676d8d2b27",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631087860,
+          "stop" : 1617631088003,
+          "duration" : 143
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'count_1', 'info': '消息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/notice/count', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      }, {
+        "name" : "test_case[case_data0]",
+        "uid" : "28c0b6c62e503534",
+        "parentUid" : "87ec60f07c20340207f352676d8d2b27",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631088164,
+          "stop" : 1617631088313,
+          "duration" : 149
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'homeindex_1', 'case_id': 1, 'is_run': None, 'info': '首页频道列表信息', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"ret\": 0'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "87ec60f07c20340207f352676d8d2b27"
+    }, {
+      "name" : "Exception: 正则未校验到内容！ ['\"corpId\": 43']",
+      "children" : [ {
+        "name" : "test_case[case_data0]",
+        "uid" : "13605a2d78f80254",
+        "parentUid" : "a815d3f1032066ec7966110f968fe059",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631088463,
+          "stop" : 1617631088624,
+          "duration" : 161
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode', 'corpCode': 'corpCode'}}" ]
+      } ],
+      "uid" : "a815d3f1032066ec7966110f968fe059"
+    }, {
+      "name" : "TypeError: can only concatenate str (not \"NoneType\") to str",
+      "children" : [ {
+        "name" : "test_case[case_data0]",
+        "uid" : "85a1dd136ea56c75",
+        "parentUid" : "7ae55e489197044a8850b123498a77e4",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631088792,
+          "stop" : 1617631088799,
+          "duration" : 7
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'page_1', 'info': '频道数据', 'is_run': None, 'host': None, 'headers': None, 'address': None, 'http_type': 'https', 'request_type': 'get', 'parameter_type': 'data', 'parameter': None, 'cookies': None, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}" ]
+      } ],
+      "uid" : "7ae55e489197044a8850b123498a77e4"
+    }, {
+      "name" : "Exception: 正则未校验到内容！ ['\"corpCode\": \"${corpCode}$\"']",
+      "children" : [ {
+        "name" : "test_case[case_data0]",
+        "uid" : "8129daf45a4096e2",
+        "parentUid" : "8170890e2c19b8af5fd31aaeb3f58591",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617631089073,
+          "stop" : 1617631089241,
+          "duration" : 168
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'simpleinfo_1', 'case_id': 1, 'is_run': None, 'info': 'simpleinfo', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'corpId': 'corpId'}}" ]
+      } ],
+      "uid" : "8170890e2c19b8af5fd31aaeb3f58591"
+    }, {
+      "name" : "AttributeError: 'NoneType' object has no attribute 'replace'",
+      "children" : [ {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "fea9f3587272a8ba",
+        "parentUid" : "552936eb604f3dcbe91186376b85992b",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618288570871,
+          "stop" : 1618288571190,
+          "duration" : 319
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'homeindex_1', 'case_id': 1, 'is_run': None, 'info': '首页频道列表信息', 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpCode\": \"${corpCode}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'global_relevance': True, 'relevance': {'pageId': 'pageId', 'pageSource': 'pageSource'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "552936eb604f3dcbe91186376b85992b"
+    }, {
+      "name" : "json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "children" : [ {
+        "name" : "test_case[login0-case_data0]",
+        "uid" : "b3278c8581595767",
+        "parentUid" : "7bcaf70ebf758f58bb51e7ee5ff79f52",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618288571619,
+          "stop" : 1618288572373,
+          "duration" : 754
+        },
+        "flaky" : true,
+        "parameters" : [ "{'test_name': 'page_1', 'info': '频道数据', 'is_run': None, 'request_type': 'get', 'parameter_type': 'data', 'parameter': {'pageId': '${pageId}$', 'pageSource': '${pageSource}$'}, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"pageId\": \"${pageId}$\"'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': None, 'relevance': None}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check': {'expected_result': None, 'check_type': 'no_check', 'expected_code': None}, 'file': False, 'global_relevance': None, 'relevance': None}" ]
+      } ],
+      "uid" : "7bcaf70ebf758f58bb51e7ee5ff79f52"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

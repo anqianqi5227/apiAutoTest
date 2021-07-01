@@ -1,0 +1,16 @@
+INFO     root:setupTest.py:31 xxx {'uid': '239283', 'uidCode': '_GAQsTvZuwo', 'corpCode': 'WL1ahfF3K-Q'}
+INFO     root:setupTest.py:42 xx {'uid': 239283, 'uidCode': '_GAQsTvZuwo', 'corpCode': 'WL1ahfF3K-Q'}
+INFO     root:api_send_check.py:25 h {'uid': 239283, 'uidCode': '_GAQsTvZuwo', 'corpCode': 'WL1ahfF3K-Q'}
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['URL_OMS', 'HOST1', 'HOST2'])
+INFO     root:replace_relevance.py:23 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['HEADERS_OMS', 'HEADERS_OMS1', 'HEADERS_ENTERPRISE', 'headers1', 'headers2'])
+INFO     root:replace_relevance.py:23 param_value {"content-type": "application/x-www-form-urlencoded; charset=UTF-8"}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 435, 'corpCode': 'WL1ahfF3K-Q', 'name': '测试官网', 'simpleName': '测试官网', 'h5Title': '安琪测试官网', 'logo': 'http://imagev2.test.ximalaya.com/storages/ed5a-audiotest/4D/84/CAoVcs0DZrpuAABLegAAIBsb.jpg!op_type=3&columns=480&rows=480'}})
+INFO     root:replace_relevance.py:18 param corpCode
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['uid', 'uidCode', 'corpCode'])
+INFO     root:replace_relevance.py:23 param_value WL1ahfF3K-Q
+INFO     root:conftest.py:39 本轮测试已结束，正在还原测试环境！

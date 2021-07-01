@@ -1,0 +1,14 @@
+INFO     root:setupTest.py:31 xxx {}
+INFO     root:setupTest.py:42 xx {}
+INFO     root:api_send_check.py:25 h {}
+INFO     root:replace_relevance.py:18 param HOST2
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['URL_OMS', 'HOST1', 'HOST2'])
+INFO     root:replace_relevance.py:23 param_value m.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys(['HEADERS_OMS', 'HEADERS_OMS1', 'HEADERS_ENTERPRISE', 'headers1', 'headers2'])
+INFO     root:replace_relevance.py:23 param_value {"content-type": "application/x-www-form-urlencoded; charset=UTF-8"}
+INFO     root:api_send.py:114 请求方法为 get
+INFO     root:api_send.py:126 请求接口结果：
+ (200, {'ret': 0, 'msg': '操作成功', 'data': {'corpCode': 'WL1ahfF3K-Q', 'title': '测试官网', 'shareIntro': '企业在线学习平台', 'needBindMobile': False, 'pageList': [{'title': '企业专区', 'pageSource': 2, 'pageId': 616}, {'title': '有声图书馆', 'pageSource': 1, 'pageId': 2}, {'title': '二轮回归', 'pageSource': 1, 'pageId': 48}, {'title': '推荐', 'pageSource': 1, 'pageId': 1}, {'title': '测试轮播图', 'pageSource': 1, 'pageId': 50}, {'title': 'BB', 'pageSource': 1, 'pageId': 67}]}})
+INFO     root:replace_relevance.py:18 param corpCode
+INFO     root:replace_relevance.py:19 relevance.keys() dict_keys([])

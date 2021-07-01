@@ -1,0 +1,10 @@
+anqi
+/Users/nali/AutoApiTest/common/config_module/relevance/cookie.ini
+{'cookie': 'COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzNTAxMzUwLCJpYXQiOjE2MTgzMTczNTAsInJtYiI6MSwidWlkIjoyMzkyODN9.75AD44D3A3FD2A218128B05D3304816B25C71AAFD5D125A15D4FFE5504EBA377;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzNTAxMzUwLCJpYXQiOjE2MTgzMTczNTAsInJtYiI6MSwidWlkIjoyMzkyODN9.75AD44D3A3FD2A218128B05D3304816B25C71AAFD5D125A15D4FFE5504EBA377;NICKNAME4=175%E6%98%B5%E7%A7%B0;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzNTAxMzUwLCJpYXQiOjE2MTgzMTczNTAsInJtYiI6MSwidWlkIjoyMzkyODN9.75AD44D3A3FD2A218128B05D3304816B25C71AAFD5D125A15D4FFE5504EBA377;COID=eyJ2ZXIiOiIxLjAifQ.eyJiY0lkIjozLCJlbnZJZCI6NCwiZXhwIjoxNjIzNTAxMzUwLCJpYXQiOjE2MTgzMTczNTAsInJtYiI6MSwidWlkIjoyMzkyODN9.75AD44D3A3FD2A218128B05D3304816B25C71AAFD5D125A15D4FFE5504EBA377;NICKNAME4=175%E6%98%B5%E7%A7%B0;UID4=239283;'}
+None
+/mapi/corp/simpleInfo
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(200, {'ret': 0, 'msg': '操作成功', 'data': {'corpId': 435, 'corpCode': 'WL1ahfF3K-Q', 'name': '测试官网', 'simpleName': '测试官网', 'h5Title': '安琪测试官网', 'logo': 'http://imagev2.test.ximalaya.com/storages/ed5a-audiotest/4D/84/CAoVcs0DZrpuAABLegAAIBsb.jpg!op_type=3&columns=480&rows=480'}})
+Regular_check
+['"corpCode": "${corpCode}$"']

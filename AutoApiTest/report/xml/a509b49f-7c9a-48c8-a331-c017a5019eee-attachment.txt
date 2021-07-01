@@ -1,0 +1,7 @@
+None
+None
+/mapi/configs/main
+m.test.qingxuetang.com
+{'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+(200, {'data': {}, 'msg': '未登录', 'ret': -10})
+Regular_check

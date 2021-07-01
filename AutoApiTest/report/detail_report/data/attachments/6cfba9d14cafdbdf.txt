@@ -1,0 +1,8 @@
+INFO     root:conftest.py:26 执行全局用例依赖接口，初始化数据！
+INFO     root:replace_relevance.py:18 param sign_h5_login
+INFO     root:replace_relevance.py:21 param_value F017A0CD674A8B7A4F52B56898D78E6A
+INFO     root:replace_relevance.py:18 param HOST1
+INFO     root:replace_relevance.py:21 param_value www.test.qingxuetang.com
+INFO     root:replace_relevance.py:18 param headers1
+INFO     root:replace_relevance.py:21 param_value {"content-type": "application/x-www-form-urlencoded; charset=UTF-8"}
+INFO     root:conftest.py:30 初始化数据完成！

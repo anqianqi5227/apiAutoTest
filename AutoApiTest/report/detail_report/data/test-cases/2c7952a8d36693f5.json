@@ -1,0 +1,168 @@
+{
+  "uid" : "2c7952a8d36693f5",
+  "name" : "test_case[login0-case_data0]",
+  "fullName" : "tests.TestScript.infoApi.test_info.TestPremise#test_case",
+  "historyId" : "be27b079f5db00d7cf7f8c17365bf6a5",
+  "time" : {
+    "start" : 1617289439448,
+    "stop" : 1617289439448,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "statusMessage" : "KeyError: 'check'",
+  "statusTrace" : "request = <SubRequest 'login' for <Function test_case[login0-case_data0]>>\n\n    @pytest.fixture(scope='function',autouse=True,params=case_dict['test_case'])\n    def login(request):\n        for i in [\"GlobalRelevance.ini\", \"ModuleRelevance.ini\"]:\n            relevance_file = os.path.join(relevance_path, i)\n            cf = Config(relevance_file)\n            # print(relevance_file)\n            cf.add_conf('relevance')\n        logging.info(\"执行全局用例依赖接口，初始化数据！\")\n        relevance = re.ini_relevance(re.read_relevance(case_path, 'relevance'))\n        print(relevance)\n>       api_send_check(request.param, case_dict, case_path, relevance)\n\n/Users/nali/AutoApiTest/conftest.py:28: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncase_data = {'address': '/passport/api/pwdLogin', 'check_type': 'only_check_status', 'cookies': False, 'file': False, ...}\ncase_dict = {'premise': [None], 'test_case': [{'address': '/passport/api/pwdLogin', 'check_type': 'only_check_status', 'cookies': ...e, 'file': False, ...}], 'test_info': {'address': None, 'case_level': 'blocker', 'cookies': False, 'file': False, ...}}\ncase_path = '/Users/nali/AutoApiTest/tests/CommonApi/loginApi'\nrelevance = {'sign_h5_login': 'F017A0CD674A8B7A4F52B56898D78E6A'}\n\n    def api_send_check(case_data, case_dict, case_path, relevance):\n        \"\"\"\n        验证测试是否通过并且将接口参数中的关联字段写入关联池\n        :param case_data: 测试case\n        :param case_dict: 测试用例文件\n        :param case_path: 用例文件路径\n        :param relevance: 用例关联池\n    \n        \"\"\"\n        # 获取接口返回值\n        # print(case_dict)\n        # print(case_dict['is_run'])\n        if case_data['is_run'] is not False:\n                # or case_data['is_run'] is None:\n            res = api_send.api_send(case_data, case_dict, case_path, relevance)\n            print(res)\n            test_name = case_data['test_name']\n>           check_data = case_data['check']\nE           KeyError: 'check'\n\n/Users/nali/AutoApiTest/common/unit/api_send_check.py:29: KeyError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1617289439069,
+      "stop" : 1617289439069,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "login",
+    "time" : {
+      "start" : 1617289439449,
+      "stop" : 1617289439642,
+      "duration" : 193
+    },
+    "status" : "broken",
+    "statusMessage" : "KeyError: 'check'\n",
+    "statusTrace" : "  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/_pytest/fixtures.py\", line 964, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"/Users/nali/anaconda3/lib/python3.7/site-packages/_pytest/fixtures.py\", line 792, in call_fixture_func\n    res = fixturefunc(**kwargs)\n  File \"/Users/nali/AutoApiTest/conftest.py\", line 28, in login\n    api_send_check(request.param, case_dict, case_path, relevance)\n  File \"/Users/nali/AutoApiTest/common/unit/api_send_check.py\", line 29, in api_send_check\n    check_data = case_data['check']\n",
+    "steps" : [ {
+      "name" : "POST请求接口",
+      "time" : {
+        "start" : 1617289439452,
+        "stop" : 1617289439454,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "898c4a8b62ab9c2f",
+        "name" : "请求接口：",
+        "source" : "898c4a8b62ab9c2f.attach",
+        "type" : "text/plain",
+        "size" : 8
+      }, {
+        "uid" : "6532f5cb33da114",
+        "name" : "用例描述：",
+        "source" : "6532f5cb33da114.attach",
+        "type" : "text/plain",
+        "size" : 16
+      }, {
+        "uid" : "8bf528f36df94d3e",
+        "name" : "请求地址",
+        "source" : "8bf528f36df94d3e.attach",
+        "type" : "text/plain",
+        "size" : 54
+      }, {
+        "uid" : "266db3432d948677",
+        "name" : "请求头",
+        "source" : "266db3432d948677.attach",
+        "type" : "text/plain",
+        "size" : 68
+      }, {
+        "uid" : "b4d120fe1d799738",
+        "name" : "请求参数",
+        "source" : "b4d120fe1d799738.attach",
+        "type" : "text/plain",
+        "size" : 111
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 5,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "attachmentsCount" : 5,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "KeyError: 'check'",
+    "statusTrace" : "request = <SubRequest 'login' for <Function test_case[login0-case_data0]>>\n\n    @pytest.fixture(scope='function',autouse=True,params=case_dict['test_case'])\n    def login(request):\n        for i in [\"GlobalRelevance.ini\", \"ModuleRelevance.ini\"]:\n            relevance_file = os.path.join(relevance_path, i)\n            cf = Config(relevance_file)\n            # print(relevance_file)\n            cf.add_conf('relevance')\n        logging.info(\"执行全局用例依赖接口，初始化数据！\")\n        relevance = re.ini_relevance(re.read_relevance(case_path, 'relevance'))\n        print(relevance)\n>       api_send_check(request.param, case_dict, case_path, relevance)\n\n/Users/nali/AutoApiTest/conftest.py:28: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncase_data = {'address': '/passport/api/pwdLogin', 'check_type': 'only_check_status', 'cookies': False, 'file': False, ...}\ncase_dict = {'premise': [None], 'test_case': [{'address': '/passport/api/pwdLogin', 'check_type': 'only_check_status', 'cookies': ...e, 'file': False, ...}], 'test_info': {'address': None, 'case_level': 'blocker', 'cookies': False, 'file': False, ...}}\ncase_path = '/Users/nali/AutoApiTest/tests/CommonApi/loginApi'\nrelevance = {'sign_h5_login': 'F017A0CD674A8B7A4F52B56898D78E6A'}\n\n    def api_send_check(case_data, case_dict, case_path, relevance):\n        \"\"\"\n        验证测试是否通过并且将接口参数中的关联字段写入关联池\n        :param case_data: 测试case\n        :param case_dict: 测试用例文件\n        :param case_path: 用例文件路径\n        :param relevance: 用例关联池\n    \n        \"\"\"\n        # 获取接口返回值\n        # print(case_dict)\n        # print(case_dict['is_run'])\n        if case_data['is_run'] is not False:\n                # or case_data['is_run'] is None:\n            res = api_send.api_send(case_data, case_dict, case_path, relevance)\n            print(res)\n            test_name = case_data['test_name']\n>           check_data = case_data['check']\nE           KeyError: 'check'\n\n/Users/nali/AutoApiTest/common/unit/api_send_check.py:29: KeyError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "9622dde053751bcb",
+      "name" : "log",
+      "source" : "9622dde053751bcb.txt",
+      "type" : "text/plain",
+      "size" : 80
+    }, {
+      "uid" : "2502309e6f3efbf5",
+      "name" : "stdout",
+      "source" : "2502309e6f3efbf5.txt",
+      "type" : "text/plain",
+      "size" : 20971
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "info"
+  }, {
+    "name" : "story",
+    "value" : "info"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.infoApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_info"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPremise"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "39555-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.infoApi.test_info"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43', '\"corpCode\":${uidCode}$'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}"
+  }, {
+    "name" : "login",
+    "value" : "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check_type': 'only_check_status', 'file': False, 'global_relevance': None, 'relevance': None}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2c7952a8d36693f5.json",
+  "parameterValues" : [ "{'test_name': 'info', 'info': '个人信息', 'is_run': None, 'host': '${HOST2}$', 'headers': '${headers1}$', 'address': '/mapi/user/info', 'http_type': 'https', 'request_type': 'get', 'parameter_type': None, 'parameter': None, 'cookies': True, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43', '\"corpCode\":${uidCode}$'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}", "{'test_name': 'login_h5', 'info': '密码登录m站', 'is_run': None, 'host': '${HOST1}$', 'headers': '${headers1}$', 'address': '/passport/api/pwdLogin', 'http_type': 'https', 'request_type': 'post_cookie', 'parameter_type': 'data', 'parameter': {'passport': 17521200974, 'password': 'anqi666', 'passportType': 1, 'sign': 'F017A0CD674A8B7A4F52B56898D78E6A'}, 'timeout': 10, 'cookies': False, 'check_type': 'only_check_status', 'file': False, 'global_relevance': None, 'relevance': None}" ]
+}

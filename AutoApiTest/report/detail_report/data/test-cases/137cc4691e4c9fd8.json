@@ -1,0 +1,321 @@
+{
+  "uid" : "137cc4691e4c9fd8",
+  "name" : "test_premise[case_data0]",
+  "fullName" : "tests.TestScript.projectApi.test_project.TestProject#test_premise",
+  "historyId" : "f1cd2f5af62f1a470c1ae54e981c76f6",
+  "time" : {
+    "start" : 1617631088921,
+    "stop" : 1617631088921,
+    "duration" : 0
+  },
+  "status" : "skipped",
+  "statusMessage" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+  "statusTrace" : "('tests/TestScript/projectApi/test_project.py', 21, \"Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内\")",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "trivial"
+  }, {
+    "name" : "feature",
+    "value" : "project"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(True, reason='该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.projectApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_project"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProject"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "10637-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.projectApi.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'add_project', 'info': '新增项目', 'host': '${URL_OMS}$', 'address': '/co-oms/api/project/add', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'json', 'headers': '${HEADERS_OMS}$', 'timeout': 10, 'parameter': 'test_project.json', 'check_type': 'only_check_status', 'file': False, 'global_relevance': True, 'relevance': {'project_id': 'data'}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "trivial",
+    "retries" : [ {
+      "uid" : "c850b12d9374d7b2",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617630338818,
+        "stop" : 1617630338818,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "33fd2cf0db0f308c",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617629452864,
+        "stop" : 1617629452864,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "6812dca3bb028d33",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617629114810,
+        "stop" : 1617629114810,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "8cdeca6ad9f2f8ac",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617626820610,
+        "stop" : 1617626820610,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "582210809b1c2b8",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617614751245,
+        "stop" : 1617614751245,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "9b277c7ad5c08786",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617614500645,
+        "stop" : 1617614500645,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "874e7af3f17a3a4a",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617614385090,
+        "stop" : 1617614385090,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "65319a9535f7e401",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617614251171,
+        "stop" : 1617614251171,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "550b4621332897ab",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617613599071,
+        "stop" : 1617613599071,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "2eed563d88381464",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617612172121,
+        "stop" : 1617612172121,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "9cf7d34a9b008250",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617612038153,
+        "stop" : 1617612038153,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "f5c966b080a53c95",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617612006898,
+        "stop" : 1617612006898,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "8ec984624dc0a5c8",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617611961798,
+        "stop" : 1617611961798,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "14453131b3c06fa",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617611932182,
+        "stop" : 1617611932182,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "d2bc0ea51b733ef8",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617611692982,
+        "stop" : 1617611692982,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "ff9d712840cd7e65",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617611620163,
+        "stop" : 1617611620163,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "666e9c836162d253",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617610942920,
+        "stop" : 1617610942920,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "ce14d5265bc64aad",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617610598303,
+        "stop" : 1617610598303,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "c655cd2510b6c7a9",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617609971224,
+        "stop" : 1617609971225,
+        "duration" : 1
+      }
+    }, {
+      "uid" : "e6b4e42fad9cbf73",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617609803046,
+        "stop" : 1617609803046,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "3c59cb9b7b13322",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617609723671,
+        "stop" : 1617609723671,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "6885f3ed9b90ed10",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617609377299,
+        "stop" : 1617609377299,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "ad5e566f3c05694",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617608244270,
+        "stop" : 1617608244270,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "1328499ad148509d",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617608093186,
+        "stop" : 1617608093186,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "436683e0905cedad",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617607869278,
+        "stop" : 1617607869278,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "a1ab84c661015e2b",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617607103333,
+        "stop" : 1617607103333,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "f09166f5beacfccf",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617520084900,
+        "stop" : 1617520084900,
+        "duration" : 0
+      }
+    }, {
+      "uid" : "674db4f65158bf19",
+      "status" : "skipped",
+      "statusDetails" : "Skipped: 该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内",
+      "time" : {
+        "start" : 1617519995013,
+        "stop" : 1617519995013,
+        "duration" : 0
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.skipif(True, reason='该用例的用例等级为：trivial，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "137cc4691e4c9fd8.json",
+  "parameterValues" : [ "{'test_name': 'add_project', 'info': '新增项目', 'host': '${URL_OMS}$', 'address': '/co-oms/api/project/add', 'http_type': 'http', 'request_type': 'post', 'parameter_type': 'json', 'headers': '${HEADERS_OMS}$', 'timeout': 10, 'parameter': 'test_project.json', 'check_type': 'only_check_status', 'file': False, 'global_relevance': True, 'relevance': {'project_id': 'data'}}" ]
+}

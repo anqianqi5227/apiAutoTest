@@ -1,0 +1,138 @@
+{
+  "uid" : "18ae6fa1d5a50e0f",
+  "name" : "test_case[case_data0]",
+  "fullName" : "tests.TestScript.pageApi.test_page.TestPage#test_case",
+  "historyId" : "c89c3e763526e08b34c16c2fc0b585c9",
+  "time" : {
+    "start" : 1617607869252,
+    "stop" : 1617607869256,
+    "duration" : 4
+  },
+  "status" : "broken",
+  "statusMessage" : "TypeError: can only concatenate str (not \"NoneType\") to str",
+  "statusTrace" : "self = <test_page.TestPage object at 0x11ed58eb8>\ncase_data = {'address': None, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpId\": 43']}, 'cookies': None, 'file': False, ...}\nsetupClass = {}\n\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"product_version\"] in product_version,\n                        reason=\"该用例所属版本为：{0}，在本次排除版本{1}内\".format(case_dict[\"test_info\"][\"product_version\"],\n                                                                 product_version))\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"case_level\"] not in case_level,\n                        reason=\"该用例的用例等级为：{0}，不在本次运行级别{1}内\".format(case_dict[\"test_info\"][\"case_level\"], case_level))\n    @pytest.mark.run(order=case_dict[\"test_info\"][\"run_order\"])\n    @pytest.mark.parametrize(\"case_data\", case_dict[\"test_case\"], ids=[])\n    @allure.story(\"page\")\n    def test_case(self, case_data, setupClass):\n        self.relevance = setupTest(relevance_path, case_data, setupClass)\n>       api_send_check(case_data, case_dict, case_path, self.relevance)\n\n/Users/nali/AutoApiTest/tests/TestScript/pageApi/test_page.py:45: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/Users/nali/AutoApiTest/common/unit/api_send_check.py:26: in api_send_check\n    res = api_send.api_send(case_data, case_dict, case_path, relevance)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncase_dict = {'address': None, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpId\": 43']}, 'cookies': None, 'file': False, ...}\nprarm_dict = {'premise': [{'is_run': False}], 'test_case': [{'address': None, 'check': {'check_type': 'Regular_check', 'expected_co...': False, ...}], 'test_info': {'address': '/mapi/page', 'case_level': 'blocker', 'cookies': False, 'file': False, ...}}\npath = '/Users/nali/AutoApiTest/tests/TestCases/pageApi'\nrelevance = {'corpCode': 'cmylIoBd6pU', 'corpId': 0, 'hhh': 'iii', 'uid': 239283, ...}\n\n    def api_send(case_dict, prarm_dict, path, relevance):\n        try:\n            cur_host = prarm_dict['test_info'].get('host')\n            cur_address = prarm_dict['test_info'].get('address')\n            cur_headers = prarm_dict['test_info'].get('headers')\n            cur_http_type = prarm_dict['test_info'].get('http_type')\n            cur_request_type = prarm_dict['test_info'].get('request_type')\n            cur_parameter_type = prarm_dict['test_info'].get('parameter_type')\n            cur_cookies = prarm_dict['test_info'].get('host')\n            cur_file = prarm_dict['test_info'].get('file')\n            cur_timeout = prarm_dict['test_info'].get('timeout')\n    \n        except Exception as e:\n            logging.exception(\"获取用例基本信息失败 %s \" % e)\n    \n        try:\n            # 若case中填写host关键字的值，则使用case中的host值，若case中没有host关键字，则使用全局传入的默认值\n            cur_host = case_dict['host']\n        except KeyError:\n            pass\n        try:\n            # 若case中填写address关键字的值，则使用case中的address值，若case中没有address关键字，则使用全局传入的默认值\n            cur_address = case_dict['address']\n        except KeyError:\n            pass\n        try:\n            # 若case中填写headers关键字的值，则使用case中的headers值，若case中headers关键字值为空，则此处headers值处理为None，\n            # 若case中没有headers关键字，则使用全局传入的默认值\n            cur_headers = case_dict['headers']\n        except KeyError:\n            pass\n        try:\n            cur_http_type = case_dict['http_type']\n        except KeyError:\n            pass\n        try:\n            cur_parameter_type = case_dict['parameter_type']\n        except KeyError:\n            pass\n        try:\n            cur_request_type = case_dict['request_type']\n        except KeyError:\n            pass\n        try:\n            cur_cookies = case_dict['cookies']\n        except KeyError:\n            pass\n        try:\n            cur_file = case_dict['file']\n        except KeyError:\n            pass\n        try:\n            cur_timeout = case_dict['timeout']\n        except KeyError:\n            pass\n    \n        cookie = None\n        print(cur_cookies)\n        if cur_cookies is True:\n            cookie_path = root_path + \"/common/config_module/relevance\"\n            cookie = read_relevance(cookie_path, 'cookie')\n            logging.debug(\"cookie处理结果为：%s\" % cookie)\n        else:\n            pass\n        print(cookie)\n        parameter = read_param(case_dict['test_name'], case_dict['parameter'], path, relevance)\n        print(parameter)\n        logging.debug(\"请求参数处理结果：%s\" % parameter)\n    \n        address = replace(cur_address, relevance)\n        print(address)\n        logging.debug(\"请求地址处理结果：%s\" % cur_address)\n    \n        host = conf_manage(cur_host, 'HOST')\n        print(host)\n        logging.debug(\"host地址处理结果：%s\" % host)\n        # print(cur_headers)\n        if isinstance(cur_headers, str):\n            # print(conf_manage(cur_headers, 'HEADERS'))\n            headers = json.loads(conf_manage(cur_headers, 'HEADERS'))\n            print(headers)\n            # print(headers)\n        if cur_request_type == 'post':\n    \n            logging.info(\"请求方法为 %s\" % 'post')\n            with allure.step(\"POST请求接口\"):\n                allure.attach(case_dict[\"test_name\"], \"请求接口：\")\n                allure.attach(case_dict[\"info\"], \"用例描述：\")\n                allure.attach(cur_http_type + \"://\" + host + address, \"请求地址\")\n                allure.attach(str(headers), \"请求头\")\n                allure.attach(str(parameter), \"请求参数\")\n            result = api_method.post(url=cur_http_type + '://' + host + address,\n                                     request_parameter_type=cur_parameter_type,\n                                     headers=headers,\n                                     timeout=cur_timeout,\n                                     data=parameter,\n                                     cookie=cookie)\n            logging.info(\"请求接口结果：\\n {}\".format(result))\n            return result\n    \n        elif cur_request_type == 'get':\n            logging.info(\"请求方法为 %s\" % 'get')\n            with allure.step(\"get请求接口\"):\n                allure.attach(case_dict[\"test_name\"], \"请求接口：\")\n                allure.attach(case_dict[\"info\"], \"用例描述：\")\n>               allure.attach(cur_http_type + \"://\" + host + address, \"请求地址\")\nE               TypeError: can only concatenate str (not \"NoneType\") to str\n\n/Users/nali/AutoApiTest/common/unit/api_send.py:118: TypeError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "setupClass",
+    "time" : {
+      "start" : 1617607869245,
+      "stop" : 1617607869245,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "TypeError: can only concatenate str (not \"NoneType\") to str",
+    "statusTrace" : "self = <test_page.TestPage object at 0x11ed58eb8>\ncase_data = {'address': None, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpId\": 43']}, 'cookies': None, 'file': False, ...}\nsetupClass = {}\n\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"product_version\"] in product_version,\n                        reason=\"该用例所属版本为：{0}，在本次排除版本{1}内\".format(case_dict[\"test_info\"][\"product_version\"],\n                                                                 product_version))\n    @pytest.mark.skipif(case_dict[\"test_info\"][\"case_level\"] not in case_level,\n                        reason=\"该用例的用例等级为：{0}，不在本次运行级别{1}内\".format(case_dict[\"test_info\"][\"case_level\"], case_level))\n    @pytest.mark.run(order=case_dict[\"test_info\"][\"run_order\"])\n    @pytest.mark.parametrize(\"case_data\", case_dict[\"test_case\"], ids=[])\n    @allure.story(\"page\")\n    def test_case(self, case_data, setupClass):\n        self.relevance = setupTest(relevance_path, case_data, setupClass)\n>       api_send_check(case_data, case_dict, case_path, self.relevance)\n\n/Users/nali/AutoApiTest/tests/TestScript/pageApi/test_page.py:45: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/Users/nali/AutoApiTest/common/unit/api_send_check.py:26: in api_send_check\n    res = api_send.api_send(case_data, case_dict, case_path, relevance)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncase_dict = {'address': None, 'check': {'check_type': 'Regular_check', 'expected_code': 200, 'expected_result': ['\"corpId\": 43']}, 'cookies': None, 'file': False, ...}\nprarm_dict = {'premise': [{'is_run': False}], 'test_case': [{'address': None, 'check': {'check_type': 'Regular_check', 'expected_co...': False, ...}], 'test_info': {'address': '/mapi/page', 'case_level': 'blocker', 'cookies': False, 'file': False, ...}}\npath = '/Users/nali/AutoApiTest/tests/TestCases/pageApi'\nrelevance = {'corpCode': 'cmylIoBd6pU', 'corpId': 0, 'hhh': 'iii', 'uid': 239283, ...}\n\n    def api_send(case_dict, prarm_dict, path, relevance):\n        try:\n            cur_host = prarm_dict['test_info'].get('host')\n            cur_address = prarm_dict['test_info'].get('address')\n            cur_headers = prarm_dict['test_info'].get('headers')\n            cur_http_type = prarm_dict['test_info'].get('http_type')\n            cur_request_type = prarm_dict['test_info'].get('request_type')\n            cur_parameter_type = prarm_dict['test_info'].get('parameter_type')\n            cur_cookies = prarm_dict['test_info'].get('host')\n            cur_file = prarm_dict['test_info'].get('file')\n            cur_timeout = prarm_dict['test_info'].get('timeout')\n    \n        except Exception as e:\n            logging.exception(\"获取用例基本信息失败 %s \" % e)\n    \n        try:\n            # 若case中填写host关键字的值，则使用case中的host值，若case中没有host关键字，则使用全局传入的默认值\n            cur_host = case_dict['host']\n        except KeyError:\n            pass\n        try:\n            # 若case中填写address关键字的值，则使用case中的address值，若case中没有address关键字，则使用全局传入的默认值\n            cur_address = case_dict['address']\n        except KeyError:\n            pass\n        try:\n            # 若case中填写headers关键字的值，则使用case中的headers值，若case中headers关键字值为空，则此处headers值处理为None，\n            # 若case中没有headers关键字，则使用全局传入的默认值\n            cur_headers = case_dict['headers']\n        except KeyError:\n            pass\n        try:\n            cur_http_type = case_dict['http_type']\n        except KeyError:\n            pass\n        try:\n            cur_parameter_type = case_dict['parameter_type']\n        except KeyError:\n            pass\n        try:\n            cur_request_type = case_dict['request_type']\n        except KeyError:\n            pass\n        try:\n            cur_cookies = case_dict['cookies']\n        except KeyError:\n            pass\n        try:\n            cur_file = case_dict['file']\n        except KeyError:\n            pass\n        try:\n            cur_timeout = case_dict['timeout']\n        except KeyError:\n            pass\n    \n        cookie = None\n        print(cur_cookies)\n        if cur_cookies is True:\n            cookie_path = root_path + \"/common/config_module/relevance\"\n            cookie = read_relevance(cookie_path, 'cookie')\n            logging.debug(\"cookie处理结果为：%s\" % cookie)\n        else:\n            pass\n        print(cookie)\n        parameter = read_param(case_dict['test_name'], case_dict['parameter'], path, relevance)\n        print(parameter)\n        logging.debug(\"请求参数处理结果：%s\" % parameter)\n    \n        address = replace(cur_address, relevance)\n        print(address)\n        logging.debug(\"请求地址处理结果：%s\" % cur_address)\n    \n        host = conf_manage(cur_host, 'HOST')\n        print(host)\n        logging.debug(\"host地址处理结果：%s\" % host)\n        # print(cur_headers)\n        if isinstance(cur_headers, str):\n            # print(conf_manage(cur_headers, 'HEADERS'))\n            headers = json.loads(conf_manage(cur_headers, 'HEADERS'))\n            print(headers)\n            # print(headers)\n        if cur_request_type == 'post':\n    \n            logging.info(\"请求方法为 %s\" % 'post')\n            with allure.step(\"POST请求接口\"):\n                allure.attach(case_dict[\"test_name\"], \"请求接口：\")\n                allure.attach(case_dict[\"info\"], \"用例描述：\")\n                allure.attach(cur_http_type + \"://\" + host + address, \"请求地址\")\n                allure.attach(str(headers), \"请求头\")\n                allure.attach(str(parameter), \"请求参数\")\n            result = api_method.post(url=cur_http_type + '://' + host + address,\n                                     request_parameter_type=cur_parameter_type,\n                                     headers=headers,\n                                     timeout=cur_timeout,\n                                     data=parameter,\n                                     cookie=cookie)\n            logging.info(\"请求接口结果：\\n {}\".format(result))\n            return result\n    \n        elif cur_request_type == 'get':\n            logging.info(\"请求方法为 %s\" % 'get')\n            with allure.step(\"get请求接口\"):\n                allure.attach(case_dict[\"test_name\"], \"请求接口：\")\n                allure.attach(case_dict[\"info\"], \"用例描述：\")\n>               allure.attach(cur_http_type + \"://\" + host + address, \"请求地址\")\nE               TypeError: can only concatenate str (not \"NoneType\") to str\n\n/Users/nali/AutoApiTest/common/unit/api_send.py:118: TypeError",
+    "steps" : [ {
+      "name" : "get请求接口",
+      "time" : {
+        "start" : 1617607869255,
+        "stop" : 1617607869256,
+        "duration" : 1
+      },
+      "status" : "broken",
+      "statusMessage" : "TypeError: can only concatenate str (not \"NoneType\") to str\n",
+      "statusTrace" : "  File \"/Users/nali/AutoApiTest/common/unit/api_send.py\", line 118, in api_send\n    allure.attach(cur_http_type + \"://\" + host + address, \"请求地址\")\n",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "9849002a81dd55dd",
+        "name" : "请求接口：",
+        "source" : "9849002a81dd55dd.attach",
+        "type" : "text/plain",
+        "size" : 6
+      }, {
+        "uid" : "6c73d906109d9a47",
+        "name" : "用例描述：",
+        "source" : "6c73d906109d9a47.attach",
+        "type" : "text/plain",
+        "size" : 12
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : true,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "3bbb326201693084",
+      "name" : "log",
+      "source" : "3bbb326201693084.txt",
+      "type" : "text/plain",
+      "size" : 49
+    }, {
+      "uid" : "f36e43621906f9b7",
+      "name" : "stdout",
+      "source" : "f36e43621906f9b7.txt",
+      "type" : "text/plain",
+      "size" : 25
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "attachmentsCount" : 4,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "page"
+  }, {
+    "name" : "story",
+    "value" : "page"
+  }, {
+    "name" : "tag",
+    "value" : "run(order=1)"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.TestScript.pageApi"
+  }, {
+    "name" : "suite",
+    "value" : "test_page"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPage"
+  }, {
+    "name" : "host",
+    "value" : "anqidediannao.local"
+  }, {
+    "name" : "thread",
+    "value" : "12792-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.TestScript.pageApi.test_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_data",
+    "value" : "{'test_name': 'page_1', 'info': '频道数据', 'is_run': None, 'host': None, 'headers': None, 'address': None, 'http_type': 'https', 'request_type': 'get', 'parameter_type': 'data', 'parameter': None, 'cookies': None, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "run(order=1)", "@pytest.mark.skipif(False, reason='该用例的用例等级为：blocker，不在本次运行级别['blocker', 'critical', 'normal', 'minor']内')" ]
+  },
+  "source" : "18ae6fa1d5a50e0f.json",
+  "parameterValues" : [ "{'test_name': 'page_1', 'info': '频道数据', 'is_run': None, 'host': None, 'headers': None, 'address': None, 'http_type': 'https', 'request_type': 'get', 'parameter_type': 'data', 'parameter': None, 'cookies': None, 'timeout': 10, 'check': {'expected_result': ['\"corpId\": 43'], 'check_type': 'Regular_check', 'expected_code': 200}, 'file': False, 'global_relevance': True, 'relevance': {'uid': 'uid', 'uidCode': 'uidCode'}}" ]
+}

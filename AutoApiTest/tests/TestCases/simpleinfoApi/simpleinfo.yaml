@@ -1,0 +1,59 @@
+# 用例基本信息
+test_info:
+      # 用例标题，在报告中作为一级目录显示，用接口路径倒数第二个字段名作为标题
+      title: simpleinfo
+      # 用例所属产品版本，不填则为None
+      product_version:
+      # 用例等级，优先级，包含blocker, critical, normal, minor，trivial几个不同的等级
+      case_level: blocker
+      # 请求的域名，可写死，也可写成模板关联host配置文件，也可写在用例中
+      host: ${HOST2}$
+      # 请求地址 选填（此处不填，每条用例必填)
+      address: /mapi/corp/simpleInfo
+      # 请求头 选填（此处不填，每条用例必填，如有的话)
+      headers: ${headers1}$
+      # 请求协议
+      http_type: https
+      # 请求类型
+      request_type: get
+      # 参数类型
+      parameter_type:
+      # 是否需要获取cookie
+      cookies: False
+      # 是否为上传文件的接口
+      file: False
+      # 超时时间
+      timeout: 20
+      # 运行顺序，当前接口在本轮测试中的执行次序，1表示第一个运行，-1表示最后一个运行
+      run_order: 1
+# 测试用例
+test_case:
+    - test_name: simpleinfo_1
+      # 用例ID，第一条用例必填，从1开始递增
+      case_id: 1
+      # 是否运行用例，不运行为 False ，空值或其它值则运行
+      is_run:
+      # 用例描述
+      info: simpleinfo
+      # 参数保存在单独文件中时，可通过文件路径引入参数
+      parameter:
+      # 是否需要获取cookie
+      cookies: True
+      # 超时时间
+      timeout: 10
+      # 校验列表（期望结果）
+      check:
+            expected_result:    # 期望结果保存在单独文件中时，可通过文件路径引入
+                        - '"corpCode": "${corpCode}$"'
+            check_type: Regular_check                      # 校验类型，这里为json校验
+            expected_code: 200                        # 期望状态码
+      # 关联作用范围，True表示全局关联，其他值或者为空表示本模块关联
+      global_relevance: True
+      # 关联键，此处提取的关联值可用于本模块后续的所有用例
+      relevance:
+              corpId: corpId
+
+
+# 前置条件，case之前需关联的接口，与test_case类似，关联接口可写多个
+premise:
+      - is_run: False

@@ -1,0 +1,54 @@
+# 用例基本信息
+test_info:
+      # 用例标题，在报告中作为一级目录显示，用接口路径倒数第二个字段名作为标题
+      title: login
+      # 用例所属产品版本，不填则为None
+      product_version: icm_v1.0
+      # 用例等级，优先级，包含blocker, critical, normal, minor，trivial几个不同的等级
+      case_level: blocker
+      # 请求的域名，可写死，也可写成模板关联host配置文件，也可写在用例中
+      host:
+      # 请求地址 选填（此处不填，每条用例必填)
+      address:
+      # 请求头 选填（此处不填，每条用例必填，如有的话)
+      headers:
+      # 请求协议
+      http_type: https
+      # 请求类型
+      request_type:
+      # 参数类型
+      parameter_type:
+      # 是否需要获取cookie
+      cookies: False
+      # 是否为上传文件的接口
+      file: False
+      # 超时时间
+      timeout: 20
+      # 运行顺序，当前接口在本轮测试中的执行次序，1表示第一个运行，-1表示最后一个运行
+      run_order: 1
+
+# 测试用例
+test_case:
+      - test_name: login_h5
+        info: 密码登录m站
+        is_run:
+        host: ${HOST1}$
+        headers: ${headers1}$
+        address: /passport/api/pwdLogin
+        http_type: https
+        request_type: post_cookie
+        parameter_type: data
+        parameter:
+                passport: 17521200974
+                password: anqi666
+                passportType: 1
+                sign: ${sign_h5_login}$
+        timeout: 10
+        cookies: False
+        check:
+            expected_result: # 期望结果保存在单独文件中时，可通过文件路径引入
+            check_type: no_check
+            expected_code:
+        file: False
+        global_relevance:
+        relevance:
